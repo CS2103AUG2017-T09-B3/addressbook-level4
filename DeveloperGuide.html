@@ -349,7 +349,7 @@ The <code>.pptx</code> files used to create diagrams in this document can be fou
 </ul>
 </div>
 <div class="paragraph">
-<p>For example, the <code>Logic</code> component (see the class diagram given below) defines it&#8217;s API in the <code>Logic.java</code> interface and exposes its functionality using the <code>LogicManager.java</code> class.</p>
+<p>For example, the <code>Logic</code> component (see the class diagram given below) defines its API in the <code>Logic.java</code> interface and exposes its functionality using the <code>LogicManager.java</code> class.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1755,55 +1755,6 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="paragraph">
 <p>(For all use cases below, the <strong>System</strong> is the <code>AddressBook</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
-<h3 id="use-case-delete-person" class="discrete">Use case: Delete person</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to list persons</p>
-</li>
-<li>
-<p>AddressBook shows a list of persons</p>
-</li>
-<li>
-<p>User requests to delete a specific person in the list</p>
-</li>
-<li>
-<p>AddressBook deletes the person</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a. The list is empty.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-<li>
-<p>3a. The given index is invalid.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a1. AddressBook shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 2.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
 <h3 id="use-case-add-person" class="discrete">Use case: Add person</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
@@ -1835,57 +1786,6 @@ for <code>RemarkCommandParser</code>.</p>
 <ul class="none">
 <li>
 <p>1a1. AddressBook shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 1.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<h3 id="use-case-edit-person" class="discrete">Use case: Edit person</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to edit a specific person in the list.</p>
-</li>
-<li>
-<p>AddressBook updates itself.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a. The list is empty.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a1. AddressBook shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 1.
-Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>1b. The arguments for edit command are invalid</p>
-<div class="ulist">
-<ul>
-<li>
-<p>1b1. AddressBook shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 1.</p>
 </div>
@@ -1944,6 +1844,105 @@ Use case ends.</p>
 </li>
 </ul>
 </div>
+<h3 id="use-case-edit-person" class="discrete">Use case: Edit person</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to edit a specific person in the list.</p>
+</li>
+<li>
+<p>AddressBook updates itself.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The list is empty.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1b. The arguments for edit command are invalid.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>1b1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h3 id="use-case-delete-person" class="discrete">Use case: Delete person</h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to list persons</p>
+</li>
+<li>
+<p>AddressBook shows a list of persons</p>
+</li>
+<li>
+<p>User requests to delete a specific person in the list</p>
+</li>
+<li>
+<p>AddressBook deletes the person</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. The given index is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. AddressBook shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -1967,13 +1966,13 @@ Use case ends.</p>
 <p>JAR file should not exceed 50 MB.</p>
 </li>
 <li>
-<p>Test coverage should exceed 85% at any time.</p>
+<p>Test coverage should reach 85% at any time.</p>
 </li>
 <li>
 <p>Should always favour security over efficiency in development.</p>
 </li>
 <li>
-<p>Any user who understands English should be able to use the application with the help of the User Guide.</p>
+<p>Any user who understands English should be able to use the application with the help of the <a href="UserGuide.html">User Guide</a>.</p>
 </li>
 </ol>
 </div>
@@ -2004,10 +2003,13 @@ Use case ends.</p>
 <h2 id="product-survey"><a class="link" href="#product-survey">Appendix F: Product Survey</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>Product Name</strong></p>
+<p><strong>Contacts<sup>TM</sup></strong></p>
 </div>
 <div class="paragraph">
-<p>Author: &#8230;&#8203;</p>
+<p><em>(renamed from <strong>Address Book</strong> since  Mac OS X 10.8)</em></p>
+</div>
+<div class="paragraph">
+<p>Author: Apple Inc.</p>
 </div>
 <div class="paragraph">
 <p>Pros:</p>
@@ -2015,10 +2017,13 @@ Use case ends.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>&#8230;&#8203;</p>
+<p>Able to import contacts from other softwares/websites, like Facebook, LinkedIn, Google+, etc.</p>
 </li>
 <li>
-<p>&#8230;&#8203;</p>
+<p>Able to send an email, start a call or text someone directly in the application thanks to integration with other applications.</p>
+</li>
+<li>
+<p>Able to organize contacts into different groups.</p>
 </li>
 </ul>
 </div>
@@ -2028,10 +2033,10 @@ Use case ends.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>&#8230;&#8203;</p>
+<p>Data is not stored in a human editable text file (advanced users cannot manipulate the data manually).</p>
 </li>
 <li>
-<p>&#8230;&#8203;</p>
+<p>Only works on Mac OS, no corresponding version on Windows and Linux.</p>
 </li>
 </ul>
 </div>
@@ -2040,7 +2045,7 @@ Use case ends.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-04 18:26:08 +00:00
+Last updated 2017-10-04 18:41:54 +00:00
 </div>
 </div>
 </body>
