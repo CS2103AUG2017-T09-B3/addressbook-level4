@@ -259,6 +259,46 @@ Suggested change: Remove the codacy badge from <code>README</code>.</p>
 </div>
 </div>
 <div class="sect1">
+<h2 id="enabling-build-notification"><a class="link" href="#enabling-build-notification">Enabling build notification</a></h2>
+<div class="sectionbody">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Ensure that you have followed the steps above to set up Travis CI.</p>
+</li>
+<li>
+<p>Create a Slack workspace at <a href="https://slack.com/create">here</a>.</p>
+</li>
+<li>
+<p>Find <a href="https://slack.com/apps/A0F81FP4N-travis-ci">Travis CI</a> from <a href="https://slack.com/apps">Slack App Repository</a>.</p>
+</li>
+<li>
+<p>Install the Travis CI integration to your workspace created in Step 2.</p>
+</li>
+<li>
+<p>You should be able to get the WebHook key from the integration setting page.</p>
+</li>
+<li>
+<p>It is not secured to put the plaintext of your WebHook in your <code>.travis.yml</code> file, otherwise, everyone will be able to push messages to your Slack workspace. Thus, we need to encrypt the key.</p>
+</li>
+<li>
+<p>Follow the instructions <a href="https://docs.travis-ci.com/user/encryption-keys/">here</a> to encrypt your key using the CLI client provided by <a href="https://travis-ci.org/">Travis CI</a>.</p>
+</li>
+<li>
+<p>In the end, there should a few new lines added to your <code>.travis.yml</code> file. It looks like this</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="yaml"><span class="key">notifications</span>:
+  <span class="key">slack</span>:
+    <span class="key">secure</span>: <span class="string"><span class="content">&lt;your_encrypted_webhook_key_here&gt;</span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
 <h2 id="repository-wide-checks"><a class="link" href="#repository-wide-checks">Repository-wide checks</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
@@ -300,7 +340,7 @@ Suggested change: Remove the codacy badge from <code>README</code>.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-10 15:39:34 +00:00
+Last updated 2017-10-11 16:48:03 +00:00
 </div>
 </div>
 </body>
