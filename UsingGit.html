@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.3">
+<title>Using Git</title>
+<link rel="stylesheet" href="stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css">
+</head>
+<body class="article">
+<div id="header">
+<h1>Using Git</h1>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://git-scm.com/">Git</a> is a popular distributed version control software (VCS). It is used to track changes in
+computer files and coordinating work on those files among multiple people. It is primarily used for source code
+management in software development,but it can be used to keep track of changes in any set of files.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="why-git"><a class="link" href="#why-git">Why Git?</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="https://en.wikipedia.org/wiki/Linus_Torvalds">Linus Torvalds</a> created Git in 2005 and he once wrote in the <code>README</code> file:</p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>The name "git" was given by Linus Torvalds when he wrote the very first version. He described the tool as "the stupid
+content tracker" and the name as (depending on your way):</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>random three-letter combination that is pronounceable, and not actually used by any common UNIX command. The fact that
+it is a mispronunciation of "get" may or may not be relevant.</p>
+</li>
+<li>
+<p>stupid. contemptible and despicable. simple. Take your pick from the dictionary of slang.</p>
+</li>
+<li>
+<p>"global information tracker": you&#8217;re in a good mood, and it actually works for you. Angels sing, and a light suddenly fills the room.</p>
+</li>
+<li>
+<p>"g*dd*mn idiotic truckload of sh*t": when it breaks</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="sync-your-fork"><a class="link" href="#sync-your-fork">Sync your fork with team account</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Your personal fork of the repository on <a href="https://github.com/">GitHub</a> should always be even or ahead of <code>CS2103AUG2017-T09-B3:master</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/github_sync_fork.png" alt="github sync fork" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 2.1 : Sync your GitHub fork</em></p>
+</div>
+<div class="paragraph">
+<p>Open a shell and enter the following commands:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="shell"># See all your remotes.
+git remote -vv
+
+# Add team repository to your list of remotes (call it upstream).
+git remote add upstream git@github.com:CS2103AUG2017-T09-B3/main.git
+
+# See all your remotes, there should be one more now.
+git remote -vv
+
+# Fetch all branches from all remotes.
+git fetch --all
+
+# Merge the master branch from team repository to your current branch.
+git merge upstream/master
+
+# Add and commit all changes to your current branch.
+git commit -am &quot;Sync with upstream master&quot;
+
+# Push changes to the remote branch of your current branch.
+git push</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="solve-merge-conflict"><a class="link" href="#solve-merge-conflict">Solve merge conflict</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>When you create a pull request (PR), you may face merge conflict if the destination branch and base branch both change some common parts.
+In order to avoid merge conflict as much as possible, you should <a href="#sync-your-fork">sync your fork</a> frequently.</p>
+</div>
+<div class="paragraph">
+<p>Open a shell and enter the following commands:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="shell"># Fetch all branches from all remotes.
+git fetch --all
+
+# Merge the master branch from team repository to your current branch.
+git merge upstream/master</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Git should tell you where the conflict happens now. Open your IDE or favorite text editor to change the conflicting part accordingly.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="shell"># Add and commit all changes to your current branch.
+git commit -am &quot;Fix merge conflict&quot;
+
+# Push changes to the remote branch of your current branch.
+git push</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="caution"><a class="link" href="#caution">Caution</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The commands differ every time. You should see the hints Git give you to proceed.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2017-10-12 14:36:37 +00:00
+</div>
+</div>
+</body>
+</html>
