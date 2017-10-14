@@ -18,7 +18,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>CS2103 T09-B3 Team</code>      Since: <code>Sep 2017</code>      Licence: <code>MIT</code></p>
+<p>By: <code>CS2103T T09-B3 Team</code>      Since: <code>Sep 2017</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -32,7 +32,7 @@
 <li><a href="#calendar">2.3. Calendar</a></li>
 </ul>
 </li>
-<li><a href="#features">3. Features</a>
+<li><a href="#key-features">3. Key features</a>
 <ul class="sectlevel2">
 <li><a href="#convenient">3.1. Convenient</a></li>
 <li><a href="#fast">3.2. Fast</a></li>
@@ -42,18 +42,19 @@
 <li><a href="#commands">4. Commands</a>
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">4.1. Viewing help : <code>help</code></a></li>
-<li><a href="#adding-a-person-code-add-code">4.2. Adding a person: <code>add</code></a></li>
-<li><a href="#listing-all-persons-code-list-code">4.3. Listing all persons : <code>list</code></a></li>
-<li><a href="#editing-a-person-code-edit-code">4.4. Editing a person : <code>edit</code></a></li>
-<li><a href="#locating-persons-by-name-code-find-code">4.5. Locating persons by name: <code>find</code></a></li>
-<li><a href="#deleting-a-person-code-delete-code">4.6. Deleting a person : <code>delete</code></a></li>
-<li><a href="#selecting-a-person-code-select-code">4.7. Selecting a person : <code>select</code></a></li>
+<li><a href="#adding-a-person-event-code-add-code">4.2. Adding a person/event : <code>add</code></a></li>
+<li><a href="#listing-all-persons-events-code-list-code">4.3. Listing all persons/events : <code>list</code></a></li>
+<li><a href="#editing-a-person-event-code-edit-code">4.4. Editing a person/event : <code>edit</code></a></li>
+<li><a href="#locating-persons-events-by-any-property-code-find-code">4.5. Locating persons/events by any property : <code>find</code></a></li>
+<li><a href="#deleting-a-person-event-code-delete-code">4.6. Deleting a person/event : <code>delete</code></a></li>
+<li><a href="#selecting-a-person-event-code-select-code">4.7. Selecting a person/event: <code>select</code></a></li>
 <li><a href="#listing-entered-commands-code-history-code">4.8. Listing entered commands : <code>history</code></a></li>
 <li><a href="#undoing-previous-command-code-undo-code">4.9. Undoing previous command : <code>undo</code></a></li>
 <li><a href="#redoing-the-previously-undone-command-code-redo-code">4.10. Redoing the previously undone command : <code>redo</code></a></li>
 <li><a href="#clearing-all-entries-code-clear-code">4.11. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">4.12. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">4.13. Saving the data</a></li>
+<li><a href="#advance-setting-code-config-code">4.12. Advance setting : <code>config</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">4.13. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">4.14. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#faq">5. FAQ</a></li>
@@ -205,7 +206,7 @@ based on their time interval. Events whose time intervals are not specified will
 </div>
 </div>
 <div class="sect1">
-<h2 id="features"><a class="link" href="#features">3. Features</a></h2>
+<h2 id="key-features"><a class="link" href="#key-features">3. Key features</a></h2>
 <div class="sectionbody">
 <div class="sect2">
 <h3 id="convenient"><a class="link" href="#convenient">3.1. Convenient</a></h3>
@@ -275,7 +276,7 @@ a lot.</p>
 <h2 id="commands"><a class="link" href="#commands">4. Commands</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><em>Notice</em>: Commands in each component should be similar to each other.</p>
+<p>The listing below shows a summary of all commands currently available to users and how to use them.</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -300,6 +301,25 @@ a lot.</p>
 </div>
 </div>
 </div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Command in different components</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Most command can be applied to either a person or an event, whose result will depend on the context e.g. <code>add n/NAME</code>
+will add a person if the user is currently in the <a href="#contacts">contacts</a> component, add an event otherwise.</p>
+</li>
+<li>
+<p>All commands entered in the <a href="#calendar">calendar</a> component will actually be handled by the <a href="#contacts">contacts</a>
+component.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 <div class="sect2">
 <h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">4.1. Viewing help : <code>help</code></a></h3>
 <div class="paragraph">
@@ -307,9 +327,9 @@ a lot.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-person-code-add-code"><a class="link" href="#adding-a-person-code-add-code">4.2. Adding a person: <code>add</code></a></h3>
+<h3 id="adding-a-person-event-code-add-code"><a class="link" href="#adding-a-person-event-code-add-code">4.2. Adding a person/event : <code>add</code></a></h3>
 <div class="paragraph">
-<p>Adds a person to the address book<br>
+<p>Adds a person/event to the application.<br>
 Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="admonitionblock tip">
@@ -319,7 +339,7 @@ Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;<
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-A person can have any number of tags (including 0)
+A person/event can have any number of tags (including 0).
 </td>
 </tr>
 </table>
@@ -339,16 +359,16 @@ A person can have any number of tags (including 0)
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-persons-code-list-code"><a class="link" href="#listing-all-persons-code-list-code">4.3. Listing all persons : <code>list</code></a></h3>
+<h3 id="listing-all-persons-events-code-list-code"><a class="link" href="#listing-all-persons-events-code-list-code">4.3. Listing all persons/events : <code>list</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all persons in the address book.<br>
+<p>Shows a list of all persons/events in the application.<br>
 Format: <code>list</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">4.4. Editing a person : <code>edit</code></a></h3>
+<h3 id="editing-a-person-event-code-edit-code"><a class="link" href="#editing-a-person-event-code-edit-code">4.4. Editing a person/event : <code>edit</code></a></h3>
 <div class="paragraph">
-<p>Edits an existing person in the address book.<br>
+<p>Edits an existing person/event in the application.<br>
 Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
@@ -356,19 +376,20 @@ Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the person at the specified <code>INDEX</code>. The index refers to the index number shown in the last person listing. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>Edits the person/event at the specified <code>INDEX</code>. The index refers to the index number shown in the last listing.
+The index <strong>must be a positive integer</strong> like 1, 2, 3, &#8230;&#8203;</p>
 </li>
 <li>
 <p>At least one of the optional fields must be provided.</p>
 </li>
 <li>
-<p>Existing values will be updated to the input values.</p>
+<p>Existing values of the selected data item will be updated to the input values.</p>
 </li>
 <li>
-<p>When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.</p>
+<p>When editing tags, the existing tags of that data item will be removed i.e adding of tags is not cumulative.</p>
 </li>
 <li>
-<p>You can remove all the person&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
+<p>You can remove all existing tags by typing <code>t/</code> without specifying any tags after it.</p>
 </li>
 </ul>
 </div>
@@ -391,10 +412,10 @@ Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all 
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-persons-by-name-code-find-code"><a class="link" href="#locating-persons-by-name-code-find-code">4.5. Locating persons by name: <code>find</code></a></h3>
+<h3 id="locating-persons-events-by-any-property-code-find-code"><a class="link" href="#locating-persons-events-by-any-property-code-find-code">4.5. Locating persons/events by any property : <code>find</code></a></h3>
 <div class="paragraph">
-<p>Finds persons whose names contain any of the given keywords.<br>
-Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
+<p>Finds events whose corresponding field(s) contain any of the given keywords.<br>
+Format: <code>find KEYWORD [MORE_KEYWORDS] [p/KEYWORD [MORE_KEYWORDS]]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -404,16 +425,21 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
 <p>The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
 </li>
 <li>
-<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
+<p>The search can be based on one or multiple properties. The short name of the property <code>n/</code> can be omitted if the searching
+criteria is for the <code>name</code> property.</p>
 </li>
 <li>
-<p>Only the name is searched.</p>
+<p>Apply <code>OR</code> search for keywords of the same property, i.e. persons/events matching at least one keyword will be returned.
+e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code>. Thus, the order of the keywords for the same property does not matter.
+ e.g. <code>Hans Bo</code> will match <code>Bo Hans</code>.</p>
 </li>
 <li>
-<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
+<p>Apply <code>AND</code> search for keywords of the different property, i.e. only persons/events matching all of the required properties
+will be returned. e.g. <code>Hans Bo p/84651943</code> will only return persons whose name contains either <code>Hans</code> or <code>Bo</code>, as well as,
+whose phone number is the same as <code>84651943</code>.</p>
 </li>
 <li>
-<p>Persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+<p>Only full word matching will be returned. e.g. <code>Han</code> will not match <code>Hans</code></p>
 </li>
 </ul>
 </div>
@@ -436,9 +462,9 @@ Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">4.6. Deleting a person : <code>delete</code></a></h3>
+<h3 id="deleting-a-person-event-code-delete-code"><a class="link" href="#deleting-a-person-event-code-delete-code">4.6. Deleting a person/event : <code>delete</code></a></h3>
 <div class="paragraph">
-<p>Deletes the specified person from the address book.<br>
+<p>Deletes the specified person/event from the application.<br>
 Format: <code>delete INDEX</code></p>
 </div>
 <div class="sidebarblock">
@@ -446,13 +472,13 @@ Format: <code>delete INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Deletes the person at the specified <code>INDEX</code>.</p>
+<p>Deletes the person/event at the specified <code>INDEX</code>.</p>
 </li>
 <li>
 <p>The index refers to the index number shown in the most recent listing.</p>
 </li>
 <li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p>The index <strong>must be a positive integer</strong> like 1, 2, 3, &#8230;&#8203;</p>
 </li>
 </ul>
 </div>
@@ -477,9 +503,9 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="selecting-a-person-code-select-code"><a class="link" href="#selecting-a-person-code-select-code">4.7. Selecting a person : <code>select</code></a></h3>
+<h3 id="selecting-a-person-event-code-select-code"><a class="link" href="#selecting-a-person-event-code-select-code">4.7. Selecting a person/event: <code>select</code></a></h3>
 <div class="paragraph">
-<p>Selects the person identified by the index number used in the last person listing.<br>
+<p>Selects the person/event identified by the index number used in the last listing.<br>
 Format: <code>select INDEX</code></p>
 </div>
 <div class="sidebarblock">
@@ -487,13 +513,13 @@ Format: <code>select INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Selects the person and loads the Google search page the person at the specified <code>INDEX</code>.</p>
+<p>Selects the person/event and loads the details of this data item.</p>
 </li>
 <li>
 <p>The index refers to the index number shown in the most recent listing.</p>
 </li>
 <li>
-<p>The index <strong>must be a positive integer</strong> <code>1, 2, 3, &#8230;&#8203;</code></p>
+<p>The index <strong>must be a positive integer</strong> like <code>1, 2, 3, &#8230;&#8203;</code></p>
 </li>
 </ul>
 </div>
@@ -541,7 +567,7 @@ Format: <code>history</code></p>
 <div class="sect2">
 <h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">4.9. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
-<p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
+<p>Restores the application to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
 </div>
 <div class="admonitionblock note">
@@ -552,7 +578,7 @@ Format: <code>undo</code></p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Undoable commands: those commands that modify the address book&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
+<p>Undoable commands: those commands that modify the application&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
 </div>
 </td>
 </tr>
@@ -618,22 +644,128 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 <div class="sect2">
 <h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">4.11. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
-<p>Clears all entries from the address book.<br>
+<p>Clears all entries from the current component.<br>
 Format: <code>clear</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Use <code>clear --all</code> if you want to clear data in all components (all contacts and events).</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">4.12. Exiting the program : <code>exit</code></a></h3>
+<h3 id="advance-setting-code-config-code"><a class="link" href="#advance-setting-code-config-code">4.12. Advance setting : <code>config</code></a></h3>
+<div class="paragraph">
+<p>Changes the configuration of the application or applies some advance settings to the data. Make sure you know what you
+are doing before using any of the following commands. These commands are intended for advance users.</p>
+</div>
+<div class="sect3">
+<h4 id="add-new-property-code-config-add-property-code"><a class="link" href="#add-new-property-code-config-add-property-code">4.12.1. Add new property : <code>config --add-property</code></a></h4>
+<div class="paragraph">
+<p>Adds a new property field available to persons/events.<br>
+Format: <code>config --add-property s/b f/birthday [m/Birthday should be in the format of DD/MM/YYYY r/[^\s].*]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>This command does not add a new property to a specific person. Instead, it defines a property that will be available to
+all persons/events.</p>
+</li>
+<li>
+<p>The short name <code>s/</code> and full name <code>f/</code> of the new property are compulsory, while the constraint message <code>m/</code> and regular
+expression for validation <code>r/</code> are optional. However, <code>m/</code> and <code>r/</code> must come together, i.e. a regular expression must be
+accompanied by a constraint message, which will be shown when the validation fails.</p>
+</li>
+<li>
+<p>Short name is the identity (primary key) of all properties. Thus, the short name must be unique. The command will fail
+if there is an existing property with the same short name.</p>
+</li>
+<li>
+<p>The given regular expression must use legal syntax. It will be checked by the
+<a href="https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html#compile-java.lang.String-">Pattern.compile</a> method.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="set-tag-color-code-config-set-tag-color-code"><a class="link" href="#set-tag-color-code-config-set-tag-color-code">4.12.2. Set tag color : <code>config --set-tag-color</code></a></h4>
+<div class="paragraph">
+<p>Sets the displayed color of a certain tag (for persons/events).<br>
+Format: <code>config --set-tag-color TAG_NAME COLOR</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>By default, the application will use a random color to display each tag. The same tags are displayed using the same
+color, different tags are <em>usually</em> displayed using different colors.</p>
+</li>
+<li>
+<p>The value of the parameter <code>COLOR</code> should be a valid RGB value. You can pick the RGB value of your favorite
+color from <a href="https://www.w3schools.com/colors/colors_rgb.asp">here</a>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="import-calendar-code-config-import-calendar-code"><a class="link" href="#import-calendar-code-config-import-calendar-code">4.12.3. Import calendar : <code>config --import-calendar</code></a></h4>
+<div class="paragraph">
+<p>Imports events from an online available calender.<br>
+Format: <code>config --import-calendar URL</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The supplied URL should be in either a valid ICS/iCal format or generated from your <a href="https://nusmods.com/">NUSMods</a>.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">4.13. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">4.13. Saving the data</a></h3>
-<div class="paragraph">
-<p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
-There is no need to save manually.</p>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">4.14. Saving the data</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Address book data are saved in the hard disk automatically after any command that changes the data.</p>
+</li>
+<li>
+<p>These commands are also called undoable commands.</p>
+</li>
+<li>
+<p>There is no need to save manually.</p>
+</li>
+</ul>
 </div>
 </div>
 </div>
@@ -653,7 +785,7 @@ There is no need to save manually.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
+<p><strong>Add</strong> : <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
 e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
 </li>
 <li>
@@ -690,6 +822,9 @@ e.g.<code>select 2</code></p>
 <li>
 <p><strong>Redo</strong> : <code>redo</code></p>
 </li>
+<li>
+<p><strong>Config</strong> : <code>config --add-property</code> <code>config --set-tag-color</code> <code>config --import-calendar</code></p>
+</li>
 </ul>
 </div>
 </div>
@@ -697,7 +832,7 @@ e.g.<code>select 2</code></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-14 16:15:44 +00:00
+Last updated 2017-10-14 17:28:31 +00:00
 </div>
 </div>
 </body>
