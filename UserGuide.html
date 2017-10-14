@@ -18,32 +18,46 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+<p>By: <code>CS2103 T09-B3 Team</code>      Since: <code>Sep 2017</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
 <div id="toctitle"></div>
 <ul class="sectlevel1">
 <li><a href="#quick-start">1. Quick Start</a></li>
-<li><a href="#features">2. Features</a>
+<li><a href="#components">2. Components</a>
 <ul class="sectlevel2">
-<li><a href="#viewing-help-code-help-code">2.1. Viewing help : <code>help</code></a></li>
-<li><a href="#adding-a-person-code-add-code">2.2. Adding a person: <code>add</code></a></li>
-<li><a href="#listing-all-persons-code-list-code">2.3. Listing all persons : <code>list</code></a></li>
-<li><a href="#editing-a-person-code-edit-code">2.4. Editing a person : <code>edit</code></a></li>
-<li><a href="#locating-persons-by-name-code-find-code">2.5. Locating persons by name: <code>find</code></a></li>
-<li><a href="#deleting-a-person-code-delete-code">2.6. Deleting a person : <code>delete</code></a></li>
-<li><a href="#selecting-a-person-code-select-code">2.7. Selecting a person : <code>select</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code">2.8. Listing entered commands : <code>history</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">2.9. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">2.10. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">2.11. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">2.12. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">2.13. Saving the data</a></li>
+<li><a href="#contacts">2.1. Contacts</a></li>
+<li><a href="#events">2.2. Events</a></li>
+<li><a href="#calendar">2.3. Calendar</a></li>
 </ul>
 </li>
-<li><a href="#faq">3. FAQ</a></li>
-<li><a href="#command-summary">4. Command Summary</a></li>
+<li><a href="#features">3. Features</a>
+<ul class="sectlevel2">
+<li><a href="#convenient">3.1. Convenient</a></li>
+<li><a href="#fast">3.2. Fast</a></li>
+<li><a href="#secured">3.3. Secured</a></li>
+</ul>
+</li>
+<li><a href="#commands">4. Commands</a>
+<ul class="sectlevel2">
+<li><a href="#viewing-help-code-help-code">4.1. Viewing help : <code>help</code></a></li>
+<li><a href="#adding-a-person-code-add-code">4.2. Adding a person: <code>add</code></a></li>
+<li><a href="#listing-all-persons-code-list-code">4.3. Listing all persons : <code>list</code></a></li>
+<li><a href="#editing-a-person-code-edit-code">4.4. Editing a person : <code>edit</code></a></li>
+<li><a href="#locating-persons-by-name-code-find-code">4.5. Locating persons by name: <code>find</code></a></li>
+<li><a href="#deleting-a-person-code-delete-code">4.6. Deleting a person : <code>delete</code></a></li>
+<li><a href="#selecting-a-person-code-select-code">4.7. Selecting a person : <code>select</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">4.8. Listing entered commands : <code>history</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">4.9. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">4.10. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">4.11. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">4.12. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">4.13. Saving the data</a></li>
+</ul>
+</li>
+<li><a href="#faq">5. FAQ</a></li>
+<li><a href="#command-summary">6. Command Summary</a></li>
 </ul>
 </div>
 </div>
@@ -69,7 +83,7 @@ This app will not work with earlier versions of Java 8.
 </div>
 </li>
 <li>
-<p>Download the latest <code>addressbook.jar</code> <a href="https://github.com/CS2103AUG2017-T09-B3/main/releases">here</a>.</p>
+<p>Download the latest <code>bonus.jar</code> <a href="https://github.com/CS2103AUG2017-T09-B3/main/releases">here</a>.</p>
 </li>
 <li>
 <p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
@@ -106,15 +120,163 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </li>
 <li>
-<p>Refer to the <a href="#features">Features</a> section below for details of each command.</p>
+<p>Refer to the <a href="#commands">commands</a> section below for details of each command.</p>
 </li>
 </ol>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="features"><a class="link" href="#features">2. Features</a></h2>
+<h2 id="components"><a class="link" href="#components">2. Components</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p><strong>BoNUS</strong> mainly consists on three components: <strong>contacts</strong>, <strong>events</strong> and <strong>calendar</strong>. They work independently and each is
+considered as a kind of <code>data items</code>. They are described in details as follows:</p>
+</div>
+<div class="sect2">
+<h3 id="contacts"><a class="link" href="#contacts">2.1. Contacts</a></h3>
+<div class="paragraph">
+<p>You can store personal information of your contacts (friends, classmates, professors, etc.) in <strong>BoNUS</strong>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>By default, you can store and update their name, phone number, email address and mailing address. Refer to the <code>add</code>
+and <code>edit</code> command in the section below for more information.</p>
+</li>
+<li>
+<p>You can store other information of your contacts by adding customize properties. Refer to the <code>config add-property</code>
+command in the section below for more information.</p>
+</li>
+<li>
+<p>You can group your contacts by adding one or multiple tags to them. Contacts with the same tag will be classified
+under the same group.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="events"><a class="link" href="#events">2.2. Events</a></h3>
+<div class="paragraph">
+<p>You can store your upcoming events (meeting with professor tomorrow, assignment deadline, lecture/tutorial time slot, etc.) in <strong>BoNUS</strong>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>By default, you can store and update their title, interval (starting time and end time), venue and description. Refer
+to the <code>add</code> and <code>edit</code> command in the section below for more information.</p>
+</li>
+<li>
+<p>Similar to <a href="#contacts">contacts</a>, you can add customize properties to events as well.</p>
+</li>
+<li>
+<p>Similar to <a href="#contacts">contacts</a>, you can add tags to events as well.</p>
+</li>
+<li>
+<p>If you have set starting and/or end time for an event, it will be reflected accordingly on the <a href="#calendar">calendar</a> component.</p>
+</li>
+<li>
+<p>You can set notification at specific time before an event starts (when you should arrive at the venue before a meeting
+begins) or at specific time before an event ends (when you need to finalize your assignment and submit it to your professor).</p>
+</li>
+<li>
+<p>You can link one or more <a href="#contacts">contacts</a> to an event (if all of you are going to attend the same meeting).</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="calendar"><a class="link" href="#calendar">2.3. Calendar</a></h3>
+<div class="paragraph">
+<p>Calender provides a more convenient interface for you to view your upcoming <a href="#events">events</a>. All events are displayed
+based on their time interval. Events whose time intervals are not specified will not be displayed here.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>You can choose the style to display the upcoming events (weekly/monthly/yearly view).</p>
+</li>
+<li>
+<p>You can add/update/delete events here, but the actual operation will be handled by the <a href="#events">events</a> component.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="features"><a class="link" href="#features">3. Features</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="convenient"><a class="link" href="#convenient">3.1. Convenient</a></h3>
+<div class="paragraph">
+<p><strong>BoNUS</strong> can provide ultimate convenience and save much time in your daily life.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Import contacts from <em>iCloud</em>, <em>Google+</em>, <em>Facebook</em>, etc.</p>
+</li>
+<li>
+<p>Import events from <em>Google</em> <em>Calendar</em>, <em>Outlook</em> <em>Calendar</em>, etc.</p>
+</li>
+<li>
+<p>Sync between all your devices.</p>
+</li>
+<li>
+<p>(<strong>Exclusive</strong>) automatically generate your school schedule by simply entering your timetable URL from <em><a href="https://nusmods.com/">NUSMods</a></em>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="fast"><a class="link" href="#fast">3.2. Fast</a></h3>
+<div class="paragraph">
+<p>As long as the number of records stored is less than 50,000 and the size of the storage file is smaller than 20MB, <strong>BoNUS</strong>
+is expected to</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Start the application in 5 seconds.</p>
+</li>
+<li>
+<p>Return the result of all <a href="#commands">commands</a> available with <em>human-invisible</em> delay.</p>
+</li>
+<li>
+<p>Update things displayed on the GUI (graphic user interface) smoothly.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="secured"><a class="link" href="#secured">3.3. Secured</a></h3>
+<div class="paragraph">
+<p>The <strong>BoNUS</strong> developers understand our users will store personal data in the application. We value privacy and security
+a lot.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>All data saved to the storage file will be encrypted using the state-of-the-art encryption scheme.</p>
+</li>
+<li>
+<p>Users will be prompted to enter their password whenever they open the application.</p>
+</li>
+<li>
+<p>You can set up 2FA (two-factor authentication) if there is extra security requirement.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="commands"><a class="link" href="#commands">4. Commands</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>Notice</em>: Commands in each component should be similar to each other.</p>
+</div>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
@@ -139,13 +301,13 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">2.1. Viewing help : <code>help</code></a></h3>
+<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">4.1. Viewing help : <code>help</code></a></h3>
 <div class="paragraph">
 <p>Format: <code>help</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-person-code-add-code"><a class="link" href="#adding-a-person-code-add-code">2.2. Adding a person: <code>add</code></a></h3>
+<h3 id="adding-a-person-code-add-code"><a class="link" href="#adding-a-person-code-add-code">4.2. Adding a person: <code>add</code></a></h3>
 <div class="paragraph">
 <p>Adds a person to the address book<br>
 Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p>
@@ -177,14 +339,14 @@ A person can have any number of tags (including 0)
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-persons-code-list-code"><a class="link" href="#listing-all-persons-code-list-code">2.3. Listing all persons : <code>list</code></a></h3>
+<h3 id="listing-all-persons-code-list-code"><a class="link" href="#listing-all-persons-code-list-code">4.3. Listing all persons : <code>list</code></a></h3>
 <div class="paragraph">
 <p>Shows a list of all persons in the address book.<br>
 Format: <code>list</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">2.4. Editing a person : <code>edit</code></a></h3>
+<h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">4.4. Editing a person : <code>edit</code></a></h3>
 <div class="paragraph">
 <p>Edits an existing person in the address book.<br>
 Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
@@ -229,7 +391,7 @@ Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all 
 </div>
 </div>
 <div class="sect2">
-<h3 id="locating-persons-by-name-code-find-code"><a class="link" href="#locating-persons-by-name-code-find-code">2.5. Locating persons by name: <code>find</code></a></h3>
+<h3 id="locating-persons-by-name-code-find-code"><a class="link" href="#locating-persons-by-name-code-find-code">4.5. Locating persons by name: <code>find</code></a></h3>
 <div class="paragraph">
 <p>Finds persons whose names contain any of the given keywords.<br>
 Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
@@ -274,7 +436,7 @@ Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">2.6. Deleting a person : <code>delete</code></a></h3>
+<h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">4.6. Deleting a person : <code>delete</code></a></h3>
 <div class="paragraph">
 <p>Deletes the specified person from the address book.<br>
 Format: <code>delete INDEX</code></p>
@@ -315,7 +477,7 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="selecting-a-person-code-select-code"><a class="link" href="#selecting-a-person-code-select-code">2.7. Selecting a person : <code>select</code></a></h3>
+<h3 id="selecting-a-person-code-select-code"><a class="link" href="#selecting-a-person-code-select-code">4.7. Selecting a person : <code>select</code></a></h3>
 <div class="paragraph">
 <p>Selects the person identified by the index number used in the last person listing.<br>
 Format: <code>select INDEX</code></p>
@@ -356,7 +518,7 @@ Selects the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">2.8. Listing entered commands : <code>history</code></a></h3>
+<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">4.8. Listing entered commands : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>history</code></p>
@@ -377,7 +539,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">2.9. Undoing previous command : <code>undo</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">4.9. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restores the address book to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
@@ -422,7 +584,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">2.10. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">4.10. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
@@ -454,21 +616,21 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">2.11. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">4.11. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the address book.<br>
 Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">2.12. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">4.12. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">2.13. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">4.13. Saving the data</a></h3>
 <div class="paragraph">
 <p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
 There is no need to save manually.</p>
@@ -477,7 +639,7 @@ There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="faq"><a class="link" href="#faq">3. FAQ</a></h2>
+<h2 id="faq"><a class="link" href="#faq">5. FAQ</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
@@ -486,7 +648,7 @@ There is no need to save manually.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">4. Command Summary</a></h2>
+<h2 id="command-summary"><a class="link" href="#command-summary">6. Command Summary</a></h2>
 <div class="sectionbody">
 <div class="ulist">
 <ul>
@@ -535,7 +697,7 @@ e.g.<code>select 2</code></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-14 07:04:03 +00:00
+Last updated 2017-10-14 16:15:44 +00:00
 </div>
 </div>
 </body>
