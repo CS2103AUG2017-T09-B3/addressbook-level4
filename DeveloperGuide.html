@@ -46,7 +46,8 @@
 <ul class="sectlevel2">
 <li><a href="#undo-redo-mechanism">3.1. Undo/Redo mechanism</a></li>
 <li><a href="#logging">3.2. Logging</a></li>
-<li><a href="#configuration">3.3. Configuration</a></li>
+<li><a href="#generic-property">3.3. Generic Property</a></li>
+<li><a href="#configuration">3.4. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -831,7 +832,61 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="sect2">
-<h3 id="configuration"><a class="link" href="#configuration">3.3. Configuration</a></h3>
+<h3 id="generic-property"><a class="link" href="#generic-property">3.3. Generic Property</a></h3>
+<div class="paragraph">
+<p>We are using a generic <code>Property</code> class to support <strong>arbitrary field</strong> feature.</p>
+</div>
+<div class="sect3">
+<h4 id="inspiration"><a class="link" href="#inspiration">3.3.1. Inspiration</a></h4>
+<div class="paragraph">
+<p>Users should not be limited to the provided four fields, i.e. <code>Name</code>, <code>Email</code>, <code>Phone</code>, <code>Address</code> (we are talking about
+the contact component here, of course one more <code>DateTime</code> for event component). They should have the freedom to enter all
+kinds of information about their contacts apart from the pre-defined ones.</p>
+</div>
+<div class="paragraph">
+<p>Through a brief product survey on other existing similar software in the market, we found that they usually ask users to
+type all other information in the <em>so-called</em> <code>Description</code> or <code>Details</code> field. This is not a good design because doing
+so will make the information stored messy. The application is used to organize personal information conveniently. It is
+a major drawback if the data are not stored (and thus presented) to users in a well-organized way.</p>
+</div>
+<div class="paragraph">
+<p>Learning from many modern database implementations, we should think of the data as two tables: one for <strong>contacts</strong> and the
+other one for <strong>events</strong>. Each table is composed of many rows and many columns. A single contact/event is one row, while
+all their different properties/fields are the columns.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.3.2. Design Considerations</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a more general class to capture the common patterns among all columns (all different fields/properties): according to
+the basic OOP concept, a more generic class should become the superclass <code>Property</code>; then, other more specific classes
+(like <code>Name</code>, <code>Email</code>, <code>Phone</code>, etc.) can inherit from it. It is shown that such design decreases code duplicate a lot.</p>
+</li>
+<li>
+<p>Find a way to store the metadata of all columns (fields/properties): in popular SQL database implementation, they
+usually have a separate database reserved for the database server system itself. We must store similar information somewhere
+as well. Thus, we create a <code>PropertyManager</code> to store these "metadata", including short names, full names, constraint
+messages and regular expressions used for input validation. They are all <code>static</code> variables because there should only be
+one copy of these "metadata". We will waste a lot of resources if we store these "metadata" with each instance of the
+<code>Property</code> class.</p>
+</li>
+<li>
+<p><em>Pre-loaded properties</em>: Things like <code>Name</code>, <code>Email</code> and <code>Phone</code> are widely used. They should ship with the application
+and users do not need any additional setup steps to use them.</p>
+</li>
+<li>
+<p>Add new customize properties: advanced users should be provided with a command (<code>config --add-property</code>) to add their
+own customize fields. They should have the freedom to arbitrarily choose things like short name, full name, etc. They can
+easily add/edit these properties of each contact stored in the application, just like the <em>pre-loaded</em> ones.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="configuration"><a class="link" href="#configuration">3.4. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2131,7 +2186,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-18 15:38:56 +00:00
+Last updated 2017-10-18 16:23:55 +00:00
 </div>
 </div>
 </body>
