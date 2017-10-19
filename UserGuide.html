@@ -366,7 +366,7 @@ A person can have any number of tags (including 0).
 <h3 id="adding-an-event-code-adde-code"><a class="link" href="#adding-an-event-code-adde-code">4.3. Adding an event : <code>addE</code></a></h3>
 <div class="paragraph">
 <p>Adds an event to the application.<br>
-Format: `addE n/NAME d/DATE_TIME a/EMAIL a/ADDRESS `</p>
+Format: `addE n/NAME dt/DATE_TIME a/EMAIL a/ADDRESS `</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -386,10 +386,10 @@ Events added will be automatically sorted by date/time
 <div class="ulist">
 <ul>
 <li>
-<p>`addE n/Does Birthday d/25122015 20:30 a/Does crib `</p>
+<p>`addE n/Does Birthday dt/25122015 20:30 a/Does crib `</p>
 </li>
 <li>
-<p>`addE n/Betsy Birthday d/25122016 21:30 a/Betsy crib `</p>
+<p>`addE n/Betsy Birthday dt/25122016 21:30 a/Betsy crib `</p>
 </li>
 </ul>
 </div>
@@ -458,7 +458,7 @@ Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all 
 <h3 id="editing-an-event-code-edite-code"><a class="link" href="#editing-an-event-code-edite-code">4.7. Editing an event : <code>editE</code></a></h3>
 <div class="paragraph">
 <p>Edits an existing event in the application.<br>
-Format: <code>editE INDEX [n/NAME] [d/DATE_TIME] [a/ADDRESS]</code></p>
+Format: <code>editE INDEX [n/NAME] [dt/DATE_TIME] [a/ADDRESS]</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -484,7 +484,7 @@ The index <strong>must be a positive integer</strong> like 1, 2, 3, &#8230;&#820
 <div class="ulist">
 <ul>
 <li>
-<p><code>editE 1 d/18052013 03:30<br>
+<p><code>editE 1 dt/18052013 03:30<br>
 Edits the date/time the 1st event to be `18052013 03:30</code>.</p>
 </li>
 <li>
@@ -908,8 +908,8 @@ Format: <code>exit</code></p>
 e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
 </li>
 <li>
-<p><strong>Add event</strong> : <code>addE n/NAME d/DATE_TIME a/ADDRESS</code><br>
-e.g. <code>addE n/James birthday d/18022017 13:30 a/123, Clementi Rd, 1234665</code></p>
+<p><strong>Add event</strong> : <code>addE n/NAME dt/DATE_TIME a/ADDRESS</code><br>
+e.g. <code>addE n/James birthday dt/18022017 13:30 a/123, Clementi Rd, 1234665</code></p>
 </li>
 <li>
 <p><strong>Clear</strong> : <code>clear</code></p>
@@ -927,7 +927,7 @@ e.g. <code>deleteE 3</code></p>
 e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
 </li>
 <li>
-<p><strong>Edit event</strong> : <code>edit INDEX [n/NAME] [d/DATE_TIME] [a/ADDRESS]</code><br>
+<p><strong>Edit event</strong> : <code>edit INDEX [n/NAME] [dt/DATE_TIME] [a/ADDRESS]</code><br>
 e.g. <code>editE 2 n/Lees Day</code></p>
 </li>
 <li>
@@ -966,7 +966,7 @@ e.g.<code>select 2</code></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-19 00:52:49 +00:00
+Last updated 2017-10-19 12:09:23 +00:00
 </div>
 </div>
 </body>
