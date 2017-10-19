@@ -42,18 +42,23 @@
 <li><a href="#commands">4. Commands</a>
 <ul class="sectlevel2">
 <li><a href="#viewing-help-code-help-code">4.1. Viewing help : <code>help</code></a></li>
-<li><a href="#adding-a-person-event-code-add-e-code">4.2. Adding a person/event : <code>add(E)</code></a></li>
-<li><a href="#listing-all-persons-events-code-list-e-code">4.3. Listing all persons/events : <code>list(E)</code></a></li>
-<li><a href="#editing-a-person-event-code-edit-e-code">4.4. Editing a person/event : <code>edit(E)</code></a></li>
-<li><a href="#deleting-a-person-event-code-delete-e-code">4.5. Deleting a person/event : <code>delete(E)</code></a></li>
-<li><a href="#selecting-a-person-event-code-select-code">4.6. Selecting a person/event: <code>select</code></a></li>
-<li><a href="#listing-entered-commands-code-history-code">4.7. Listing entered commands : <code>history</code></a></li>
-<li><a href="#undoing-previous-command-code-undo-code">4.8. Undoing previous command : <code>undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-redo-code">4.9. Redoing the previously undone command : <code>redo</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">4.10. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#advance-setting-code-config-code">4.11. Advance setting : <code>config</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">4.12. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">4.13. Saving the data</a></li>
+<li><a href="#adding-a-person-code-add-code">4.2. Adding a person : <code>add</code></a></li>
+<li><a href="#adding-an-event-code-adde-code">4.3. Adding an event : <code>addE</code></a></li>
+<li><a href="#listing-all-persons-events-code-list-code">4.4. Listing all persons/events : <code>list</code></a></li>
+<li><a href="#listing-all-events-code-liste-code">4.5. Listing all events : <code>listE</code></a></li>
+<li><a href="#editing-a-person-code-edit-code">4.6. Editing a person : <code>edit</code></a></li>
+<li><a href="#editing-an-event-code-edite-code">4.7. Editing an event : <code>editE</code></a></li>
+<li><a href="#locating-persons-events-by-any-property-code-find-code">4.8. Locating persons/events by any property : <code>find</code></a></li>
+<li><a href="#deleting-a-person-code-delete-code">4.9. Deleting a person : <code>delete</code></a></li>
+<li><a href="#deleting-an-event-code-deletee-code">4.10. Deleting an event : <code>deleteE</code></a></li>
+<li><a href="#selecting-a-person-code-select-code">4.11. Selecting a person: <code>select</code></a></li>
+<li><a href="#listing-entered-commands-code-history-code">4.12. Listing entered commands : <code>history</code></a></li>
+<li><a href="#undoing-previous-command-code-undo-code">4.13. Undoing previous command : <code>undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-redo-code">4.14. Redoing the previously undone command : <code>redo</code></a></li>
+<li><a href="#clearing-all-entries-code-clear-code">4.15. Clearing all entries : <code>clear</code></a></li>
+<li><a href="#advance-setting-code-config-code">4.16. Advance setting : <code>config</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">4.17. Exiting the program : <code>exit</code></a></li>
+<li><a href="#saving-the-data">4.18. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#faq">5. FAQ</a></li>
@@ -326,11 +331,10 @@ component.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-person-event-code-add-e-code"><a class="link" href="#adding-a-person-event-code-add-e-code">4.2. Adding a person/event : <code>add(E)</code></a></h3>
+<h3 id="adding-a-person-code-add-code"><a class="link" href="#adding-a-person-code-add-code">4.2. Adding a person : <code>add</code></a></h3>
 <div class="paragraph">
-<p>Adds a person/event to the application.<br>
-Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code>
-Format: `addE n/NAME d/DATE_TIME a/EMAIL a/ADDRESS `</p>
+<p>Adds a person to the application.<br>
+Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -340,7 +344,6 @@ Format: `addE n/NAME d/DATE_TIME a/EMAIL a/ADDRESS `</p>
 </td>
 <td class="content">
 A person can have any number of tags (including 0).
-Events added will be automatically sorted by date/time
 </td>
 </tr>
 </table>
@@ -356,6 +359,32 @@ Events added will be automatically sorted by date/time
 <li>
 <p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal</code></p>
 </li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-an-event-code-adde-code"><a class="link" href="#adding-an-event-code-adde-code">4.3. Adding an event : <code>addE</code></a></h3>
+<div class="paragraph">
+<p>Adds an event to the application.<br>
+Format: `addE n/NAME d/DATE_TIME a/EMAIL a/ADDRESS `</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Events added will be automatically sorted by date/time
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
 <li>
 <p>`addE n/Does Birthday d/25122015 20:30 a/Does crib `</p>
 </li>
@@ -366,25 +395,31 @@ Events added will be automatically sorted by date/time
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-persons-events-code-list-e-code"><a class="link" href="#listing-all-persons-events-code-list-e-code">4.3. Listing all persons/events : <code>list(E)</code></a></h3>
+<h3 id="listing-all-persons-events-code-list-code"><a class="link" href="#listing-all-persons-events-code-list-code">4.4. Listing all persons/events : <code>list</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all persons/events in the application.<br>
+<p>Shows a list of all persons in the application.<br>
 Format: <code>list</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-person-event-code-edit-e-code"><a class="link" href="#editing-a-person-event-code-edit-e-code">4.4. Editing a person/event : <code>edit(E)</code></a></h3>
+<h3 id="listing-all-events-code-liste-code"><a class="link" href="#listing-all-events-code-liste-code">4.5. Listing all events : <code>listE</code></a></h3>
 <div class="paragraph">
-<p>Edits an existing person/event in the application.<br>
-Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code>
-Format: <code>editE INDEX [n/NAME] [d/DATE_TIME] [a/ADDRESS]</code></p>
+<p>Shows a list of all events in the application.<br>
+Format: <code>listE</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">4.6. Editing a person : <code>edit</code></a></h3>
+<div class="paragraph">
+<p>Edits an existing person in the application.<br>
+Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the person/event at the specified <code>INDEX</code>. The index refers to the index number shown in the last listing.
+<p>Edits the person at the specified <code>INDEX</code>. The index refers to the index number shown in the last listing.
 The index <strong>must be a positive integer</strong> like 1, 2, 3, &#8230;&#8203;</p>
 </li>
 <li>
@@ -416,17 +451,51 @@ Edits the phone number and email address of the 1st person to be <code>91234567<
 <p><code>edit 2 n/Betsy Crower t/</code><br>
 Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all existing tags.</p>
 </li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="editing-an-event-code-edite-code"><a class="link" href="#editing-an-event-code-edite-code">4.7. Editing an event : <code>editE</code></a></h3>
+<div class="paragraph">
+<p>Edits an existing event in the application.<br>
+Format: <code>editE INDEX [n/NAME] [d/DATE_TIME] [a/ADDRESS]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
 <li>
-<p><code>editE 1 n/Telegram Birthday</code><br>
-Edits the name of the 1st event to be <code>Telegram Birthday</code>.</p>
+<p>Edits the event at the specified <code>INDEX</code>. The index refers to the index number shown in the last listing.
+The index <strong>must be a positive integer</strong> like 1, 2, 3, &#8230;&#8203;</p>
 </li>
 <li>
-<p><code>editE 2 d/25102017 21:30</code><br>
-Edits the date of the 2nd event to be <code>25102017 21:30</code>.
-=== Locating persons/events by any property : <code>find</code></p>
+<p>At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p>Existing values of the selected data item will be updated to the input values.</p>
 </li>
 </ul>
 </div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>editE 1 d/18052013 03:30<br>
+Edits the date/time the 1st event to be `18052013 03:30</code>.</p>
+</li>
+<li>
+<p><code>editE 2 n/Lunch with Betsy <br>
+Edits the name of the 2nd event to be `Lunch with Betsy</code>.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="locating-persons-events-by-any-property-code-find-code"><a class="link" href="#locating-persons-events-by-any-property-code-find-code">4.8. Locating persons/events by any property : <code>find</code></a></h3>
 <div class="paragraph">
 <p>Finds events whose corresponding field(s) contain any of the given keywords.<br>
 Format: <code>find KEYWORD [MORE_KEYWORDS] [p/KEYWORD [MORE_KEYWORDS]]&#8230;&#8203;</code></p>
@@ -476,17 +545,17 @@ Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-person-event-code-delete-e-code"><a class="link" href="#deleting-a-person-event-code-delete-e-code">4.5. Deleting a person/event : <code>delete(E)</code></a></h3>
+<h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">4.9. Deleting a person : <code>delete</code></a></h3>
 <div class="paragraph">
-<p>Deletes the specified person/event from the application.<br>
-Format: <code>delete(E) INDEX</code></p>
+<p>Deletes the specified person from the application.<br>
+Format: <code>delete INDEX</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Deletes the person/event at the specified <code>INDEX</code>.</p>
+<p>Deletes the person at the specified <code>INDEX</code>.</p>
 </li>
 <li>
 <p>The index refers to the index number shown in the most recent listing.</p>
@@ -505,19 +574,55 @@ Format: <code>delete(E) INDEX</code></p>
 <ul>
 <li>
 <p><code>list</code><br>
-<code>delete(E) 2</code><br>
-Deletes the 2nd person/event in the address book.</p>
+<code>delete 2</code><br>
+Deletes the 2nd person in the address book.</p>
 </li>
 <li>
 <p><code>find Betsy</code><br>
-<code>delete(E) 1</code><br>
-Deletes the 1st person/event in the results of the <code>find</code> command.</p>
+<code>delete 1</code><br>
+Deletes the 1st person in the results of the <code>find</code> command.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="selecting-a-person-event-code-select-code"><a class="link" href="#selecting-a-person-event-code-select-code">4.6. Selecting a person/event: <code>select</code></a></h3>
+<h3 id="deleting-an-event-code-deletee-code"><a class="link" href="#deleting-an-event-code-deletee-code">4.10. Deleting an event : <code>deleteE</code></a></h3>
+<div class="paragraph">
+<p>Deletes the specified event from the application.<br>
+Format: <code>deleteE INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Deletes the event at the specified <code>INDEX</code>.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the most recent listing.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> like 1, 2, 3, &#8230;&#8203;</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>deleteE 2</code><br>
+Deletes the 2nd event in the address book.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="selecting-a-person-code-select-code"><a class="link" href="#selecting-a-person-code-select-code">4.11. Selecting a person: <code>select</code></a></h3>
 <div class="paragraph">
 <p>Selects the person/event identified by the index number used in the last listing.<br>
 Format: <code>select INDEX</code></p>
@@ -558,7 +663,7 @@ Selects the 1st person in the results of the <code>find</code> command.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">4.7. Listing entered commands : <code>history</code></a></h3>
+<h3 id="listing-entered-commands-code-history-code"><a class="link" href="#listing-entered-commands-code-history-code">4.12. Listing entered commands : <code>history</code></a></h3>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>history</code></p>
@@ -579,7 +684,7 @@ Format: <code>history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">4.8. Undoing previous command : <code>undo</code></a></h3>
+<h3 id="undoing-previous-command-code-undo-code"><a class="link" href="#undoing-previous-command-code-undo-code">4.13. Undoing previous command : <code>undo</code></a></h3>
 <div class="paragraph">
 <p>Restores the application to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>undo</code></p>
@@ -624,7 +729,7 @@ The <code>undo</code> command fails as there are no undoable commands executed p
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">4.9. Redoing the previously undone command : <code>redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-redo-code">4.14. Redoing the previously undone command : <code>redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>redo</code></p>
@@ -656,7 +761,7 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">4.10. Clearing all entries : <code>clear</code></a></h3>
+<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">4.15. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from the current component.<br>
 Format: <code>clear</code></p>
@@ -677,13 +782,13 @@ Format: <code>clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="advance-setting-code-config-code"><a class="link" href="#advance-setting-code-config-code">4.11. Advance setting : <code>config</code></a></h3>
+<h3 id="advance-setting-code-config-code"><a class="link" href="#advance-setting-code-config-code">4.16. Advance setting : <code>config</code></a></h3>
 <div class="paragraph">
 <p>Changes the configuration of the application or applies some advance settings to the data. Make sure you know what you
 are doing before using any of the following commands. These commands are intended for advance users.</p>
 </div>
 <div class="sect3">
-<h4 id="add-new-property-code-config-add-property-code"><a class="link" href="#add-new-property-code-config-add-property-code">4.11.1. Add new property : <code>config --add-property</code></a></h4>
+<h4 id="add-new-property-code-config-add-property-code"><a class="link" href="#add-new-property-code-config-add-property-code">4.16.1. Add new property : <code>config --add-property</code></a></h4>
 <div class="paragraph">
 <p>Adds a new property field available to persons/events.<br>
 Format: <code>config --add-property s/b f/birthday [m/Birthday should be in the format of DD/MM/YYYY r/[^\s].*]</code></p>
@@ -715,7 +820,7 @@ if there is an existing property with the same short name.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="set-tag-color-code-config-set-tag-color-code"><a class="link" href="#set-tag-color-code-config-set-tag-color-code">4.11.2. Set tag color : <code>config --set-tag-color</code></a></h4>
+<h4 id="set-tag-color-code-config-set-tag-color-code"><a class="link" href="#set-tag-color-code-config-set-tag-color-code">4.16.2. Set tag color : <code>config --set-tag-color</code></a></h4>
 <div class="paragraph">
 <p>Sets the displayed color of a certain tag (for persons/events).<br>
 Format: <code>config --set-tag-color TAG_NAME COLOR</code></p>
@@ -738,7 +843,7 @@ RGB value of your favorite color from <a href="https://www.w3schools.com/colors/
 </div>
 </div>
 <div class="sect3">
-<h4 id="import-calendar-code-config-import-calendar-code"><a class="link" href="#import-calendar-code-config-import-calendar-code">4.11.3. Import calendar : <code>config --import-calendar</code></a></h4>
+<h4 id="import-calendar-code-config-import-calendar-code"><a class="link" href="#import-calendar-code-config-import-calendar-code">4.16.3. Import calendar : <code>config --import-calendar</code></a></h4>
 <div class="paragraph">
 <p>Imports events from an online available calender.<br>
 Format: <code>config --import-calendar URL</code></p>
@@ -760,14 +865,14 @@ Format: <code>config --import-calendar URL</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">4.12. Exiting the program : <code>exit</code></a></h3>
+<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">4.17. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">4.13. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">4.18. Saving the data</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -803,6 +908,10 @@ Format: <code>exit</code></p>
 e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
 </li>
 <li>
+<p><strong>Add event</strong> : <code>addE n/NAME d/DATE_TIME a/ADDRESS</code><br>
+e.g. <code>addE n/James birthday d/18022017 13:30 a/123, Clementi Rd, 1234665</code></p>
+</li>
+<li>
 <p><strong>Clear</strong> : <code>clear</code></p>
 </li>
 <li>
@@ -810,8 +919,16 @@ e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1
 e.g. <code>delete 3</code></p>
 </li>
 <li>
+<p><strong>Delete event</strong> : <code>deleteE INDEX</code><br>
+e.g. <code>deleteE 3</code></p>
+</li>
+<li>
 <p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code><br>
 e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
+</li>
+<li>
+<p><strong>Edit event</strong> : <code>edit INDEX [n/NAME] [d/DATE_TIME] [a/ADDRESS]</code><br>
+e.g. <code>editE 2 n/Lees Day</code></p>
 </li>
 <li>
 <p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
@@ -819,6 +936,9 @@ e.g. <code>find James Jake</code></p>
 </li>
 <li>
 <p><strong>List</strong> : <code>list</code></p>
+</li>
+<li>
+<p><strong>List event</strong> : <code>listE</code></p>
 </li>
 <li>
 <p><strong>Help</strong> : <code>help</code></p>
@@ -846,7 +966,7 @@ e.g.<code>select 2</code></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-18 16:23:55 +00:00
+Last updated 2017-10-19 00:52:49 +00:00
 </div>
 </div>
 </body>
