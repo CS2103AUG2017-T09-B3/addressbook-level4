@@ -854,9 +854,45 @@ a major drawback if the data are not stored (and thus presented) to users in a w
 other one for <strong>events</strong>. Each table is composed of many rows and many columns. A single contact/event is one row, while
 all their different properties/fields are the columns.</p>
 </div>
+<div class="imageblock">
+<div class="content">
+<img src="images/phpmyadminTableView.png" alt="phpmyadminTableView" width="700">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 3.3.1 : Data Table View of phpMyAdmin (a MySQL visualization tool)</em></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/phpmyadminAddColumn.png" alt="phpmyadminAddColumn" width="700">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 3.3.2 : Add New Column in phpMyAdmin</em></p>
+</div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.3.2. Design Considerations</a></h4>
+<h4 id="design-consideration"><a class="link" href="#design-consideration">3.3.2. Design Consideration</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Where to store the "<em>metadata</em>" of different properties (short name, full name, regular expression, etc.)<br>
+<strong>Alternative 1 (current choice):</strong> Create a new class <code>PropertyManager</code><br>
+<strong>Pros:</strong> Efficient (there is only one copy) and easy for future development since it is centralized.<br>
+<strong>Cons:</strong> Requires major change to <code>Model</code> component and <code>Storage</code> component.<br>
+<strong>Alternative 2:</strong> Store these data along with each specific property class, like <code>Name</code>, <code>Email</code><br>
+<strong>Pros:</strong> Able to adapt the current implementation of <code>Model</code> component.<br>
+<strong>Cons:</strong> Hard to implement <code>AddPropertyCommand</code>, and difficult to manage as the project grows larger.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/PropertyManagerClassDiagram.png" alt="PropertyManagerClassDiagram" width="200">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 3.3.3 : Class Diagram for `PropertyManager`</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-outline"><a class="link" href="#implementation-outline">3.3.3. Implementation Outline</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -882,6 +918,14 @@ own customize fields. They should have the freedom to arbitrarily choose things 
 easily add/edit these properties of each contact stored in the application, just like the <em>pre-loaded</em> ones.</p>
 </li>
 </ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/PropertyManagerSequenceDiagram.png" alt="PropertyManagerSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 3.3.4 : Sequence Diagram for Adding a Customize Property</em></p>
 </div>
 </div>
 </div>
@@ -1843,7 +1887,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-22 03:21:14 +00:00
+Last updated 2017-10-22 11:16:51 +00:00
 </div>
 </div>
 </body>
