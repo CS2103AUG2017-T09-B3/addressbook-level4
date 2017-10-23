@@ -47,7 +47,8 @@
 <li><a href="#undo-redo-mechanism">3.1. Undo/Redo mechanism</a></li>
 <li><a href="#logging">3.2. Logging</a></li>
 <li><a href="#generic-property">3.3. Generic Property</a></li>
-<li><a href="#configuration">3.4. Configuration</a></li>
+<li><a href="#auto-reminders">3.4. Auto Reminders</a></li>
+<li><a href="#configuration">3.5. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a>
@@ -930,7 +931,112 @@ easily add/edit these properties of each contact stored in the application, just
 </div>
 </div>
 <div class="sect2">
-<h3 id="configuration"><a class="link" href="#configuration">3.4. Configuration</a></h3>
+<h3 id="auto-reminders"><a class="link" href="#auto-reminders">3.4. Auto Reminders</a></h3>
+<div class="paragraph">
+<p>We are adding reminders to events whenever an event is added. Reminders will automatically be set to a day before
+event itself.</p>
+</div>
+<div class="paragraph">
+<p>As we are targeting NUS students, in view of the busy schedules of students, students should be able to set reminders
+for events that they have to attend to. In the case that students forget to set reminders themselves, we automatically
+preset the reminder to a day before the event such that students have ample time to be aware and prepared for the event
+itself.</p>
+</div>
+<div class="paragraph">
+<p>Also, users can add their own reminders as well.</p>
+</div>
+<div class="paragraph">
+<p>Learning from many modern applications, the logic behind the applications are usually efficient and is able to handle
+multiple tasks at once. By automatically adding reminders alongside the addition of events, it makes it more
+convenient for the users themselves. We have set the default reminders to a day before the actual event to remind
+users of their upcoming events via notifications on System Tray.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SystemTrayNotifications.png" alt="SystemTrayNotifications" width="300">
+</div>
+</div>
+<div class="paragraph">
+<p>_Figure 3.3.5 : Notifications via System Tray</p>
+</div>
+<div class="sect3">
+<h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">3.4.1. Design consideration</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong>  How to implement the idea of reminders into Events<br>
+<strong>Alternative 1 (current choice):</strong> Create a new reminder class that contains an event parameter to it. Events have a<br>
+list of reminders within them.
+<strong>Pros:</strong> Independent. Reminder class is on its own and easy for future usage since it is already a class by itself.<br>
+Each reminder is tagged to an event, such that if we want to access the reminders in an event, it is easy to do so.<br>
+<strong>Cons:</strong> Require major changes to Logic and Model components for Event<br>
+<strong>Alternative 2:</strong> Add a new parameter for Event called Reminders to display time till event.<br>
+<strong>Pros:</strong> Less changes as it is just an implementation of a new parameter.<br>
+<strong>Cons:</strong> Less versatile and reminders cannot be applied anywhere else if needed.<br></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ReminderClassDiagram.png" alt="ReminderClassDiagram" width="200">
+</div>
+</div>
+<div class="paragraph">
+<p>_Figure 3.3.6 : Class Diagram for <code>Reminder</code></p>
+</div>
+<div class="paragraph">
+<p>Therefore we have decided to adopt alternative 1 of creating a Reminder class as it is more versatile for future usage.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-outline-2"><a class="link" href="#implementation-outline-2">3.4.2. Implementation outline</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a ReadOnlyReminder class such that it only contains immutable instances of Reminders.</p>
+</li>
+<li>
+<p>Create a general class such that Reminder that implements ReadOnlyReminder. It can inherit properties
+such as <code>DateTime</code> from PropertyClass as well. In the event that a new property needs to be added, it can be done.
+Such a design makes Reminder class more adaptable to changes and ready for future code usage.</p>
+</li>
+<li>
+<p><code>Reminder</code> is now more open to changes if needed and can easily add parameters and methods now that it is a class
+on its own.</p>
+</li>
+<li>
+<p>Have a list of reminders in <code>Event</code> class. Since <code>Event</code> can have multiple reminders, each reminder is instantiated
+with an <code>Event</code> parameter in it such that a <code>Reminder</code> is tagged to an Event itself.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/EventClassDiagram.png" alt="EventClassDiagram" width="200">
+</div>
+</div>
+<div class="paragraph">
+<p>_Figure 3.3.7 : Class Diagram for <code>Event</code></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/EventReminderRS.png" alt="EventReminderRS" width="300">
+</div>
+</div>
+<div class="paragraph">
+<p>_Figure 3.3.8 : Relationship of Event and Reminder</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows how the automatic adding of reminders work</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SDaddEventLogicReminder.png" alt="SDaddEventLogicReminder" width="700">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 3.3.9 : Sequence Diagram for Adding an event (reminders are automatically added)</em></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="configuration"><a class="link" href="#configuration">3.5. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1887,7 +1993,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-22 15:08:10 +00:00
+Last updated 2017-10-23 13:36:50 +00:00
 </div>
 </div>
 </body>
