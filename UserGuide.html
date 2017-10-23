@@ -56,7 +56,7 @@
 <li><a href="#undoing-previous-command-code-u-undo-code">4.13. Undoing previous command : <code>(u)undo</code></a></li>
 <li><a href="#redoing-the-previously-undone-command-code-r-redo-code">4.14. Redoing the previously undone command : <code>(r)redo</code></a></li>
 <li><a href="#clearing-all-entries-code-c-clear-code">4.15. Clearing all entries : <code>(c)clear</code></a></li>
-<li><a href="#exporting-address-book-data-code-p-export-code">4.16. Exporting address book data : <code>(p)export</code></a></li>
+<li><a href="#exporting-data-code-p-export-code">4.16. Exporting data : <code>(p)export</code></a></li>
 <li><a href="#advance-setting-code-cfg-config-code">4.17. Advance setting : <code>(cfg)config</code></a></li>
 <li><a href="#exiting-the-program-code-x-exit-code">4.18. Exiting the program : <code>(x)exit</code></a></li>
 <li><a href="#saving-the-data">4.19. Saving the data</a></li>
@@ -868,9 +868,11 @@ Format: <code>(c)clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exporting-address-book-data-code-p-export-code"><a class="link" href="#exporting-address-book-data-code-p-export-code">4.16. Exporting address book data : <code>(p)export</code></a></h3>
+<h3 id="exporting-data-code-p-export-code"><a class="link" href="#exporting-data-code-p-export-code">4.16. Exporting data : <code>(p)export</code></a></h3>
+<div class="sect3">
+<h4 id="to-code-xml-code-format"><a class="link" href="#to-code-xml-code-format">4.16.1. To <code>.xml</code> format</a></h4>
 <div class="paragraph">
-<p>Exports the current data in the address book, including data from all three components: <strong>Contacts</strong>, <strong>Events</strong> and
+<p>Exports the current data in the application, including data from all three components: <strong>Contacts</strong>, <strong>Events</strong> and
 <strong>Calendar</strong>, to an external location.<br>
 Format: <code>(p)export FILEPATH</code></p>
 </div>
@@ -904,13 +906,53 @@ Format: <code>(p)export FILEPATH</code></p>
 <ul>
 <li>
 <p>For <code>Windows</code> users:<br>
-<code>export C:\Users\John Doe\Documents\addressbook.xml</code></p>
+<code>export C:\Users\John Doe\Documents\bonus.xml</code></p>
 </li>
 <li>
 <p>For <code>macOS</code> and <code>Linux</code> users:<br>
-<code>export /Users/John Doe/Documents/addressbook.xml</code></p>
+<code>export /Users/John Doe/Documents/bonus.xml</code></p>
 </li>
 </ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="to-microsoft-excel-sup-tm-sup-worksheet"><a class="link" href="#to-microsoft-excel-sup-tm-sup-worksheet">4.16.2. To Microsoft Excel<sup>TM</sup> Worksheet</a></h4>
+<div class="paragraph">
+<p><em>(Coming in v2.0)</em></p>
+</div>
+<div class="paragraph">
+<p>Exports the current data in the application to an external file of Microsoft Excel<sup>TM</sup> format.<br>
+Format: <code>(p)export --excel FILEPATH</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The file name should follow similar rules to the section above.</p>
+</li>
+<li>
+<p>However, it must end with an extension of <code>.xls</code> (<code>.xlsx</code> is currently not supported).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>For <code>Windows</code> users:<br>
+<code>export C:\Users\John Doe\Documents\bonus.xls</code></p>
+</li>
+<li>
+<p>For <code>macOS</code> and <code>Linux</code> users:<br>
+<code>export /Users/John Doe/Documents/bonus.xls</code></p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -1138,7 +1180,7 @@ e.g.<code>select 2</code></p>
 <p><strong>Exit</strong> : <code>(x)exit</code></p>
 </li>
 <li>
-<p><strong>Export</strong> : <code>(p)export FILEPATH</code><br>
+<p><strong>Export</strong> : <code>(p)export [--excel] FILEPATH</code><br>
 eg. For <code>Windows</code> users: <code>export C:\Users\John Doe\Documents\addressbook.xml</code><br>
 eg. For <code>macOS</code> and <code>Linux</code> users: <code>export /Users/John Doe/Documents/addressbook.xml</code></p>
 </li>
@@ -1152,7 +1194,7 @@ eg. For <code>macOS</code> and <code>Linux</code> users: <code>export /Users/Joh
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-23 17:41:15 +00:00
+Last updated 2017-10-23 18:16:36 +00:00
 </div>
 </div>
 </body>

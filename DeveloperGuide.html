@@ -44,11 +44,11 @@
 </li>
 <li><a href="#implementation">3. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#sorting-contacts-mechanism">3.1. Sorting contacts mechanism</a></li>
-<li><a href="#undo-redo-mechanism">3.2. Undo/Redo mechanism</a></li>
-<li><a href="#logging">3.3. Logging</a></li>
-<li><a href="#generic-property">3.4. Generic Property</a></li>
-<li><a href="#auto-reminders">3.5. Auto Reminders</a></li>
+<li><a href="#undo-redo-mechanism">3.1. Undo/Redo mechanism</a></li>
+<li><a href="#logging">3.2. Logging</a></li>
+<li><a href="#generic-property">3.3. Generic Property</a></li>
+<li><a href="#auto-reminders">3.4. Auto Reminders</a></li>
+<li><a href="#contacts-event-listing-order-by-name-date-time-mechanism">3.5. Contacts/Event listing order by name/date time mechanism</a></li>
 <li><a href="#configuration">3.6. Configuration</a></li>
 </ul>
 </li>
@@ -600,13 +600,7 @@ Note how the event is propagated through the <code>EventsCenter</code> to the <c
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="sorting-contacts-mechanism"><a class="link" href="#sorting-contacts-mechanism">3.1. Sorting contacts mechanism</a></h3>
-<div class="paragraph">
-<p>The sorting contacts mechanism uses the <code>sort</code> method which resides inside <code>List</code> interface to sort the contacts by name. It is called when adding a new contact (e.g. 'add` command), thus placing the contact in the list alphabetically by name.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="undo-redo-mechanism"><a class="link" href="#undo-redo-mechanism">3.2. Undo/Redo mechanism</a></h3>
+<h3 id="undo-redo-mechanism"><a class="link" href="#undo-redo-mechanism">3.1. Undo/Redo mechanism</a></h3>
 <div class="paragraph">
 <p>The undo/redo mechanism is facilitated by an <code>UndoRedoStack</code>, which resides inside <code>LogicManager</code>. It supports undoing and redoing of commands that modifies the state of the address book (e.g. <code>add</code>, <code>edit</code>). Such commands will inherit from <code>UndoableCommand</code>.</p>
 </div>
@@ -758,7 +752,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.2.1. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.1. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Implementation of <code>UndoableCommand</code><br>
 <strong>Alternative 1 (current choice):</strong> Add a new abstract method <code>executeUndoableCommand()</code><br>
@@ -802,7 +796,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.3. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.2. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
@@ -840,12 +834,12 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="sect2">
-<h3 id="generic-property"><a class="link" href="#generic-property">3.4. Generic Property</a></h3>
+<h3 id="generic-property"><a class="link" href="#generic-property">3.3. Generic Property</a></h3>
 <div class="paragraph">
 <p>We are using a generic <code>Property</code> class to support <strong>arbitrary field</strong> feature.</p>
 </div>
 <div class="sect3">
-<h4 id="inspiration"><a class="link" href="#inspiration">3.4.1. Inspiration</a></h4>
+<h4 id="inspiration"><a class="link" href="#inspiration">3.3.1. Inspiration</a></h4>
 <div class="paragraph">
 <p>Users should not be limited to the provided four fields, i.e. <code>Name</code>, <code>Email</code>, <code>Phone</code>, <code>Address</code> (we are talking about
 the contact component here, of course one more <code>DateTime</code> for event component). They should have the freedom to enter all
@@ -880,7 +874,7 @@ all their different properties/fields are the columns.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-consideration"><a class="link" href="#design-consideration">3.4.2. Design Consideration</a></h4>
+<h4 id="design-consideration"><a class="link" href="#design-consideration">3.3.2. Design Consideration</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Where to store the "<em>metadata</em>" of different properties (short name, full name, regular expression, etc.)<br>
 <strong>Alternative 1 (current choice):</strong> Create a new class <code>PropertyManager</code><br>
@@ -900,7 +894,7 @@ all their different properties/fields are the columns.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-outline"><a class="link" href="#implementation-outline">3.4.3. Implementation Outline</a></h4>
+<h4 id="implementation-outline"><a class="link" href="#implementation-outline">3.3.3. Implementation Outline</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -938,7 +932,7 @@ easily add/edit these properties of each contact stored in the application, just
 </div>
 </div>
 <div class="sect2">
-<h3 id="auto-reminders"><a class="link" href="#auto-reminders">3.5. Auto Reminders</a></h3>
+<h3 id="auto-reminders"><a class="link" href="#auto-reminders">3.4. Auto Reminders</a></h3>
 <div class="paragraph">
 <p>We are adding reminders to events whenever an event is added. Reminders will automatically be set to a day before
 event itself.</p>
@@ -967,7 +961,7 @@ users of their upcoming events via notifications on System Tray.</p>
 <p>_Figure 3.3.5 : Notifications via System Tray</p>
 </div>
 <div class="sect3">
-<h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">3.5.1. Design consideration</a></h4>
+<h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">3.4.1. Design consideration</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong>  How to implement the idea of reminders into Events<br>
 <strong>Alternative 1 (current choice):</strong> Create a new reminder class that contains an event parameter to it. Events have a<br>
@@ -992,7 +986,7 @@ Each reminder is tagged to an event, such that if we want to access the reminder
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-outline-2"><a class="link" href="#implementation-outline-2">3.5.2. Implementation outline</a></h4>
+<h4 id="implementation-outline-2"><a class="link" href="#implementation-outline-2">3.4.2. Implementation outline</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1040,6 +1034,15 @@ with an <code>Event</code> parameter in it such that a <code>Reminder</code> is 
 <div class="paragraph">
 <p><em>Figure 3.3.9 : Sequence Diagram for Adding an event (reminders are automatically added)</em></p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="contacts-event-listing-order-by-name-date-time-mechanism"><a class="link" href="#contacts-event-listing-order-by-name-date-time-mechanism">3.5. Contacts/Event listing order by name/date time mechanism</a></h3>
+<div class="paragraph">
+<p>Whenever there is a command that triggers the "<em>refresh</em>" of <a href="https://github.com/CS2103AUG2017-T09-B3/main/tree/master/src/main/java/seedu/address/ui/person/PersonListPanel.java"><code>PersonListPanel</code></a>
+or <a href="https://github.com/CS2103AUG2017-T09-B3/main/tree/master/src/main/java/seedu/address/ui/event/EventListPanel.java"><code>EventListPanel</code></a>, like when adding a new contact
+(i.e. <code>add</code> command), all the cards will be loaded in the incremental order by name or date time respectively. The sorting
+mechanism uses the <code>sort</code> method which resides inside <code>List</code> interface to sort the contacts by name.</p>
 </div>
 </div>
 <div class="sect2">
@@ -2000,7 +2003,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-23 17:41:15 +00:00
+Last updated 2017-10-23 18:16:36 +00:00
 </div>
 </div>
 </body>
