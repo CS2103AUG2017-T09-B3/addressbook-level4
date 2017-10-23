@@ -88,10 +88,10 @@ This app will not work with earlier versions of Java 8.
 </div>
 </li>
 <li>
-<p>Download the latest <code>bonus.jar</code> <a href="https://github.com/CS2103AUG2017-T09-B3/main/releases">here</a>.</p>
+<p>Download the latest <code>bonus.jar</code> release from <a href="https://github.com/CS2103AUG2017-T09-B3/main/releases">here</a>.</p>
 </li>
 <li>
-<p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
+<p>Create a folder you want to use as home folder for <strong>BoNUS</strong> and copy the <code>jar</code> you have downloaded there.</p>
 </li>
 <li>
 <p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
@@ -136,7 +136,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>BoNUS</strong> mainly consists on three components: <strong>contacts</strong>, <strong>events</strong> and <strong>calendar</strong>. They work independently and each is
-considered as a kind of <code>data items</code>. They are described in details as follows:</p>
+considered as a collection of one kind of <code>data items</code>. They are described in details as follows:</p>
 </div>
 <div class="sect2">
 <h3 id="contacts"><a class="link" href="#contacts">2.1. Contacts</a></h3>
@@ -155,7 +155,7 @@ command in the section below for more information.</p>
 </li>
 <li>
 <p>You can group your contacts by adding one or multiple tags to them. Contacts with the same tag will be classified
-under the same group.</p>
+under the same group. Tag can be displayed in the color specified by <code>config --set-tag-color</code> command.</p>
 </li>
 </ul>
 </div>
@@ -169,7 +169,7 @@ under the same group.</p>
 <ul>
 <li>
 <p>By default, you can store and update their title, interval (starting time and end time), venue and description. Refer
-to the <code>add</code> and <code>edit</code> command in the section below for more information.</p>
+to the <code>addE</code> and <code>editE</code> command in the section below for more information.</p>
 </li>
 <li>
 <p>Similar to <a href="#contacts">contacts</a>, you can add customize properties to events as well.</p>
@@ -185,13 +185,16 @@ to the <code>add</code> and <code>edit</code> command in the section below for m
 begins) or at specific time before an event ends (when you need to finalize your assignment and submit it to your professor).</p>
 </li>
 <li>
-<p>You can link one or more <a href="#contacts">contacts</a> to an event (if all of you are going to attend the same meeting).</p>
+<p>You can link one or more <a href="#contacts">contacts</a> to an event (if they are going to attend the event together with you).</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
 <h3 id="calendar"><a class="link" href="#calendar">2.3. Calendar</a></h3>
+<div class="paragraph">
+<p><em>(Coming in v2.0)</em></p>
+</div>
 <div class="paragraph">
 <p>Calender provides a more convenient interface for you to view your upcoming <a href="#events">events</a>. All events are displayed
 based on their time interval. Events whose time intervals are not specified will not be displayed here.</p>
@@ -224,6 +227,9 @@ based on their time interval. Events whose time intervals are not specified will
 </li>
 <li>
 <p>Import events from <em>Google</em> <em>Calendar</em>, <em>Outlook</em> <em>Calendar</em>, etc.</p>
+</li>
+<li>
+<p>Export data (contacts and events) to <code>.xml</code> file (default storage format for <strong>BoNUS</strong>), Excel Worksheet, etc.</p>
 </li>
 <li>
 <p>Sync between all your devices.</p>
@@ -263,13 +269,14 @@ a lot.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>All data saved to the storage file will be encrypted using the state-of-the-art encryption scheme.</p>
+<p>All data saved to the storage file will be encrypted using the state-of-the-art encryption scheme (AES-256).</p>
 </li>
 <li>
-<p>Users will be prompted to enter their password whenever they open the application.</p>
+<p>You will be prompted to enter their password whenever they open the application (if you has decided to lock your application
+the last time before you exited).</p>
 </li>
 <li>
-<p>You can set up 2FA (two-factor authentication) if there is extra security requirement.</p>
+<p>You can set up 2FA (two-factor authentication) to fulfill extra security requirement(s).</p>
 </li>
 </ul>
 </div>
@@ -290,16 +297,19 @@ a lot.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>add n/John Doe</code>.</p>
+<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which
+can be used as <code>add n/John Doe</code>.</p>
 </li>
 <li>
 <p>Items in square brackets are optional e.g <code>n/NAME [t/TAG]</code> can be used as <code>n/John Doe t/friend</code> or as <code>n/John Doe</code>.</p>
 </li>
 <li>
-<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code> (i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.</p>
+<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code>
+(i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.</p>
 </li>
 <li>
-<p>Parameters can be in any order e.g. if the command specifies <code>n/NAME p/PHONE_NUMBER</code>, <code>p/PHONE_NUMBER n/NAME</code> is also acceptable.</p>
+<p>Parameters can be typed in any order e.g. if the command specifies <code>n/NAME p/PHONE_NUMBER</code>, <code>p/PHONE_NUMBER n/NAME</code>
+is also acceptable.</p>
 </li>
 </ul>
 </div>
@@ -313,12 +323,12 @@ a lot.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Most command can be applied to either a person or an event, whose result will depend on the context e.g. <code>add n/NAME</code>
-will add a person if the user is currently in the <a href="#contacts">contacts</a> component, add an event otherwise.</p>
+<p>Most command can be applied to either a person or an event, whose result will depend on the context e.g. <code>add</code> will add
+a person if the user is currently in the <a href="#contacts">contacts</a> component, otherwise <code>addE</code> will add a new <a href="#events">event</a>.</p>
 </li>
 <li>
-<p>All commands entered in the <a href="#calendar">calendar</a> component will actually be handled by the <a href="#contacts">contacts</a>
-component.</p>
+<p>All commands entered in the <a href="#calendar">calendar</a> component will actually be handled by either <a href="#contacts">contacts</a>
+component or <a href="#events">events</a> component.</p>
 </li>
 </ul>
 </div>
@@ -327,7 +337,7 @@ component.</p>
 <div class="sect2">
 <h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">4.1. Viewing help : <code>help</code></a></h3>
 <div class="paragraph">
-<p>Format: <code>help</code></p>
+<p>Format: <code>help</code> (or press <code>F1</code> on the keyboard)</p>
 </div>
 </div>
 <div class="sect2">
@@ -361,16 +371,6 @@ A person can have any number of tags (including 0).
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>Person added will automatically be placed in the list of contacts in alphabetical order by name.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="adding-an-event-code-adde-code"><a class="link" href="#adding-an-event-code-adde-code">4.3. Adding an event : <code>addE</code></a></h3>
-<div class="paragraph">
-<p>Adds an event to the application.<br>
-Format: `addE n/NAME dt/DATE_TIME a/EMAIL a/ADDRESS `</p>
-</div>
 <div class="admonitionblock tip">
 <table>
 <tr>
@@ -378,10 +378,41 @@ Format: `addE n/NAME dt/DATE_TIME a/EMAIL a/ADDRESS `</p>
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-Events added will be automatically sorted by date/time
+In a similar format, you can also add customize properties when adding a new person, as long as you have used <code>config
+--add-property</code> command to define that property before.
 </td>
 </tr>
 </table>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p>First, add a birthday property with the short name <code>b</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>config --add-property s/b f/birthday</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Then, you can set the value of <code>birthday</code> property when you add a new person (<em>see <code>b/12091191</code> below</em>)</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add n/Chris Lee p/98765432 e/johnd@example.com a/23 Chinatown b/12091991 t/friends</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-an-event-code-adde-code"><a class="link" href="#adding-an-event-code-adde-code">4.3. Adding an event : <code>addE</code></a></h3>
+<div class="paragraph">
+<p>Adds an event to the application.<br>
+Format: <code>addE n/NAME dt/DATE_TIME a/EMAIL a/ADDRESS</code></p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -389,10 +420,10 @@ Events added will be automatically sorted by date/time
 <div class="ulist">
 <ul>
 <li>
-<p>`addE n/Does Birthday dt/25122015 20:30 a/Does crib `</p>
+<p><code>addE n/Does Birthday dt/25122015 20:30 a/12 Kent Ridge Drive</code></p>
 </li>
 <li>
-<p>`addE n/Betsy Birthday dt/25122016 21:30 a/Betsy crib `</p>
+<p><code>addE n/Betsy Birthday dt/25122016 21:30 a/23 Marina Road</code></p>
 </li>
 </ul>
 </div>
@@ -403,12 +434,36 @@ Events added will be automatically sorted by date/time
 <p>Shows a list of all persons in the application.<br>
 Format: <code>list</code></p>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Contacts will be sorted by their names (increment).
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect2">
 <h3 id="listing-all-events-code-liste-code"><a class="link" href="#listing-all-events-code-liste-code">4.5. Listing all events : <code>listE</code></a></h3>
 <div class="paragraph">
 <p>Shows a list of all events in the application.<br>
 Format: <code>listE</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Events will be sorted by date/time (increment).
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -500,7 +555,7 @@ Edits the name of the 2nd event to be `Lunch with Betsy</code>.</p>
 <div class="sect2">
 <h3 id="locating-persons-events-by-any-property-code-find-code"><a class="link" href="#locating-persons-events-by-any-property-code-find-code">4.8. Locating persons/events by any property : <code>find</code></a></h3>
 <div class="paragraph">
-<p>Finds events whose corresponding field(s) contain any of the given keywords.<br>
+<p>Finds persons/events whose corresponding field(s) contain any of the given keywords.<br>
 Format: <code>find KEYWORD [MORE_KEYWORDS] [p/KEYWORD [MORE_KEYWORDS]]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
@@ -627,7 +682,7 @@ Deletes the 2nd event in the address book.</p>
 <div class="sect2">
 <h3 id="selecting-a-person-code-select-code"><a class="link" href="#selecting-a-person-code-select-code">4.11. Selecting a person: <code>select</code></a></h3>
 <div class="paragraph">
-<p>Selects the person/event identified by the index number used in the last listing.<br>
+<p>Selects a person (identified by the index number used in the last listing) to view the details of that person.<br>
 Format: <code>select INDEX</code></p>
 </div>
 <div class="sidebarblock">
@@ -700,7 +755,7 @@ Format: <code>undo</code></p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Undoable commands: those commands that modify the application&#8217;s content (<code>add</code>, <code>delete</code>, <code>edit</code> and <code>clear</code>).</p>
+<p>Undoable commands: those commands that modify the application&#8217;s content (<code>add</code>, <code>addE</code>, <code>edit</code>, <code>editE</code>, <code>delete</code>, <code>deleteE</code>, and <code>clear</code>).</p>
 </div>
 </td>
 </tr>
@@ -766,7 +821,7 @@ The <code>redo</code> command fails as there are no <code>undo</code> commands e
 <div class="sect2">
 <h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">4.15. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
-<p>Clears all entries from the current component.<br>
+<p>Clears all entries from the current component (either contacts or events).<br>
 Format: <code>clear</code></p>
 </div>
 <div class="admonitionblock note">
@@ -777,7 +832,7 @@ Format: <code>clear</code></p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Use <code>clear --all</code> if you want to clear data in all components (all contacts and events).</p>
+<p>Use <code>clear --all</code> if you want to clear data in all components (both contacts and events).</p>
 </div>
 </td>
 </tr>
@@ -793,8 +848,49 @@ are doing before using any of the following commands. These commands are intende
 <div class="sect3">
 <h4 id="add-new-property-code-config-add-property-code"><a class="link" href="#add-new-property-code-config-add-property-code">4.16.1. Add new property : <code>config --add-property</code></a></h4>
 <div class="paragraph">
-<p>Adds a new property field available to persons/events.<br>
-Format: <code>config --add-property s/b f/birthday [m/Birthday should be in the format of DD/MM/YYYY r/[^\s].*]</code></p>
+<p>Adds a new property field available to all persons or events.<br>
+Format: <code>config --add-property s/SHORT_NAME f/FULL_NAME [m/MESSAGE r/REGULAR_EXPRESSION]</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Short name is used as the prefix for <code>add</code>/<code>addE</code> and <code>edit</code>/<code>editE</code> commands.</p>
+</li>
+<li>
+<p>Full name is used to display the name of each property on the right panel (to show details of the selected person, see <code>select</code> command).</p>
+</li>
+<li>
+<p>Constraint message is the string that will be shown in result display box when the input value for this property in
+<code>add</code>/<code>addE</code> and <code>edit</code>/<code>editE</code> commands is invalid.</p>
+</li>
+<li>
+<p>Regular expression is used to check whether the input value for this property is valid.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>config --add-property s/ag f/age</code></p>
+</li>
+<li>
+<p><code>config --add-property s/b f/birthday m/Birthday should be in the format of DD/MM/YYYY r/[^\s].*</code></p>
+</li>
+</ul>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -837,8 +933,11 @@ Format: <code>config --set-tag-color TAG_NAME COLOR</code></p>
 color, different tags are <em>usually</em> displayed using different colors.</p>
 </li>
 <li>
-<p>The value of the parameter <code>COLOR</code> should be a valid RGB value (in hexadecimal, starting with a <code>#</code>). You can pick the
-RGB value of your favorite color from <a href="https://www.w3schools.com/colors/colors_rgb.asp">here</a>.</p>
+<p>The value of the parameter <code>COLOR</code> should be either one of the pre-defined color names or a valid RGB value (in hexadecimal,
+starting with a <code>#</code>). You can pick the RGB value of your favorite color from <a href="https://www.w3schools.com/colors/colors_rgb.asp">here</a>.</p>
+</li>
+<li>
+<p>Pre-defined color names include <em>black</em>, <em>blue</em>, <em>brown</em>, <em>green</em>, <em>red</em>, <em>white</em>, <em>yellow</em>.</p>
 </li>
 </ul>
 </div>
@@ -898,7 +997,8 @@ Format: <code>exit</code></p>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
-<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
+<strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the
+data of your previous Address Book folder.</p>
 </div>
 </div>
 </div>
@@ -970,7 +1070,7 @@ e.g.<code>select 2</code></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-23 13:52:40 +00:00
+Last updated 2017-10-23 15:36:09 +00:00
 </div>
 </div>
 </body>
