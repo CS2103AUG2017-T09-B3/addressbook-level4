@@ -958,14 +958,14 @@ users of their upcoming events via notifications on System Tray.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>_Figure 3.3.5 : Notifications via System Tray</p>
+<p><em>Figure 3.3.5 : Notifications via System Tray</em></p>
 </div>
 <div class="sect3">
 <h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">3.4.1. Design consideration</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong>  How to implement the idea of reminders into Events<br>
 <strong>Alternative 1 (current choice):</strong> Create a new reminder class that contains an event parameter to it. Events have a<br>
-list of reminders within them.
+list of reminders within them.<br>
 <strong>Pros:</strong> Independent. Reminder class is on its own and easy for future usage since it is already a class by itself.<br>
 Each reminder is tagged to an event, such that if we want to access the reminders in an event, it is easy to do so.<br>
 <strong>Cons:</strong> Require major changes to Logic and Model components for Event<br>
@@ -979,7 +979,7 @@ Each reminder is tagged to an event, such that if we want to access the reminder
 </div>
 </div>
 <div class="paragraph">
-<p>_Figure 3.3.6 : Class Diagram for <code>Reminder</code></p>
+<p><em>Figure 3.3.6 : Class Diagram for `Reminder`</em></p>
 </div>
 <div class="paragraph">
 <p>Therefore we have decided to adopt alternative 1 of creating a Reminder class as it is more versatile for future usage.</p>
@@ -1013,7 +1013,7 @@ with an <code>Event</code> parameter in it such that a <code>Reminder</code> is 
 </div>
 </div>
 <div class="paragraph">
-<p>_Figure 3.3.7 : Class Diagram for <code>Event</code></p>
+<p><em>Figure 3.3.7 : Class Diagram for `Event`</em></p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1021,7 +1021,7 @@ with an <code>Event</code> parameter in it such that a <code>Reminder</code> is 
 </div>
 </div>
 <div class="paragraph">
-<p>_Figure 3.3.8 : Relationship of Event and Reminder</p>
+<p><em>Figure 3.3.8 : Relationship of Event and Reminder</em></p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows how the automatic adding of reminders work</p>
@@ -2003,7 +2003,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-24 01:33:39 +00:00
+Last updated 2017-10-24 13:43:38 +00:00
 </div>
 </div>
 </body>
