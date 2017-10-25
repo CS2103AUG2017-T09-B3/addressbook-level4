@@ -887,6 +887,9 @@ Format: <code>(p)export FILEPATH</code></p>
 <p><code>FILEPATH</code> must end with an extension of <code>.xml</code>.</p>
 </li>
 <li>
+<p>The file name and any non-existent folder names in <code>FILEPATH</code> should not contain any prohibited characters <code>?!%*+:|"&lt;&gt;</code>.</p>
+</li>
+<li>
 <p>If a relative path is provided, the data will be exported to the <strong>BoNUS</strong> installation directory.</p>
 </li>
 <li>
@@ -913,6 +916,21 @@ Format: <code>(p)export FILEPATH</code></p>
 <code>export /Users/John Doe/Documents/bonus.xml</code></p>
 </li>
 </ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>For <code>Windows</code> users, use <code>\</code> as the name-separator in your <code>FILEPATH</code>.<br>
+For <code>macOS</code> and <code>Linux</code> users, use <code>/</code> instead.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect3">
@@ -1194,7 +1212,7 @@ eg. For <code>macOS</code> and <code>Linux</code> users: <code>export /Users/Joh
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-24 17:22:06 +00:00
+Last updated 2017-10-25 13:45:24 +00:00
 </div>
 </div>
 </body>
