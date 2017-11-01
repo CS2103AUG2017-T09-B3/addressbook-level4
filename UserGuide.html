@@ -1011,10 +1011,16 @@ in <code>.xml</code> format. It is unnecessary to explicitly state <code>import 
 <p><code>FILEPATH</code> must end with an extension of <code>.xml</code>.</p>
 </li>
 <li>
-<p>The file name and folder names in <code>FILEPATH</code> should not contain any prohibited characters <code>?!%*+:|"&lt;&gt;</code>.</p>
+<p>The file name in <code>FILEPATH</code> should not contain any prohibited characters <code>?!%*+:|"&lt;&gt;</code>.</p>
 </li>
 <li>
 <p>If a relative path is provided, the data will be imported from a location relative to the <strong>BoNUS</strong> installation directory.</p>
+</li>
+<li>
+<p>Persons and events that exist in <strong>BoNUS</strong> and the specified file will not be imported.</p>
+</li>
+<li>
+<p>Data in the specified XML file must be in the format as recognized by <strong>BoNUS</strong>.</p>
 </li>
 </ul>
 </div>
@@ -1072,7 +1078,7 @@ Format: <code>(i)import --script FILEPATH</code></p>
 <p><code>FILEPATH</code> must end with an extension of <code>.bo</code>.</p>
 </li>
 <li>
-<p>The file name and folder names in <code>FILEPATH</code> should not contain any prohibited characters <code>?!%*+:|"&lt;&gt;</code>.</p>
+<p>The file name in <code>FILEPATH</code> should not contain any prohibited characters <code>?!%*+:|"&lt;&gt;</code>.</p>
 </li>
 <li>
 <p>If a relative path is provided, the data will be imported from a location relative to the <strong>BoNUS</strong> installation directory.</p>
@@ -1210,6 +1216,21 @@ Format: <code>(p)export FILEPATH</code></p>
 </li>
 </ul>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>For <code>Windows</code> users, use <code>\</code> as the name-separator in your <code>FILEPATH</code>.<br>
+For <code>macOS</code> and <code>Linux</code> users, use <code>/</code> instead.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
 </div>
 <div class="sect3">
 <h4 id="to-microsoft-excel-sup-tm-sup-worksheet"><a class="link" href="#to-microsoft-excel-sup-tm-sup-worksheet">5.17.2. To Microsoft Excel<sup>TM</sup> Worksheet</a></h4>
@@ -1248,6 +1269,21 @@ Format: <code>(p)export --excel FILEPATH</code></p>
 <code>export --excel /Users/John Doe/Documents/bonus.xls</code></p>
 </li>
 </ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>For <code>Windows</code> users, use <code>\</code> as the name-separator in your <code>FILEPATH</code>.<br>
+For <code>macOS</code> and <code>Linux</code> users, use <code>/</code> instead.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -1503,7 +1539,7 @@ eg. <code>config --set-tag-color friends blue</code></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-10-31 14:35:25 +00:00
+Last updated 2017-11-01 06:12:14 +00:00
 </div>
 </div>
 </body>
