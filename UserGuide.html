@@ -633,18 +633,21 @@ The index <strong>must be a positive integer</strong> like 1, 2, 3, &#8230;&#820
 <div class="ulist">
 <ul>
 <li>
-<p><code>editE 1 dt/18052013 03:30<br>
-Edits the date/time the 1st event to be `18052013 03:30</code>.</p>
+<p><code>editE 1 dt/18052013 03:30</code><br>
+Edits the date/time the 1st event to be <code>18052013 03:30</code>.</p>
 </li>
 <li>
-<p><code>editE 2 n/Lunch with Betsy <br>
-Edits the name of the 2nd event to be `Lunch with Betsy</code>.</p>
+<p><code>editE 2 n/Lunch with Betsy</code> <br>
+Edits the name of the 2nd event to be <code>Lunch with Betsy</code>.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
 <h3 id="locating-persons-events-by-any-property-code-f-find-code"><a class="link" href="#locating-persons-events-by-any-property-code-f-find-code">5.8. Locating persons/events by any property : <code>(f)find</code></a></h3>
+<div class="paragraph">
+<p><em>(<code>AND</code> and <code>OR</code> search coming in v2.0)</em></p>
+</div>
 <div class="paragraph">
 <p>Finds persons/events whose corresponding field(s) contain any of the given keywords.<br>
 Format: <code>(f)find KEYWORD [MORE_KEYWORDS] [p/KEYWORD [MORE_KEYWORDS]]&#8230;&#8203;</code></p>
@@ -821,6 +824,9 @@ Format: <code>(s)select INDEX</code></p>
 </li>
 <li>
 <p>The index <strong>must be a positive integer</strong> like <code>1, 2, 3, &#8230;&#8203;</code></p>
+</li>
+<li>
+<p>All properties of this person/event will be displayed at the right side of the interface (ordered by the name of the property).</p>
 </li>
 </ul>
 </div>
@@ -1328,9 +1334,9 @@ For <code>macOS</code> and <code>Linux</code> users, use <code>/</code> instead.
 are doing before using any of the following commands. These commands are intended for advance users.</p>
 </div>
 <div class="sect3">
-<h4 id="add-new-property-code-cfg-config-add-property-code"><a class="link" href="#add-new-property-code-cfg-config-add-property-code">5.19.1. Add new property : <code>(cfg)config --add-property</code></a></h4>
+<h4 id="adding-a-customize-property-code-cfg-config-add-property-code"><a class="link" href="#adding-a-customize-property-code-cfg-config-add-property-code">5.19.1. Adding a customize property : <code>(cfg)config --add-property</code></a></h4>
 <div class="paragraph">
-<p>Adds a new property field available to all persons or events.<br>
+<p>Adds a new customize property field available to all persons or events.<br>
 Format: <code>(cfg)config --add-property s/SHORT_NAME f/FULL_NAME [m/MESSAGE r/REGULAR_EXPRESSION]</code></p>
 </div>
 <div class="sidebarblock">
@@ -1401,7 +1407,10 @@ if there is an existing property with the same short name.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="set-tag-color-code-cfg-config-set-tag-color-code"><a class="link" href="#set-tag-color-code-cfg-config-set-tag-color-code">5.19.2. Set tag color : <code>(cfg)config --set-tag-color</code></a></h4>
+<h4 id="setting-the-tag-color-code-cfg-config-set-tag-color-code"><a class="link" href="#setting-the-tag-color-code-cfg-config-set-tag-color-code">5.19.2. Setting the tag color : <code>(cfg)config --set-tag-color</code></a></h4>
+<div class="paragraph">
+<p><em>(Tag feature for events coming in v2.0)</em></p>
+</div>
 <div class="paragraph">
 <p>Sets the displayed color of a certain tag (for persons/events).<br>
 Format: <code>(cfg)config --set-tag-color TAG_NAME COLOR</code></p>
@@ -1415,11 +1424,14 @@ Format: <code>(cfg)config --set-tag-color TAG_NAME COLOR</code></p>
 color, different tags are <em>usually</em> displayed using different colors.</p>
 </li>
 <li>
-<p>The value of the parameter <code>COLOR</code> should be either one of the pre-defined color names or a valid RGB value (in hexadecimal,
-starting with a <code>#</code>). You can pick the RGB value of your favorite color from <a href="https://www.w3schools.com/colors/colors_rgb.asp">here</a>.</p>
+<p>The value of the parameter <code>COLOR</code> should be either one of the 140 pre-defined color names or a valid RGB value (a 3-bit
+or 6-bit hexadecimal number starting with a <code>#</code>).</p>
 </li>
 <li>
-<p>Pre-defined color names include <em>black</em>, <em>blue</em>, <em>brown</em>, <em>green</em>, <em>red</em>, <em>white</em>, <em>yellow</em>.</p>
+<p>You can pick the RGB value of your favorite color from <a href="https://www.w3schools.com/colors/colors_rgb.asp">here</a>.</p>
+</li>
+<li>
+<p>All legal pre-defined color names can be found from <a href="https://docs.oracle.com/javafx/2/api/javafx/scene/doc-files/cssref.html#typecolor">here</a>.</p>
 </li>
 </ul>
 </div>
@@ -1434,6 +1446,21 @@ starting with a <code>#</code>). You can pick the RGB value of your favorite col
 <p><code>config --set-tag-color friends red</code></p>
 </li>
 </ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>If you enter an invalid color name, the background for that tag will be set to transparent temporarily. You can use this
+again to set it to a legal color.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -1573,7 +1600,7 @@ eg. <code>config --set-tag-color friends blue</code></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-01 18:15:07 +00:00
+Last updated 2017-11-04 03:44:49 +00:00
 </div>
 </div>
 </body>
