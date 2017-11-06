@@ -984,38 +984,51 @@ easily add/edit these properties of each contact stored in the application, just
 <div class="sect2">
 <h3 id="auto-reminders"><a class="link" href="#auto-reminders">4.4. Auto Reminders</a></h3>
 <div class="paragraph">
-<p>We are adding reminders to events whenever an event is added. Reminders will automatically be set to a day before
+<p>We are adding a reminder to the event whenever an event is added. Reminders will notify users 3 days in advance before
 event itself.</p>
 </div>
 <div class="paragraph">
 <p>As we are targeting NUS students, in view of the busy schedules of students, students should be able to set reminders
 for events that they have to attend to. In the case that students forget to set reminders themselves, we automatically
-preset the reminder to a day before the event such that students have ample time to be aware and prepared for the event
-itself.</p>
-</div>
-<div class="paragraph">
-<p>Also, users can add their own reminders as well.</p>
+preset a reminder that will trigger from 3 days before the event such that students have ample time to be aware and be
+prepared for the event itself.</p>
 </div>
 <div class="paragraph">
 <p>Learning from many modern applications, the logic behind the applications are usually efficient and is able to handle
 multiple tasks at once. By automatically adding reminders alongside the addition of events, it makes it more
-convenient for the users themselves. We have set the default reminders to a day before the actual event to remind
-users of their upcoming events via notifications on System Tray.</p>
+convenient for the users themselves. We have set a default reminder to trigger 3 days before the actual event
+to remind users of their upcoming events via different colour schemes.</p>
+</div>
+<div class="paragraph">
+<p>As shown in the <em>Figure 4.4.1</em></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The red bell indicates the day of the event</p>
+</li>
+<li>
+<p>The orange bell indicates one day to event.</p>
+</li>
+<li>
+<p>The green bell indicates two days to event.</p>
+</li>
+</ol>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/SystemTrayNotifications.png" alt="SystemTrayNotifications" width="300">
+<img src="images/ReminderColorScheme.png" alt="ReminderColorScheme" width="300">
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.4.1 : Notifications via System Tray</em></p>
+<p><em>Figure 4.4.1 : Reminders via different colour schemes to indicate urgency</em></p>
 </div>
 <div class="sect3">
 <h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">4.4.1. Design consideration</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong>  How to implement the idea of reminders into Events<br>
 <strong>Alternative 1 (current choice):</strong> Create a new reminder class that contains an event parameter to it. Events have a<br>
-list of reminders within them.<br>
+list of reminders within them (Figure 4.4.1.1).<br>
 <strong>Pros:</strong> Independent. Reminder class is on its own and easy for future usage since it is already a class by itself.<br>
 Each reminder is tagged to an event, such that if we want to access the reminders in an event, it is easy to do so.<br>
 <strong>Cons:</strong> Require major changes to Logic and Model components for Event<br>
@@ -1052,8 +1065,8 @@ Such a design makes Reminder class more adaptable to changes and ready for futur
 on its own.</p>
 </li>
 <li>
-<p>Have a list of reminders in <code>Event</code> class (Figure 3.37). Since <code>Event</code> can have multiple reminders, each reminder is
-instantiated with an <code>Event</code> parameter in it such that a <code>Reminder</code> is tagged to an Event itself. Figure 3.38 depicts the
+<p>Have a list of reminders in <code>Event</code> class (Figure 4.4.2.1). Since <code>Event</code> can have multiple reminders, each reminder is
+instantiated with an <code>Event</code> parameter in it such that a <code>Reminder</code> is tagged to an Event itself. Figure 4.4.2.2 depicts the
 relationship between <code>Event</code> and <code>Reminder</code>.</p>
 </li>
 </ol>
@@ -1075,7 +1088,7 @@ relationship between <code>Event</code> and <code>Reminder</code>.</p>
 <p><em>Figure 4.4.2.2 : Relationship of Event and Reminder</em></p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows how the automatic adding of reminders work</p>
+<p>The following sequence diagram (Figure 4.4.2.3) shows how reminders are automatically added upon the addition of events.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2054,7 +2067,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-06 07:48:10 +00:00
+Last updated 2017-11-06 15:36:13 +00:00
 </div>
 </div>
 </body>
