@@ -49,8 +49,9 @@
 <li><a href="#logging">4.2. Logging</a></li>
 <li><a href="#generic-property">4.3. Generic Property</a></li>
 <li><a href="#auto-reminders">4.4. Auto Reminders</a></li>
-<li><a href="#contacts-event-listing-order-by-name-date-time-mechanism">4.5. Contacts/Event listing order by name/date time mechanism</a></li>
-<li><a href="#configuration">4.6. Configuration</a></li>
+<li><a href="#import-export-mechanism">4.5. Import &amp; Export mechanism</a></li>
+<li><a href="#contacts-event-listing-order-by-name-date-time-mechanism">4.6. Contacts/Event listing order by name/date time mechanism</a></li>
+<li><a href="#configuration">4.7. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -1024,7 +1025,7 @@ to remind users of their upcoming events via different colour schemes.</p>
 <p><em>Figure 4.4.1 : Reminders via different colour schemes to indicate urgency</em></p>
 </div>
 <div class="sect3">
-<h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">4.4.1. Design consideration</a></h4>
+<h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">4.4.1. Design Consideration</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong>  How to implement the idea of reminders into Events<br>
 <strong>Alternative 1 (current choice):</strong> Create a new reminder class that contains an event parameter to it. Events have a<br>
@@ -1049,7 +1050,7 @@ Each reminder is tagged to an event, such that if we want to access the reminder
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-outline-2"><a class="link" href="#implementation-outline-2">4.4.2. Implementation outline</a></h4>
+<h4 id="implementation-outline-2"><a class="link" href="#implementation-outline-2">4.4.2. Implementation Outline</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1101,7 +1102,125 @@ relationship between <code>Event</code> and <code>Reminder</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="contacts-event-listing-order-by-name-date-time-mechanism"><a class="link" href="#contacts-event-listing-order-by-name-date-time-mechanism">4.5. Contacts/Event listing order by name/date time mechanism</a></h3>
+<h3 id="import-export-mechanism"><a class="link" href="#import-export-mechanism">4.5. Import &amp; Export mechanism</a></h3>
+<div class="paragraph">
+<p>In order to open up more possibilities to <strong>BoNUS</strong>, we have introduced the <code>import</code> and <code>export</code> commands. We are using
+<code>ImportXmlCommand</code> and <code>ExportCommand</code> to support importing and exporting of address book data through XML files.</p>
+</div>
+<div class="paragraph">
+<p>In the following sections, we will focus on how these commands depend on the <code>Storage</code> component to retrieve external
+data, as well as the file path validation mechanism adopted on a high-level basis.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation-2"><a class="link" href="#implementation-2">4.5.1. Implementation</a></h4>
+<div class="sect4">
+<h5 id="external-data-access"><a class="link" href="#external-data-access">External Data Access</a></h5>
+<div class="paragraph">
+<p>In order to achieve their tasks, both <code>import</code> and <code>export</code> commands natively require access to the external
+environment, unlike other commands. Hence, these commands are designed to depend directly on the <code>Storage</code> component.</p>
+</div>
+<div class="paragraph">
+<p>The dependence of <code>Storage</code> in <code>import</code> and <code>export</code> is achieved through the <code>Command.setStorage(Storage)</code> method. This
+method mimics the existing <code>Command.setData(Model, CommandHistory, UndoRedoStack)</code> method, where only commands that make
+use of the relevant data will override this method to gain access to the dependencies.</p>
+</div>
+<div class="paragraph">
+<p>The following shows the implementation of <code>Command.setStorage(Storage)</code>, which is not overridden commands other than
+<code>ImportXmlCommand</code> and <code>ExportCommand</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">void</span> setStorage(Storage storage) {
+    <span class="comment">// intentionally left empty</span>
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In <code>ImportXmlCommand</code> and <code>ExportCommand</code>, the overridden method is implemented in this way:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="annotation">@Override</span>
+<span class="directive">public</span> <span class="type">void</span> setStorage(Storage storage) {
+    <span class="local-variable">this</span>.storage = storage;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Through this implementation, commands that depend directly on the <code>Storage</code> component (ie. <code>import</code> and <code>export</code>) are
+able to gain full access to <code>Storage</code>, while commands that do not rely on <code>Storage</code> remain weakly coupled to it. The
+following class diagram of the <code>Logic</code> component reflects the overall implementation on an architectural-level point of
+view:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/LogicClassDiagramStorageEmphasis.png" alt="LogicClassDiagramStorageEmphasis" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.5.1.1 : Structure of the Logic Component</em></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="file-path-validation"><a class="link" href="#file-path-validation">File Path Validation</a></h5>
+<div class="paragraph">
+<p>File paths, as required by <code>import</code> and <code>export</code> commands, are validated during the execution of the corresponding
+command. The following sequence diagram shows an example of how file path validation is performed prior exporting the
+address book data:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ExportCommandSequenceDiagram.png" alt="ExportCommandSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.5.1.2 : Sequence Diagram for Export Command</em></p>
+</div>
+<div class="paragraph">
+<p>To facilitate better handling of invalid file paths and to provide appropriate feedback to the user, several exception
+classes, all of which are derived from the <code>InvalidFilePathException</code> class, have been implemented. The following shows
+the inheritance diagram of the above-mentioned exception classes:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/CommonsComponentExceptionClassDiagram.png" alt="CommonsComponentExceptionClassDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.5.1.3 : Structure of Exception Classes related to File Path Validation</em></p>
+</div>
+<div class="paragraph">
+<p>With that, we are able to ensure that data would be exported to or imported from a truly valid file path as specified by
+the user, while being able to inform users on the mistakes that they have made.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.5.2. Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Implementation of <code>Storage</code> dependency for <code>ImportXmlCommand</code> and <code>ExportCommand</code><br>
+<strong>Alternative 1 (current choice):</strong> Add a new <code>setStorage(Storage)</code> method in <code>Command</code><br>
+<strong>Pros:</strong> Provides direct access to <code>Storage</code> for commands that only requires it.<br>
+<strong>Cons:</strong> There is an inherent dependency on <code>Storage</code> for all commands, although the coupling is weak.<br>
+<strong>Alternative 2:</strong> Raise a <code>BaseEvent</code> in the <code>EventsCenter</code> through <code>Model</code><br>
+<strong>Pros:</strong> Completely decouples <code>Command</code> from <code>Storage</code>.<br>
+<strong>Cons:</strong> The need for access to <code>Storage</code> is not a side-effect as with other commands that mutate the address book<br>
+(eg. <code>add</code>, <code>delete</code> etc.). The dependency of <code>Storage</code> is part of their native behaviour.</p>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Location for Implementation of File Path Validation<br>
+<strong>Alternative 1 (current choice):</strong> In <code>Storage</code><br>
+<strong>Pros:</strong> Validation is not just done for user input file paths (ie. via <code>import</code> and <code>export</code> commands), but also for the address book file path as defined in the user&#8217;s preferences (ie. <code>preferences.json</code>).<br>
+<strong>Cons:</strong> Validation is performed after every execution of an <code>UndoableCommand</code> due to the saving of the address book.<br>
+<strong>Alternative 2:</strong> In <code>CommandParser</code><br>
+<strong>Pros:</strong> Validation will not be done after every execution of an <code>UndoableCommand</code> unnecessarily.<br>
+<strong>Cons:</strong> File path validation may also be required for other purposes.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="contacts-event-listing-order-by-name-date-time-mechanism"><a class="link" href="#contacts-event-listing-order-by-name-date-time-mechanism">4.6. Contacts/Event listing order by name/date time mechanism</a></h3>
 <div class="paragraph">
 <p>Whenever there is a command that triggers the "<em>refresh</em>" of <a href="https://github.com/CS2103AUG2017-T09-B3/main/tree/master/src/main/java/seedu/address/ui/person/PersonListPanel.java"><code>PersonListPanel</code></a>
 or <a href="https://github.com/CS2103AUG2017-T09-B3/main/tree/master/src/main/java/seedu/address/ui/event/EventListPanel.java"><code>EventListPanel</code></a>, like when adding a new contact
@@ -1110,7 +1229,7 @@ mechanism uses the <code>sort</code> method which resides inside <code>List</cod
 </div>
 </div>
 <div class="sect2">
-<h3 id="configuration"><a class="link" href="#configuration">4.6. Configuration</a></h3>
+<h3 id="configuration"><a class="link" href="#configuration">4.7. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2067,7 +2186,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-07 13:01:49 +00:00
+Last updated 2017-11-07 14:58:59 +00:00
 </div>
 </div>
 </body>
