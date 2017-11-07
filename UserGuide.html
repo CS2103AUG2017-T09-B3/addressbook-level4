@@ -1080,7 +1080,7 @@ in <code>.xml</code> format. It is unnecessary to explicitly state <code>import 
 <p><code>FILEPATH</code> must end with an extension of <code>.xml</code>.</p>
 </li>
 <li>
-<p>The file name in <code>FILEPATH</code> should not contain any prohibited characters <code>?!%*+:|"&lt;&gt;</code>.</p>
+<p>The file name in <code>FILEPATH</code> should not be empty, nor should it contain any prohibited characters <code>?!%*+:|"&lt;&gt;</code>.</p>
 </li>
 <li>
 <p>If a relative path is provided, the data will be imported from a location relative to the <strong>BoNUS</strong> installation directory.</p>
@@ -1147,7 +1147,7 @@ Format: <code>(i)import --script FILEPATH</code></p>
 <p><code>FILEPATH</code> must end with an extension of <code>.bo</code>.</p>
 </li>
 <li>
-<p>The file name in <code>FILEPATH</code> should not contain any prohibited characters <code>?!%*+:|"&lt;&gt;</code>.</p>
+<p>The file name in <code>FILEPATH</code> should not be empty, nor should it contain any prohibited characters <code>?!%*+:|"&lt;&gt;</code>.</p>
 </li>
 <li>
 <p>If a relative path is provided, the data will be imported from a location relative to the <strong>BoNUS</strong> installation directory.</p>
@@ -1253,6 +1253,9 @@ Format: <code>(p)export FILEPATH</code></p>
 </li>
 <li>
 <p><code>FILEPATH</code> must end with an extension of <code>.xml</code>.</p>
+</li>
+<li>
+<p>The file name in <code>FILEPATH</code> should not be empty.</p>
 </li>
 <li>
 <p>The file name and any non-existent folder names in <code>FILEPATH</code> should not contain any prohibited characters <code>?!%*+:|"&lt;&gt;</code>.</p>
@@ -1629,7 +1632,7 @@ eg. <code>config --set-tag-color friends blue</code></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-07 01:23:47 +00:00
+Last updated 2017-11-07 13:01:49 +00:00
 </div>
 </div>
 </body>
