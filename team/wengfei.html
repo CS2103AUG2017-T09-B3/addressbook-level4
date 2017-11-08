@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.3">
+<title>Low Weng Fei - Project Portfolio</title>
+<link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css">
+</head>
+<body class="article">
+<div id="header">
+<h1>Low Weng Fei - Project Portfolio</h1>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="project-bonus"><a class="link" href="#project-bonus">Project: BoNUS</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>BoNUS is a desktop personal organizer application targeted at National University of Singapore (NUS) students, with
+Contacts, Events and Calendar being the main focus of this application. While users interact with it mainly through a
+Command Line Interface (CLI), BoNUS also provides a simple Graphical User Interface (GUI) for a better User Experience (UX).</p>
+</div>
+<div class="paragraph">
+<p>This project is the result of a semester-long Software Engineering module, <a href="https://nus-cs2103.github.io/website/">CS2103T</a>,
+in NUS. The backend of BoNUS is written primarily in Java, while JavaFX is used for the frontend design. Being built
+based on <a href="https://github.com/se-edu/addressbook-level4">Address Book (Level 4)</a>, an initiative from the
+<a href="https://se-edu.github.io/">SE-EDU team</a>, the current codebase has expanded to around 10 kLoC.</p>
+</div>
+<div class="paragraph">
+<p><strong>Code contributed</strong>: [<a href="https://github.com/CS2103AUG2017-T09-B3/main/blob/master/collated/main/low5545.md">Functional code</a>] [<a href="https://github.com/CS2103AUG2017-T09-B3/main/blob/master/collated/test/low5545.md">Test code</a>]</p>
+</div>
+<div class="sect2">
+<h3 id="enhancement-added-import-export"><a class="link" href="#enhancement-added-import-export">Enhancement Added: Import/Export</a></h3>
+<div class="sect3">
+<h4 id="external-behavior"><a class="link" href="#external-behavior">External behavior</a></h4>
+<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="importing-data-code-i-import-code"><a class="link" href="#importing-data-code-i-import-code">Importing data : <code>(i)import</code></a></h3>
+<div class="sect3">
+<h4 id="from-code-xml-code-format"><a class="link" href="#from-code-xml-code-format">From <code>.xml</code> format</a></h4>
+<div class="paragraph">
+<p>Imports the data in an external XML file, including data from all three components: <strong>Contacts</strong>, <strong>Events</strong> and <strong>Calendar</strong>,
+into the current address book of <strong>BoNUS</strong>.<br>
+Format: <code>(i)import FILEPATH</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The default data format is <code>.xml</code> file. Without explicit parameters, the application will treat the given path as a file
+in <code>.xml</code> format. It is unnecessary to explicitly state <code>import --xml FILEPATH</code>, although you are allowed to do so.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Imports data from the location and file name specified by <code>FILEPATH</code>.</p>
+</li>
+<li>
+<p><code>FILEPATH</code> must end with an extension of <code>.xml</code>.</p>
+</li>
+<li>
+<p>The file name in <code>FILEPATH</code> should not be empty, nor should it contain any prohibited characters <code>?!%*+:|"&lt;&gt;</code>.</p>
+</li>
+<li>
+<p>If a relative path is provided, the data will be imported from a location relative to the <strong>BoNUS</strong> installation directory.</p>
+</li>
+<li>
+<p>Persons and events that exist in <strong>BoNUS</strong> and the specified file will not be imported.</p>
+</li>
+<li>
+<p>Data in the specified XML file must be in the format as recognized by <strong>BoNUS</strong>.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>For <code>Windows</code> users:<br>
+<code>import C:\Users\John Doe\Documents\bonus.xml</code></p>
+</li>
+<li>
+<p>For <code>macOS</code> and <code>Linux</code> users:<br>
+<code>import /Users/John Doe/Documents/bonus.xml</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>For <code>Windows</code> users, use <code>\</code> as the name-separator in your <code>FILEPATH</code>.<br>
+For <code>macOS</code> and <code>Linux</code> users, use <code>/</code> instead.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exporting-data-code-p-export-code"><a class="link" href="#exporting-data-code-p-export-code">Exporting data : <code>(p)export</code></a></h3>
+<div class="sect3">
+<h4 id="to-code-xml-code-format"><a class="link" href="#to-code-xml-code-format">To <code>.xml</code> format</a></h4>
+<div class="paragraph">
+<p>Exports the current data in the application, including data from all three components: <strong>Contacts</strong>, <strong>Events</strong> and
+<strong>Calendar</strong>, to an external location.<br>
+Format: <code>(p)export FILEPATH</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Exports data to the location and file name specified by <code>FILEPATH</code>.</p>
+</li>
+<li>
+<p><code>FILEPATH</code> must end with an extension of <code>.xml</code>.</p>
+</li>
+<li>
+<p>The file name in <code>FILEPATH</code> should not be empty.</p>
+</li>
+<li>
+<p>The file name and any non-existent folder names in <code>FILEPATH</code> should not contain any prohibited characters <code>?!%*+:|"&lt;&gt;</code>.</p>
+</li>
+<li>
+<p>If a relative path is provided, the data will be exported to a location relative to the <strong>BoNUS</strong> installation directory.</p>
+</li>
+<li>
+<p>Existing data file at <code>FILEPATH</code> will be overwritten.</p>
+</li>
+<li>
+<p>Parent directories, if specified in <code>FILEPATH</code>, will be created if they do not exist.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>For <code>Windows</code> users:<br>
+<code>export C:\Users\John Doe\Documents\bonus.xml</code></p>
+</li>
+<li>
+<p>For <code>macOS</code> and <code>Linux</code> users:<br>
+<code>export /Users/John Doe/Documents/bonus.xml</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>For <code>Windows</code> users, use <code>\</code> as the name-separator in your <code>FILEPATH</code>.<br>
+For <code>macOS</code> and <code>Linux</code> users, use <code>/</code> instead.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="justification"><a class="link" href="#justification">Justification</a></h4>
+<div class="paragraph">
+<p>The support for import and export capabilities is essential to increase the user adoption of BoNUS, as these features
+allow users to incorporate BoNUS more seamlessly in their daily routines. Simply by providing the desired file location,
+users are able to import data into BoNUS, and export all data stored in the application to somewhere safe.</p>
+</div>
+<div class="paragraph">
+<p>As for the latest BoNUS v1.5 official release, users are constrained to import data from, or export data to a
+BoNUS-recognized XML file. Nevertheless, more file formats will be supported in future releases to truly unleash the
+full potential of the application.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="realization"><a class="link" href="#realization">Realization</a></h4>
+<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="import-export-mechanism"><a class="link" href="#import-export-mechanism">Import &amp; Export mechanism</a></h3>
+<div class="paragraph">
+<p>In order to open up more possibilities to <strong>BoNUS</strong>, we have introduced the <code>import</code> and <code>export</code> commands. We are using
+<code>ImportXmlCommand</code> and <code>ExportCommand</code> to support importing and exporting of address book data through XML files.</p>
+</div>
+<div class="paragraph">
+<p>In the following sections, we will focus on how these commands depend on the <code>Storage</code> component to retrieve external
+data, as well as the file path validation mechanism adopted on a high-level basis.</p>
+</div>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="sect4">
+<h5 id="external-data-access"><a class="link" href="#external-data-access">External Data Access</a></h5>
+<div class="paragraph">
+<p>In order to achieve their tasks, both <code>import</code> and <code>export</code> commands natively require access to the external
+environment, unlike other commands. Hence, these commands are designed to depend directly on the <code>Storage</code> component.</p>
+</div>
+<div class="paragraph">
+<p>The dependence of <code>Storage</code> in <code>import</code> and <code>export</code> is achieved through the <code>Command.setStorage(Storage)</code> method. This
+method mimics the existing <code>Command.setData(Model, CommandHistory, UndoRedoStack)</code> method, where only commands that make
+use of the relevant data will override this method to gain access to the dependencies.</p>
+</div>
+<div class="paragraph">
+<p>The following shows the implementation of <code>Command.setStorage(Storage)</code>, which is not overridden commands other than
+<code>ImportXmlCommand</code> and <code>ExportCommand</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">void</span> setStorage(Storage storage) {
+    <span class="comment">// intentionally left empty</span>
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In <code>ImportXmlCommand</code> and <code>ExportCommand</code>, the overridden method is implemented in this way:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="annotation">@Override</span>
+<span class="directive">public</span> <span class="type">void</span> setStorage(Storage storage) {
+    <span class="local-variable">this</span>.storage = storage;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Through this implementation, commands that depend directly on the <code>Storage</code> component (ie. <code>import</code> and <code>export</code>) are
+able to gain full access to <code>Storage</code>, while commands that do not rely on <code>Storage</code> remain weakly coupled to it. The
+following class diagram of the <code>Logic</code> component reflects the overall implementation on an architectural-level point of
+view:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/LogicClassDiagramStorageEmphasis.png" alt="LogicClassDiagramStorageEmphasis" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.5.1.1 : Structure of the Logic Component</em></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="file-path-validation"><a class="link" href="#file-path-validation">File Path Validation</a></h5>
+<div class="paragraph">
+<p>File paths, as required by <code>import</code> and <code>export</code> commands, are validated during the execution of the corresponding
+command. The following sequence diagram shows an example of how file path validation is performed prior exporting the
+address book data:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ExportCommandSequenceDiagram.png" alt="ExportCommandSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.5.1.2 : Sequence Diagram for Export Command</em></p>
+</div>
+<div class="paragraph">
+<p>To facilitate better handling of invalid file paths and to provide appropriate feedback to the user, several exception
+classes, all of which are derived from the <code>InvalidFilePathException</code> class, have been implemented. The following shows
+the inheritance diagram of the above-mentioned exception classes:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/CommonsComponentExceptionClassDiagram.png" alt="CommonsComponentExceptionClassDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.5.1.3 : Structure of Exception Classes related to File Path Validation</em></p>
+</div>
+<div class="paragraph">
+<p>With that, we are able to ensure that data would be exported to or imported from a truly valid file path as specified by
+the user, while being able to inform users on the mistakes that they have made.</p>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Implementation of <code>Storage</code> dependency for <code>ImportXmlCommand</code> and <code>ExportCommand</code><br>
+<strong>Alternative 1 (current choice):</strong> Add a new <code>setStorage(Storage)</code> method in <code>Command</code><br>
+<strong>Pros:</strong> Provides direct access to <code>Storage</code> for commands that only requires it.<br>
+<strong>Cons:</strong> There is an inherent dependency on <code>Storage</code> for all commands, although the coupling is weak.<br>
+<strong>Alternative 2:</strong> Raise a <code>BaseEvent</code> in the <code>EventsCenter</code> through <code>Model</code><br>
+<strong>Pros:</strong> Completely decouples <code>Command</code> from <code>Storage</code>.<br>
+<strong>Cons:</strong> The need for access to <code>Storage</code> is not a side-effect as with other commands that mutate the address book<br>
+(eg. <code>add</code>, <code>delete</code> etc.). The dependency of <code>Storage</code> is part of their native behaviour.</p>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Location for Implementation of File Path Validation<br>
+<strong>Alternative 1 (current choice):</strong> In <code>Storage</code><br>
+<strong>Pros:</strong> Validation is not just done for user input file paths (ie. via <code>import</code> and <code>export</code> commands), but also for the address book file path as defined in the user&#8217;s preferences (ie. <code>preferences.json</code>).<br>
+<strong>Cons:</strong> Validation is performed after every execution of an <code>UndoableCommand</code> due to the saving of the address book.<br>
+<strong>Alternative 2:</strong> In <code>CommandParser</code><br>
+<strong>Pros:</strong> Validation will not be done after every execution of an <code>UndoableCommand</code> unnecessarily.<br>
+<strong>Cons:</strong> File path validation may also be required for other purposes.</p>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="other-contributions"><a class="link" href="#other-contributions">Other contributions</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Added an informative feedback message to notify users what command they have undone or redone
+(Pull request <a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/61">#61</a>)</p>
+</li>
+<li>
+<p>Introduced the support of command aliases, or shorthand-equivalent commands
+(Pull request <a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/38">#38</a>)</p>
+</li>
+<li>
+<p>Assisted Project AcquaiNote in bug reporting and feature suggestions
+(Issues <a href="https://github.com/CS2103AUG2017-T10-B1/main/issues/74">#74</a>, <a href="https://github.com/CS2103AUG2017-T10-B1/main/issues/75">#75</a>,
+<a href="https://github.com/CS2103AUG2017-T10-B1/main/issues/76">#76</a>, Pull requests <a href="https://github.com/CS2103AUG2017-T10-B1/main/pull/77">#77</a>,
+<a href="https://github.com/CS2103AUG2017-T10-B1/main/pull/79">#79</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2017-11-08 15:28:23 +00:00
+</div>
+</div>
+</body>
+</html>
