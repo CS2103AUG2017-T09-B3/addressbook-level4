@@ -49,7 +49,7 @@
 <li><a href="#viewing-help-code-h-help-code">5.1. Viewing help : <code>(h)help</code></a></li>
 <li><a href="#adding-a-person-code-a-add-code">5.2. Adding a person : <code>(a)add</code></a></li>
 <li><a href="#adding-an-event-code-ae-adde-code">5.3. Adding an event : <code>(aE)addE</code></a></li>
-<li><a href="#listing-all-persons-events-code-l-list-code">5.4. Listing all persons/events : <code>(l)list</code></a></li>
+<li><a href="#listing-all-persons-code-l-list-code">5.4. Listing all persons : <code>(l)list</code></a></li>
 <li><a href="#listing-all-events-code-le-liste-code">5.5. Listing all events : <code>(lE)listE</code></a></li>
 <li><a href="#editing-a-person-code-e-edit-code">5.6. Editing a person : <code>(e)edit</code></a></li>
 <li><a href="#editing-an-event-code-ee-edite-code">5.7. Editing an event : <code>(eE)editE</code></a></li>
@@ -86,27 +86,33 @@
 <div class="ulist">
 <ul>
 <li>
-<p><strong>BoNUS</strong> is a desktop personal organizer application dedicated to NUS students to carry out various tasks such as storing
-contacts, scheduling for upcoming events, timetable planning as well as a calendar to better organise their campus life.</p>
+<p>As an NUS student, do you feel like your schedules are all over the place and your contacts are too messy making searching through it a pain?</p>
 </li>
 <li>
-<p>Apart from storing important information such as name, email, address and phone number. you are given <em>infinite freedom</em>
-to customize your own fields as you deem fit.</p>
+<p>Sounds like you need a "Bonus"!</p>
+</li>
+<li>
+<p>Our <strong>BoNUS</strong> is a desktop personal organizer application dedicated to NUS students to carry out various tasks such as storing
+contacts, scheduling for upcoming events, timetable planning as well as a calendar to better organise your campus life.</p>
+</li>
+<li>
+<p>Apart from storing essential information such as name, email, address and phone number, you have <em>infinite freedom</em>
+to customize your own fields!</p>
 </li>
 <li>
 <p><strong>BoNUS</strong> is convenient, fast, secured, integrated, solely with the motivation of giving you a bonus for your student
-life in NUS.</p>
-</li>
-<li>
-<p><strong>BoNUS</strong> is oriented for typist user (most operations should be done using keyboard rather than mouse).</p>
+life in NUS. It is also oriented for typist users (most operations should be done using keyboard rather than mouse), which makes it all the more simple!</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s begin!</p>
 </div>
 <div class="sect2">
 <h3 id="purpose"><a class="link" href="#purpose">1.1. Purpose</a></h3>
 <div class="paragraph">
-<p>This user guide aims to provide potential users with a comprehensive step-by-step guide on how to better utilise <strong>BoNUS</strong>
-to make their NUS life a more organised one.</p>
+<p>This user guide will provide you with a comprehensive step-by-step guide on how to better utilise <strong>BoNUS</strong>
+to make your NUS life a breeze.</p>
 </div>
 </div>
 </div>
@@ -117,7 +123,7 @@ to make their NUS life a more organised one.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Ensure you have Java version <code>1.8.0_60</code> or later installed in your Computer.</p>
+<p>Start by ensuring you have Java version <code>1.8.0_60</code> or later installed in your Computer.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -126,7 +132,7 @@ to make their NUS life a more organised one.</p>
 </td>
 <td class="content">
 Having any Java 8 version is not enough.<br>
-This app will not work with earlier versions of Java 8.
+If you only have earlier versions of Java 8, this app will not work.
 </td>
 </tr>
 </table>
@@ -183,20 +189,7 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <h2 id="components"><a class="link" href="#components">3. Components</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>BoNUS</strong> mainly consists on three components: <strong>contacts</strong>, <strong>events</strong> and <strong>calendar</strong>. They work independently and each is
-considered as a collection of one kind of <code>data items</code>.</p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-You can use the sidebar on the left-hand side of the application interface to switch between different components.
-</td>
-</tr>
-</table>
+<p><strong>BoNUS</strong> consists of three main components: <strong>contacts</strong>, <strong>events</strong> and <strong>calendar</strong> which you can select using the sidebar on the left-hand side.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -212,21 +205,21 @@ You can use the sidebar on the left-hand side of the application interface to sw
 <div class="sect2">
 <h3 id="contacts"><a class="link" href="#contacts">3.1. Contacts</a></h3>
 <div class="paragraph">
-<p>You can store personal information of your contacts (friends, classmates, professors, etc.) in <strong>BoNUS</strong>.</p>
+<p>Time to deal with the many contacts you have accumulated while studying in NUS.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>By default, you can store and update their name, phone number, email address and mailing address. Refer to the <code>add</code>
-and <code>edit</code> command in the section below for more information.</p>
+<p>By default, you can store and update names, phone numbers, email and mailing addresses. (<code>add</code>
+and <code>edit</code> command)</p>
 </li>
 <li>
-<p>You can store other information of your contacts by adding customize properties. Refer to the <code>config add-property</code>
-command in the section below for more information.</p>
+<p>Additionally, you can customize an additional field to a contact that is not in the default. (<code>config add-property</code>
+command)</p>
 </li>
 <li>
-<p>You can group your contacts by adding one or multiple tags to them. Contacts with the same tag will be classified
-under the same group. Tag can be displayed in the color specified by <code>config --set-tag-color</code> command.</p>
+<p>Now, let&#8217;s organize all your contacts by adding one or more tags to them. Those with the same tag will be classified
+under the same group. You can even customize the colour of the tags to your liking. (<code>config --set-tag-color</code> command)</p>
 </li>
 </ul>
 </div>
@@ -234,29 +227,25 @@ under the same group. Tag can be displayed in the color specified by <code>confi
 <div class="sect2">
 <h3 id="events"><a class="link" href="#events">3.2. Events</a></h3>
 <div class="paragraph">
-<p>You can store your upcoming events (meeting with professor tomorrow, assignment deadline, lecture/tutorial time slot, etc.) in <strong>BoNUS</strong>.</p>
+<p>Got a meeting with professor or an assignment deadline you need to remember?</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>By default, you can store and update their title, interval (starting time and end time), venue and description. Refer
-to the <code>addE</code> and <code>editE</code> command in the section below for more information.</p>
+<p>By default, you can store and update the title, interval (starting time and end time), venue and description of the event. (<code>addE</code> and <code>editE</code> command)</p>
 </li>
 <li>
-<p>Similar to <a href="#contacts">contacts</a>, you can add customize properties to events as well.</p>
+<p>Similar to <a href="#contacts">contacts</a>, you can add customize properties and add tags to events as well.</p>
 </li>
 <li>
-<p>Similar to <a href="#contacts">contacts</a>, you can add tags to events as well.</p>
+<p>Setting a starting and/or end time for an event, will be reflected accordingly on the <a href="#calendar">calendar</a> component.</p>
 </li>
 <li>
-<p>If you have set starting and/or end time for an event, it will be reflected accordingly on the <a href="#calendar">calendar</a> component.</p>
+<p>You can set a notification at a specific time before an event starts (when to arrive at the venue before a meeting
+begins) or before an event ends (when you need to finalize your assignment and submit it to your professor).</p>
 </li>
 <li>
-<p>You can set notification at specific time before an event starts (when you should arrive at the venue before a meeting
-begins) or at specific time before an event ends (when you need to finalize your assignment and submit it to your professor).</p>
-</li>
-<li>
-<p>You can link one or more <a href="#contacts">contacts</a> to an event (if they are going to attend the event together with you).</p>
+<p>If one or more of your <a href="#contacts">contacts</a> are attending the event with you, you can link them to the event too.</p>
 </li>
 </ul>
 </div>
@@ -267,8 +256,8 @@ begins) or at specific time before an event ends (when you need to finalize your
 <p><em>(Coming in v2.0)</em></p>
 </div>
 <div class="paragraph">
-<p>Calender provides a more convenient interface for you to view your upcoming <a href="#events">events</a>. All events are displayed
-based on their time interval. Events whose time intervals are not specified will not be displayed here.</p>
+<p>Calender provides a clearer image for you to view your upcoming <a href="#events">events</a>. All events are displayed
+based on their time interval for you to be able to attend to them one by one. However, events without time intervals will not be displayed here.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -289,7 +278,7 @@ based on their time interval. Events whose time intervals are not specified will
 <div class="sect2">
 <h3 id="convenient"><a class="link" href="#convenient">4.1. Convenient</a></h3>
 <div class="paragraph">
-<p><strong>BoNUS</strong> can provide ultimate convenience and save much time in your daily life.</p>
+<p><strong>BoNUS</strong> is the ultimate application as it will provide you with the utmost convenience and gives you more time to focus on your more important tasks.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -315,7 +304,7 @@ based on their time interval. Events whose time intervals are not specified will
 <h3 id="fast"><a class="link" href="#fast">4.2. Fast</a></h3>
 <div class="paragraph">
 <p>As long as the number of records stored is less than 50,000 and the size of the storage file is smaller than 20MB, <strong>BoNUS</strong>
-is expected to</p>
+will be able to</p>
 </div>
 <div class="ulist">
 <ul>
@@ -334,8 +323,8 @@ is expected to</p>
 <div class="sect2">
 <h3 id="secured"><a class="link" href="#secured">4.3. Secured</a></h3>
 <div class="paragraph">
-<p>The <strong>BoNUS</strong> developers understand our users will store personal data in the application. We value privacy and security
-a lot.</p>
+<p>The <strong>BoNUS</strong> developers understand that you will be storing personal data in the application. The following are features of our application that ensures
+you will have privacy and security.</p>
 </div>
 <div class="ulist">
 <ul>
@@ -358,7 +347,7 @@ the last time before you exited).</p>
 <h2 id="commands"><a class="link" href="#commands">5. Commands</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The listing below shows a summary of all commands currently available to users and how to use them.</p>
+<p>The following is a list of commands that you can use in the application.</p>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -371,23 +360,25 @@ the last time before you exited).</p>
 <p>Words in parentheses represent the command shortcut e.g. in <code>(a)add n/NAME</code>, <code>a</code> is the shorthand-equivalent notation for the <code>add</code> command.</p>
 </li>
 <li>
-<p>Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user e.g. in <code>add n/NAME</code>, <code>NAME</code> is a parameter which
-can be used as <code>add n/John Doe</code>.</p>
+<p>Words in <code>UPPER_CASE</code> is information to be supplied by you e.g. in <code>add n/NAME</code>, <code>NAME</code> is to be filled in by you.
+e.g <code>add n/John Doe</code>.</p>
 </li>
 <li>
-<p>Items in square brackets are optional e.g <code>n/NAME [t/TAG]</code> can be used as <code>n/John Doe t/friend</code> or as <code>n/John Doe</code>.</p>
+<p>Words in square brackets are optional e.g <code>n/NAME [t/TAG]</code>, <code>t/TAG</code> is optional.
+e.g <code>n/John Doe t/friend</code> or as <code>n/John Doe</code>.</p>
 </li>
 <li>
-<p>Items with <code>…</code>​ after them can be used multiple times including zero times e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code>
+<p>Items with <code>…</code>​ after them can be used from zero times to as many times as you like e.g. <code>[t/TAG]&#8230;&#8203;</code> can be used as <code>&#160;</code>
 (i.e. 0 times), <code>t/friend</code>, <code>t/friend t/family</code> etc.</p>
 </li>
 <li>
-<p>Parameters can be typed in any order e.g. if the command specifies <code>n/NAME p/PHONE_NUMBER</code>, <code>p/PHONE_NUMBER n/NAME</code>
-is also acceptable.</p>
+<p>You can type the information in any order e.g. if the command specifies <code>n/NAME p/PHONE_NUMBER</code>, <code>p/PHONE_NUMBER n/NAME</code>
+works too.</p>
 </li>
 <li>
 <p>If parameters with the same prefix are typed multiple times, only the last one will be taken. For example,
-<code>n/John Doe n/Martin Henz</code>, then only <code>Martin Henz</code> will be taken into actual consideration.</p>
+<code>n/John Doe n/Martin Henz</code>, then only <code>Martin Henz</code> will be taken into actual consideration.
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; master</p>
 </li>
 </ul>
 </div>
@@ -401,7 +392,7 @@ is also acceptable.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Most command can be applied to either a person or an event, whose result will depend on the context e.g. <code>add</code> will add
+<p>Most commands can be applied to either a person or an event, whose result will depend on the context e.g. <code>add</code> will add
 a person if the user is currently in the <a href="#contacts">contacts</a> component, otherwise <code>addE</code> will add a new <a href="#events">event</a>.</p>
 </li>
 <li>
@@ -415,14 +406,18 @@ component or <a href="#events">events</a> component.</p>
 <div class="sect2">
 <h3 id="viewing-help-code-h-help-code"><a class="link" href="#viewing-help-code-h-help-code">5.1. Viewing help : <code>(h)help</code></a></h3>
 <div class="paragraph">
-<p>Format: <code>(h)help</code> (or press <code>F1</code> on the keyboard)</p>
+<p>Have a query? Use the <code>help</code> command!<br>
+Format: <code>(h)help</code> (or press <code>F1</code> on the keyboard)</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="adding-a-person-code-a-add-code"><a class="link" href="#adding-a-person-code-a-add-code">5.2. Adding a person : <code>(a)add</code></a></h3>
 <div class="paragraph">
-<p>Adds a person to the application.<br>
+<p>You just met someone and want to add their contact information into your contact list.<br>
 Format: <code>(a)add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p>
+</div>
+<div class="paragraph">
+<p>This adds the person to your contact list.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -431,7 +426,7 @@ Format: <code>(a)add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#820
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-A person can have any number of tags (including 0).
+Your contact can have any number of tags (including 0).
 </td>
 </tr>
 </table>
@@ -456,8 +451,8 @@ A person can have any number of tags (including 0).
 <i class="fa icon-tip" title="Tip"></i>
 </td>
 <td class="content">
-In a similar format, you can also add customize properties when adding a new person, as long as you have used <code>config
---add-property</code> command to define that property before.
+In a similar format, you can also add customize properties when adding a new person, just use <code>config
+--add-property</code> command before to define that property.
 </td>
 </tr>
 </table>
@@ -466,7 +461,7 @@ In a similar format, you can also add customize properties when adding a new per
 <p>Example:</p>
 </div>
 <div class="paragraph">
-<p>First, add a birthday property with the short name <code>b</code></p>
+<p>If you want to add birthday as a field for a contact and use <code>b</code> as the short name,</p>
 </div>
 <div class="ulist">
 <ul>
@@ -476,7 +471,7 @@ In a similar format, you can also add customize properties when adding a new per
 </ul>
 </div>
 <div class="paragraph">
-<p>Then, you can set the value of <code>birthday</code> property when you add a new person (<em>see <code>b/12091191</code> below</em>)</p>
+<p>Then, you can set a contact&#8217;s <code>birthday</code> when you add a new contact (<em>see <code>b/12091191</code> below</em>)</p>
 </div>
 <div class="ulist">
 <ul>
@@ -489,8 +484,11 @@ In a similar format, you can also add customize properties when adding a new per
 <div class="sect2">
 <h3 id="adding-an-event-code-ae-adde-code"><a class="link" href="#adding-an-event-code-ae-adde-code">5.3. Adding an event : <code>(aE)addE</code></a></h3>
 <div class="paragraph">
-<p>Adds an event to the application.<br>
+<p>You want to record your friend&#8217;s birthday party coming up.<br>
 Format: <code>(aE)addE n/NAME dt/DATE_TIME a/EMAIL a/ADDRESS</code></p>
+</div>
+<div class="paragraph">
+<p>This will add a new event to your list of events.</p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -518,15 +516,15 @@ Format: <code>(aE)addE n/NAME dt/DATE_TIME a/EMAIL a/ADDRESS</code></p>
 <p>The standard format for time should be <code>DDMMYYYY HH:MM</code> in 24-hour format.</p>
 </li>
 <li>
-<p>However, the application may sometimes be <em>smart</em> to interpret what you say. For example, you may type <code>this afternoon</code>
-or <code>tomorrow evening</code>. Then, it will be automatically converted to the standard format.</p>
+<p>However, the application may sometimes be <em>smart</em> enough to interpret what you typed. For example, if you type <code>this afternoon</code>
+or <code>tomorrow evening</code>, it will be automatically converted to the standard format.</p>
 </li>
 <li>
 <p>Do NOT try to <em>challenge</em> the application, it is not promised to produce an expected result if you use non-standard format
-and the expression is not simple or clear enough.</p>
+or if the expression is not simple or clear enough.</p>
 </li>
 <li>
-<p>Avoid putting the year in the first place when using the non-standard format.</p>
+<p>Avoid putting the year first when using the non-standard format.</p>
 </li>
 </ul>
 </div>
@@ -536,10 +534,13 @@ and the expression is not simple or clear enough.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-all-persons-events-code-l-list-code"><a class="link" href="#listing-all-persons-events-code-l-list-code">5.4. Listing all persons/events : <code>(l)list</code></a></h3>
+<h3 id="listing-all-persons-code-l-list-code"><a class="link" href="#listing-all-persons-code-l-list-code">5.4. Listing all persons : <code>(l)list</code></a></h3>
 <div class="paragraph">
-<p>Shows a list of all persons in the application.<br>
+<p>You want to view all your contacts in your contact list.<br>
 Format: <code>(l)list</code></p>
+</div>
+<div class="paragraph">
+<p>This will list out all of your contacts in alphabetical order.</p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -551,24 +552,15 @@ Format: <code>(l)list</code></p>
 </li>
 </ul>
 </div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-Contacts will be sorted by their names (increment).
-</td>
-</tr>
-</table>
-</div>
 </div>
 <div class="sect2">
 <h3 id="listing-all-events-code-le-liste-code"><a class="link" href="#listing-all-events-code-le-liste-code">5.5. Listing all events : <code>(lE)listE</code></a></h3>
 <div class="paragraph">
 <p>Shows a list of all events in the application.<br>
 Format: <code>(lE)listE</code></p>
+</div>
+<div class="paragraph">
+<p>This will list out all of your events by date/time.</p>
 </div>
 <div class="paragraph">
 <p>Example:</p>
@@ -579,18 +571,6 @@ Format: <code>(lE)listE</code></p>
 <p><code>listE</code></p>
 </li>
 </ul>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-Events will be sorted by date/time (increment).
-</td>
-</tr>
-</table>
 </div>
 </div>
 <div class="sect2">
@@ -696,7 +676,7 @@ Format: <code>(f)find KEYWORD [MORE_KEYWORDS] [p/KEYWORD [MORE_KEYWORDS]]&#8230;
 <div class="ulist">
 <ul>
 <li>
-<p>The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
+<p>The search is not case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
 </li>
 <li>
 <p>The search can be based on one or multiple properties. The short name of the property <code>n/</code> can be omitted if the searching
@@ -738,7 +718,7 @@ Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 <div class="sect2">
 <h3 id="locating-persons-by-their-tag-code-ft-findtag-code"><a class="link" href="#locating-persons-by-their-tag-code-ft-findtag-code">5.9. Locating persons by their tag : <code>(ft)findtag</code></a></h3>
 <div class="paragraph">
-<p>Finds persons whose corresponding tags contain any of the given keywords.<br>
+<p>Finds persons whose corresponding tags contain any of the given keywords and lists them out.<br>
 Format: <code>(ft)findtag KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p>
 </div>
 <div class="sidebarblock">
@@ -746,7 +726,10 @@ Format: <code>(ft)findtag KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Same features as locating persons by any property, except this command is only for tags</p>
+<p>The search is not case insensitive. e.g <code>friends</code> will match <code>Friends</code></p>
+</li>
+<li>
+<p>Only full word matching will be returned. e.g. <code>friend</code> will not match <code>friends</code></p>
 </li>
 </ul>
 </div>
@@ -900,7 +883,7 @@ Format: <code>(em)email INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>Emails the person by opening your default mail app with the email field filled up.</p>
+<p>Emails the person by opening your default mail app with the "To: " field filled up with the person&#8217;s email.</p>
 </li>
 <li>
 <p>The index refers to the index number shown in the most recent listing.</p>
@@ -1732,7 +1715,7 @@ eg. <code>config --set-tag-color friends blue</code></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-08 16:50:47 +00:00
+Last updated 2017-11-08 17:09:41 +00:00
 </div>
 </div>
 </body>

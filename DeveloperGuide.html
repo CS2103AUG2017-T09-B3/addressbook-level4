@@ -51,7 +51,8 @@
 <li><a href="#auto-reminders">4.4. Auto Reminders</a></li>
 <li><a href="#import-export-mechanism">4.5. Import &amp; Export mechanism</a></li>
 <li><a href="#contacts-event-listing-order-by-name-date-time-mechanism">4.6. Contacts/Event listing order by name/date time mechanism</a></li>
-<li><a href="#configuration">4.7. Configuration</a></li>
+<li><a href="#emailing-mechanism">4.7. Emailing mechanism</a></li>
+<li><a href="#configuration">4.8. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
@@ -1229,7 +1230,14 @@ mechanism uses the <code>sort</code> method which resides inside <code>List</cod
 </div>
 </div>
 <div class="sect2">
-<h3 id="configuration"><a class="link" href="#configuration">4.7. Configuration</a></h3>
+<h3 id="emailing-mechanism"><a class="link" href="#emailing-mechanism">4.7. Emailing mechanism</a></h3>
+<div class="paragraph">
+<p>The automatic opening of email on the user&#8217;s desktop is facilitated mainly by the <code>Desktop</code> class which allows a Java application
+to launch the default mail application registered inside the user&#8217;s native desktop to handle the email <code>URI</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="configuration"><a class="link" href="#configuration">4.8. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2186,7 +2194,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-08 16:50:47 +00:00
+Last updated 2017-11-08 17:09:41 +00:00
 </div>
 </div>
 </body>
