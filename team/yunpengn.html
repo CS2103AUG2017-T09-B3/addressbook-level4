@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.3">
+<title>Niu Yunpeng - Project Portfolio</title>
+<link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css">
+</head>
+<body class="article">
+<div id="header">
+<h1>Niu Yunpeng - Project Portfolio</h1>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="project-bonus"><a class="link" href="#project-bonus">Project: BoNUS</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>BoNUS</strong> is a desktop personal organizer application dedicated to NUS students to carry out various tasks such as storing
+contacts, scheduling for upcoming events, timetable planning as well as a calendar to better organise their campus life.</p>
+</div>
+<div class="paragraph">
+<p>This project is the result of a semester-long software engineering <a href="https://nus-cs2103.github.io/website/">module</a> at
+<a href="http://www.nus.edu.sg/">NUS</a>. It is built my teammates and me, as listed <a href="../AboutUs.html">here</a>. Most of the backend codes
+are written in Java, while <a href="https://docs.oracle.com/javase/8/javafx/get-started-tutorial/jfx-overview.htm#JFXST784">JavaFX</a>
+is adapted as the frontend framework.</p>
+</div>
+<div class="paragraph">
+<p><strong>Code contributed</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/CS2103AUG2017-T09-B3/main/blob/master/collated/main/yunpengn.md">Functional code</a></p>
+</li>
+<li>
+<p><a href="https://github.com/CS2103AUG2017-T09-B3/main/blob/master/collated/test/yunpengn.md">Test code</a></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="enhancement-added-generic-property"><a class="link" href="#enhancement-added-generic-property">Enhancement Added: Generic Property</a></h3>
+<div class="sect3">
+<h4 id="external-behavior"><a class="link" href="#external-behavior">External behavior</a></h4>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="adding-a-customize-property-code-cfg-config-add-property-code"><a class="link" href="#adding-a-customize-property-code-cfg-config-add-property-code">Adding a customize property : <code>(cfg)config --add-property</code></a></h4>
+<div class="paragraph">
+<p>Adds a new customize property field available to all persons or events.<br>
+Format: <code>(cfg)config --add-property s/SHORT_NAME f/FULL_NAME [m/MESSAGE r/REGULAR_EXPRESSION]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>This command does not add a new property to a specific person. Instead, it defines a property that will be available to
+all persons/events.</p>
+</li>
+<li>
+<p>The short name <code>s/</code> and full name <code>f/</code> of the new property are compulsory, while the constraint message <code>m/</code> and regular
+expression for validation <code>r/</code> are optional. However, <code>m/</code> and <code>r/</code> must come together, i.e. a regular expression must be
+accompanied by a constraint message, which will be shown when the validation fails.</p>
+</li>
+<li>
+<p>Short name is the identity (primary key) of all properties. Thus, the short name must be unique. The command will fail
+if there is an existing property with the same short name.</p>
+</li>
+<li>
+<p>The given regular expression must use legal syntax. It will be checked by the
+<a href="https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html#compile-java.lang.String-">Pattern.compile</a> method.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>config --add-property s/ag f/age</code></p>
+</li>
+<li>
+<p><code>config --add-property s/b f/birthday m/Birthday should be in the format of DD/MM/YYYY r/[^\s].*</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Short name is used as the prefix for <code>add</code>/<code>addE</code> and <code>edit</code>/<code>editE</code> commands.</p>
+</li>
+<li>
+<p>Full name is used to display the name of each property on the right panel (to show details of the selected person, see <code>select</code> command).</p>
+</li>
+<li>
+<p>Constraint message is the string that will be shown in result display box when the input value for this property in
+<code>add</code>/<code>addE</code> and <code>edit</code>/<code>editE</code> commands is invalid.</p>
+</li>
+<li>
+<p>Regular expression is used to check whether the input value for this property is valid.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="justification"><a class="link" href="#justification">Justification</a></h4>
+<div class="paragraph">
+<p>Our application <strong>BoNUS</strong> will not be able to stand out from all the similar <a href="https://nus-cs2103.github.io/website/admin/projectList.html">products</a>
+if we simply provide users with a few additional fields to store the information of their contacts. Instead, to suit the
+various needs from users, we have to provide the flexibility to allow users to define customize properties on their own.</p>
+</div>
+<div class="paragraph">
+<p>Users can use the <code>config --add-property</code> command to define as many new properties as they want, after which they could
+set these properties when they use the <code>add</code> command to add a new contact.</p>
+</div>
+<div class="paragraph">
+<p>In the current design and implementation, the <code>PropertyManager</code> class is used to store and manage the meta-data of all
+properties. Default properties like <code>Name</code>, <code>Phone</code>, <code>Email</code> and <code>Address</code> are pre-loaded into <code>PropertyManager</code>, while
+user-defined properties will be added into <code>PropertyManager</code> by <code>config --add-property</code> command.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="generic-property"><a class="link" href="#generic-property">Generic Property</a></h3>
+<div class="paragraph">
+<p>We are using a generic <code>Property</code> class to support <strong>arbitrary field</strong> feature.</p>
+</div>
+<div class="sect3">
+<h4 id="inspiration"><a class="link" href="#inspiration">Inspiration</a></h4>
+<div class="paragraph">
+<p>Users should not be limited to the provided four fields, i.e. <code>Name</code>, <code>Email</code>, <code>Phone</code>, <code>Address</code> (we are talking about
+the contact component here, of course one more <code>DateTime</code> for event component). They should have the freedom to enter all
+kinds of information about their contacts apart from the pre-defined ones.</p>
+</div>
+<div class="paragraph">
+<p>Through a brief product survey on other existing similar software in the market, we found that they usually ask users to
+type all other information in the <em>so-called</em> <code>Description</code> or <code>Details</code> field. This is not a good design because doing
+so will make the information stored messy. The application is used to organize personal information conveniently. It is
+a major drawback if the data are not stored (and thus presented) to users in a well-organized way.</p>
+</div>
+<div class="paragraph">
+<p>Learning from many modern database implementations, we should think of the data as two tables: one for <strong>contacts</strong> and the
+other one for <strong>events</strong>. Each table is composed of many rows and many columns. A single contact/event is one row, while
+all their different properties/fields are the columns.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/phpmyadminTableView.png" alt="phpmyadminTableView" width="700">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.3.1.1 : Data Table View of phpMyAdmin (a MySQL visualization tool)</em></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/phpmyadminAddColumn.png" alt="phpmyadminAddColumn" width="700">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.3.1.2 : Add New Column in phpMyAdmin</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration"><a class="link" href="#design-consideration">Design Consideration</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Where to store the "<em>metadata</em>" of different properties (short name, full name, regular expression, etc.)<br>
+<strong>Alternative 1 (current choice):</strong> Create a new class <code>PropertyManager</code><br>
+<strong>Pros:</strong> Efficient (there is only one copy) and easy for future development since it is centralized.<br>
+<strong>Cons:</strong> Requires major change to <code>Model</code> component and <code>Storage</code> component.<br>
+<strong>Alternative 2:</strong> Store these data along with each specific property class, like <code>Name</code>, <code>Email</code><br>
+<strong>Pros:</strong> Able to adapt the current implementation of <code>Model</code> component.<br>
+<strong>Cons:</strong> Hard to implement <code>AddPropertyCommand</code>, and difficult to manage as the project grows larger.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/PropertyManagerClassDiagram.png" alt="PropertyManagerClassDiagram" width="200">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.3.2.1 : Class Diagram for `PropertyManager`</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-outline"><a class="link" href="#implementation-outline">Implementation Outline</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a more general class to capture the common patterns among all columns (all different fields/properties): according to
+the basic OOP concept, a more generic class should become the superclass <code>Property</code>; then, other more specific classes
+(like <code>Name</code>, <code>Email</code>, <code>Phone</code>, etc.) can inherit from it. It is shown that such design decreases code duplicate a lot.</p>
+</li>
+<li>
+<p>Find a way to store the metadata of all columns (fields/properties): in popular SQL database implementation, they
+usually have a separate database reserved for the database server system itself. We must store similar information somewhere
+as well. Thus, we create a <code>PropertyManager</code> to store these "metadata", including short names, full names, constraint
+messages and regular expressions used for input validation. They are all <code>static</code> variables because there should only be
+one copy of these "metadata". We will waste a lot of resources if we store these "metadata" with each instance of the
+<code>Property</code> class.</p>
+</li>
+<li>
+<p><em>Pre-loaded properties</em>: Things like <code>Name</code>, <code>Email</code> and <code>Phone</code> are widely used. They should ship with the application
+and users do not need any additional setup steps to use them.</p>
+</li>
+<li>
+<p>Add new customize properties: advanced users should be provided with a command (<code>config --add-property</code>) to add their
+own customize fields. They should have the freedom to arbitrarily choose things like short name, full name, etc. They can
+easily add/edit these properties of each contact stored in the application, just like the <em>pre-loaded</em> ones.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/PropertyManagerSequenceDiagram.png" alt="PropertyManagerSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.3.3.1 : Sequence Diagram for Adding a Customize Property</em></p>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enhancement-proposed-import-from-bonus-specified-script-file"><a class="link" href="#enhancement-proposed-import-from-bonus-specified-script-file">Enhancement Proposed: Import From BoNUS-specified Script file</a></h3>
+<div class="sect3">
+<h4 id="external-behavior-2"><a class="link" href="#external-behavior-2">External behavior</a></h4>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="from-code-bo-code-format"><a class="link" href="#from-code-bo-code-format">From <code>.bo</code> format</a></h4>
+<div class="paragraph">
+<p><em>(Coming in v2.0)</em></p>
+</div>
+<div class="paragraph">
+<p>Imports the data in an external BoNUS script file (which ends with <code>.bo</code>), including data from all three components:
+<strong>Contacts</strong>, <strong>Events</strong> and <strong>Calendar</strong>, into the application.<br>
+Format: <code>(i)import --script FILEPATH</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>You must explicitly provide the <code>--script</code> parameter.</p>
+</li>
+<li>
+<p><code>FILEPATH</code> must end with an extension of <code>.bo</code>.</p>
+</li>
+<li>
+<p>The file name in <code>FILEPATH</code> should not be empty, nor should it contain any prohibited characters <code>?!%*+:|"&lt;&gt;</code>.</p>
+</li>
+<li>
+<p>If a relative path is provided, the data will be imported from a location relative to the <strong>BoNUS</strong> installation directory.</p>
+</li>
+<li>
+<p>The provided script file should include one or multiple lines of valid <strong>BoNUS</strong> command(s). Each line can only have <strong>at
+most one</strong> command.</p>
+</li>
+<li>
+<p>The <strong>command</strong> here refers to any command mentioned in this guide.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>For <code>Windows</code> users:<br>
+<code>import C:\Users\John Doe\Documents\bonus.bo</code></p>
+</li>
+<li>
+<p>For <code>macOS</code> and <code>Linux</code> users:<br>
+<code>import /Users/John Doe/Documents/bonus.bo</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>For <code>Windows</code> users, use <code>\</code> as the name-separator in your <code>FILEPATH</code>.<br>
+For <code>macOS</code> and <code>Linux</code> users, use <code>/</code> instead.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="justification-2"><a class="link" href="#justification-2">Justification</a></h4>
+<div class="paragraph">
+<p>This feature is meant for advanced users. To build an <strong>epic</strong> application, we need to essentially build an <em>ecosystem</em> for
+this software. According to the <em>Unix</em> philosophy, providing a shell scripting and command language is the minimum requirement
+for a complete system.</p>
+</div>
+<div class="paragraph">
+<p>With the support for scripting file, advance users (or system administers if <strong>BoNUS</strong> is used as an enterprise application)
+can generate a scripting file and import it into <strong>BoNUS</strong>. Data management and frequent operations can be done easily in
+one step. Otherwise, they have to type one command each time in the GUI interface, which becomes a very tedious work.</p>
+</div>
+<div class="paragraph">
+<p>The scripting file should consist of one or multiple valid <strong>BoNUS</strong> commands and each line can have <strong>at most one</strong> command.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enhancement-proposed-export-data-to-microsoft-excel-sup-tm-sup-worksheet"><a class="link" href="#enhancement-proposed-export-data-to-microsoft-excel-sup-tm-sup-worksheet">Enhancement Proposed: Export Data to Microsoft Excel<sup>TM</sup> Worksheet</a></h3>
+<div class="sect3">
+<h4 id="external-behavior-3"><a class="link" href="#external-behavior-3">External behavior</a></h4>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="to-microsoft-excel-sup-tm-sup-worksheet"><a class="link" href="#to-microsoft-excel-sup-tm-sup-worksheet">To Microsoft Excel<sup>TM</sup> Worksheet</a></h4>
+<div class="paragraph">
+<p><em>(Coming in v2.0)</em></p>
+</div>
+<div class="paragraph">
+<p>Exports the current data in the application to an external file of Microsoft Excel<sup>TM</sup> format.<br>
+Format: <code>(p)export --excel FILEPATH</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The file name should follow similar rules to the section above.</p>
+</li>
+<li>
+<p>However, it must end with an extension of <code>.xls</code> (<code>.xlsx</code> is currently not supported).</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>For <code>Windows</code> users:<br>
+<code>export --excel C:\Users\John Doe\Documents\bonus.xls</code></p>
+</li>
+<li>
+<p>For <code>macOS</code> and <code>Linux</code> users:<br>
+<code>export --excel /Users/John Doe/Documents/bonus.xls</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>For <code>Windows</code> users, use <code>\</code> as the name-separator in your <code>FILEPATH</code>.<br>
+For <code>macOS</code> and <code>Linux</code> users, use <code>/</code> instead.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="justification-3"><a class="link" href="#justification-3">Justification</a></h4>
+<div class="paragraph">
+<p>We already support <code>ExportCommand</code> so that users can save data to a separate location as a backup. However, <code>.xml</code> files
+are not considered to be user-friendly (except for programmers and geeks).</p>
+</div>
+<div class="paragraph">
+<p>Thus, it becomes essential for us to natively support exporting data to a format with better visuals. As stated before,
+data stored in <strong>BoNUS</strong> can be considered as <em>tables</em>. Naturally, it comes to my mind that Microsoft Excel<sup>TM</sup> would
+be a perfect format to present data to users.</p>
+</div>
+<div class="paragraph">
+<p>Users can type <code>--excel</code> as the additional option to specify Microsoft Excel<sup>TM</sup> as the output format when they use <code>ExportCommand</code>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="other-contributions"><a class="link" href="#other-contributions">Other contributions</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Repository setup, CI setup and Slack automatic notification using WebHook (Pull requests <a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/1">#1</a>,
+<a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/6">#6</a>, <a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/7">#7</a>)</p>
+</li>
+<li>
+<p>Design and refine multiple parts of UI (Pull requests <a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/41">#41</a>,
+<a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/43">#43</a>, <a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/44">#44</a>,
+<a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/82">#82</a>, <a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/106">#106</a>)</p>
+</li>
+<li>
+<p>Support setting customize colors for tags (Pull requests <a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/83">#83</a>,
+<a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/101">#101</a>, <a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/147">#147</a>)</p>
+</li>
+<li>
+<p>Support importing NUSMods timetable as events (Pull requests <a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/123">#123</a>,
+<a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/124">#124</a>)</p>
+</li>
+<li>
+<p>Support natural language parsing (Pull request <a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/148">#148</a>)</p>
+</li>
+<li>
+<p>Support adding avatar to contacts (Pull request <a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/162">#162</a>)</p>
+</li>
+<li>
+<p>Write unit tests for various classes</p>
+</li>
+<li>
+<p>Update various sections in <code>AboutUs</code>, <code>ContactUs</code>, <code>UserGuide</code> and <code>DeveloperGuide</code>, etc.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="project-lions-befrienders-management-system"><a class="link" href="#project-lions-befrienders-management-system">Project: Lions Befrienders Management System</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>I worked at <a href="http://www.comp.nus.edu.sg/~vwo/">CVWO (Computing for Voluntary Welfare Organisations)</a> as a web developer during the
+Year 1 summer vacation.</p>
+</div>
+<div class="paragraph">
+<p>My team at CVWO rewrote, upgraded and deployed the <a href="http://www.comp.nus.edu.sg/~vwo/projects/2017-lbsa.html">management
+system</a> for <a href="https://www.lionsbefrienders.org.sg/">Lions Befrienders (Singapore)</a>, which was formed in 1995 and served thousands
+of senior citizens. This system saves a lot of time for staff at Lions Befrienders to manage their growing enormous clients
+across the country, while ensuring high service quality.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="project-a-multi-user-3d-game-environment-for-cs1101s"><a class="link" href="#project-a-multi-user-3d-game-environment-for-cs1101s">Project: A Multi-User 3D Game Environment for CS1101S</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This project aims at building a 3D game environment to assist <a href="http://www.comp.nus.edu.sg/~cs1101s/">CS1101S</a> students in
+learning programming. The game is built using <a href="https://unity3d.com/">Unity3D</a> game engine. It provides vivid visualization
+to help students have a deeper understanding of the related data structure and algorithms used.</p>
+</div>
+<div class="paragraph">
+<p>CS1101S is a module taught in the Department of Computer Science at the NUS School of Computing. It serves as a rigorous
+and thorough introduction to programming methodology.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2017-11-08 16:50:47 +00:00
+</div>
+</div>
+</body>
+</html>
