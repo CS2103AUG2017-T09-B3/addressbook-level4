@@ -51,30 +51,8 @@
 <li><a href="#adding-an-event-code-ae-adde-code">5.3. Adding an event : <code>(aE)addE</code></a></li>
 <li><a href="#listing-all-persons-events-code-l-list-code">5.4. Listing all persons/events : <code>(l)list</code></a></li>
 <li><a href="#listing-all-persons-code-l-list-code">5.5. Listing all persons : <code>(l)list</code></a></li>
-<li><a href="#listing-all-events-code-le-liste-code">5.6. Listing all events : <code>(lE)listE</code></a></li>
-<li><a href="#editing-a-person-code-e-edit-code">5.7. Editing a person : <code>(e)edit</code></a></li>
-<li><a href="#editing-an-event-code-ee-edite-code">5.8. Editing an event : <code>(eE)editE</code></a></li>
-<li><a href="#locating-persons-events-by-any-property-code-f-find-code">5.9. Locating persons/events by any property : <code>(f)find</code></a></li>
-<li><a href="#locating-persons-by-their-tag-code-ft-findtag-code">5.10. Locating persons by their tag : <code>(ft)findtag</code></a></li>
-<li><a href="#deleting-a-person-code-d-delete-code">5.11. Deleting a person : <code>(d)delete</code></a></li>
-<li><a href="#deleting-an-event-code-de-deletee-code">5.12. Deleting an event : <code>(dE)deleteE</code></a></li>
-<li><a href="#selecting-a-person-code-s-select-code">5.13. Selecting a person: <code>(s)select</code></a></li>
-<li><a href="#emailing-a-person-code-em-email-code">5.14. Emailing a person : <code>(em)email</code></a></li>
-<li><a href="#adding-avatar-to-a-person-code-avr-avatar-code">5.15. Adding avatar to a person : <code>(avr)avatar</code></a></li>
-<li><a href="#switching-themes-code-t-theme-code">5.16. Switching themes : <code>(t)theme</code></a></li>
-<li><a href="#listing-entered-commands-code-his-history-code">5.17. Listing entered commands : <code>(his)history</code></a></li>
-<li><a href="#undoing-previous-command-code-u-undo-code">5.18. Undoing previous command : <code>(u)undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-r-redo-code">5.19. Redoing the previously undone command : <code>(r)redo</code></a></li>
-<li><a href="#clearing-all-entries-code-c-clear-code">5.20. Clearing all entries : <code>(c)clear</code></a></li>
-<li><a href="#importing-data-code-i-import-code">5.21. Importing data : <code>(i)import</code></a></li>
-<li><a href="#exporting-data-code-p-export-code">5.22. Exporting data : <code>(p)export</code></a></li>
-<li><a href="#advance-setting-code-cfg-config-code">5.23. Advance setting : <code>(cfg)config</code></a></li>
-<li><a href="#exiting-the-program-code-x-exit-code">5.24. Exiting the program : <code>(x)exit</code></a></li>
-<li><a href="#saving-the-data">5.25. Saving the data</a></li>
 </ul>
 </li>
-<li><a href="#faq">6. FAQ</a></li>
-<li><a href="#command-summary">7. Command Summary</a></li>
 </ul>
 </div>
 </div>
@@ -579,13 +557,31 @@ Format: <code>(l)list</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>list</code></p>
+<p><code>list</code>
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
 </li>
 </ul>
 </div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Contacts will be sorted by their names (increment).them
+</td>
+</tr>
+</table>
 </div>
-<div class="sect2">
-<h3 id="listing-all-events-code-le-liste-code"><a class="link" href="#listing-all-events-code-le-liste-code">5.6. Listing all events : <code>(lE)listE</code></a></h3>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>&gt;&gt;&gt;&gt;&gt;&gt;&gt; master</p>
+</div>
+<div class="paragraph">
+<p>=== Listing all events : <code>(lE)listE</code></p>
+</div>
 <div class="paragraph">
 <p>Shows a list of all events in the application.<br>
 Format: <code>(lE)listE</code></p>
@@ -603,9 +599,9 @@ Format: <code>(lE)listE</code></p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>=== Editing a person : <code>(e)edit</code></p>
 </div>
-<div class="sect2">
-<h3 id="editing-a-person-code-e-edit-code"><a class="link" href="#editing-a-person-code-e-edit-code">5.7. Editing a person : <code>(e)edit</code></a></h3>
 <div class="paragraph">
 <p><em>(Editing of customize properties coming in v2.0)</em></p>
 </div>
@@ -652,9 +648,9 @@ Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all 
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>=== Editing an event : <code>(eE)editE</code></p>
 </div>
-<div class="sect2">
-<h3 id="editing-an-event-code-ee-edite-code"><a class="link" href="#editing-an-event-code-ee-edite-code">5.8. Editing an event : <code>(eE)editE</code></a></h3>
 <div class="paragraph">
 <p>Edits an existing event in the application.<br>
 Format: <code>(eE)editE INDEX [n/NAME] [dt/DATE_TIME] [a/ADDRESS]</code></p>
@@ -692,9 +688,9 @@ Edits the name of the 2nd event to be <code>Lunch with Betsy</code>.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>=== Locating persons/events by any property : <code>(f)find</code></p>
 </div>
-<div class="sect2">
-<h3 id="locating-persons-events-by-any-property-code-f-find-code"><a class="link" href="#locating-persons-events-by-any-property-code-f-find-code">5.9. Locating persons/events by any property : <code>(f)find</code></a></h3>
 <div class="paragraph">
 <p><em>(<code>AND</code> and <code>OR</code> search coming in v2.0)</em></p>
 </div>
@@ -745,9 +741,9 @@ Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>J
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>=== Locating persons by their tag : <code>(ft)findtag</code></p>
 </div>
-<div class="sect2">
-<h3 id="locating-persons-by-their-tag-code-ft-findtag-code"><a class="link" href="#locating-persons-by-their-tag-code-ft-findtag-code">5.10. Locating persons by their tag : <code>(ft)findtag</code></a></h3>
 <div class="paragraph">
 <p>Finds persons whose corresponding tags contain any of the given keywords and lists them out.<br>
 Format: <code>(ft)findtag KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p>
@@ -781,9 +777,9 @@ Returns any person that contains the tags <code>family</code> and <code>colleagu
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>=== Deleting a person : <code>(d)delete</code></p>
 </div>
-<div class="sect2">
-<h3 id="deleting-a-person-code-d-delete-code"><a class="link" href="#deleting-a-person-code-d-delete-code">5.11. Deleting a person : <code>(d)delete</code></a></h3>
 <div class="paragraph">
 <p>Deletes the specified person from the application.<br>
 Format: <code>(d)delete INDEX</code></p>
@@ -822,9 +818,9 @@ Deletes the 1st person in the results of the <code>find</code> command.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>=== Deleting an event : <code>(dE)deleteE</code></p>
 </div>
-<div class="sect2">
-<h3 id="deleting-an-event-code-de-deletee-code"><a class="link" href="#deleting-an-event-code-de-deletee-code">5.12. Deleting an event : <code>(dE)deleteE</code></a></h3>
 <div class="paragraph">
 <p>Deletes the specified event from the application.<br>
 Format: <code>(dE)deleteE INDEX</code></p>
@@ -858,9 +854,9 @@ Deletes the 2nd event in the address book.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>=== Selecting a person: <code>(s)select</code></p>
 </div>
-<div class="sect2">
-<h3 id="selecting-a-person-code-s-select-code"><a class="link" href="#selecting-a-person-code-s-select-code">5.13. Selecting a person: <code>(s)select</code></a></h3>
 <div class="paragraph">
 <p>Selects a person (identified by the index number used in the last listing) to view the details of that person.<br>
 Format: <code>(s)select INDEX</code></p>
@@ -902,9 +898,9 @@ Selects the 1st person in the results of the <code>find</code> command.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>=== Emailing a person : <code>(em)email</code></p>
 </div>
-<div class="sect2">
-<h3 id="emailing-a-person-code-em-email-code"><a class="link" href="#emailing-a-person-code-em-email-code">5.14. Emailing a person : <code>(em)email</code></a></h3>
 <div class="paragraph">
 <p>Emails a person (identified by the index number used in the last listing) to email that person.<br>
 Format: <code>(em)email INDEX</code></p>
@@ -938,9 +934,9 @@ Emails the 2nd person in the address book.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>=== Adding avatar to a person : <code>(avr)avatar</code></p>
 </div>
-<div class="sect2">
-<h3 id="adding-avatar-to-a-person-code-avr-avatar-code"><a class="link" href="#adding-avatar-to-a-person-code-avr-avatar-code">5.15. Adding avatar to a person : <code>(avr)avatar</code></a></h3>
 <div class="paragraph">
 <p>Adds avatar to a person (identified by the index number used in the last listing).<br>
 Format: <code>(avr)avatar INDEX IMAGE_URL</code></p>
@@ -977,11 +973,11 @@ Adds avatar to the 2nd person in the address book.</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="switching-themes-code-t-theme-code"><a class="link" href="#switching-themes-code-t-theme-code">5.16. Switching themes : <code>(t)theme</code></a></h3>
 <div class="paragraph">
-<p>Switches theme between dark and bright theme.<br>
+<p>=== Switching themes : <code>(t)theme</code></p>
+</div>
+<div class="paragraph">
+<p>Switches between Dark Theme and Bright Theme.<br>
 Format: <code>(t)theme</code></p>
 </div>
 <div class="paragraph">
@@ -1009,9 +1005,28 @@ When <strong>boNUS</strong> is opened again, theme will be initialized to the th
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>As shown in Figure 5.14.1 and Figure 5.14.2, Figures depict the Bright Theme and Dark Theme respectively.</p>
 </div>
-<div class="sect2">
-<h3 id="listing-entered-commands-code-his-history-code"><a class="link" href="#listing-entered-commands-code-his-history-code">5.17. Listing entered commands : <code>(his)history</code></a></h3>
+<div class="imageblock">
+<div class="content">
+<img src="images/BrightTheme.png" alt="BrightTheme" width="300" height="200">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 5.14.1 : Bright Theme</em></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DarkTheme.png" alt="DarkTheme" width="300" height="200">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 5.14.2 : Dark Theme</em></p>
+</div>
+<div class="paragraph">
+<p>=== Listing entered commands : <code>(his)history</code></p>
+</div>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>(his)history</code></p>
@@ -1040,9 +1055,9 @@ Format: <code>(his)history</code></p>
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>=== Undoing previous command : <code>(u)undo</code></p>
 </div>
-<div class="sect2">
-<h3 id="undoing-previous-command-code-u-undo-code"><a class="link" href="#undoing-previous-command-code-u-undo-code">5.18. Undoing previous command : <code>(u)undo</code></a></h3>
 <div class="paragraph">
 <p>Restores the application to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>(u)undo</code></p>
@@ -1097,9 +1112,9 @@ You can view what command you have undone from the user feedback message.
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>=== Redoing the previously undone command : <code>(r)redo</code></p>
 </div>
-<div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-r-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-r-redo-code">5.19. Redoing the previously undone command : <code>(r)redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>(r)redo</code></p>
@@ -1141,9 +1156,9 @@ You can view what command you have redone from the user feedback message.
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>=== Clearing all entries : <code>(c)clear</code></p>
 </div>
-<div class="sect2">
-<h3 id="clearing-all-entries-code-c-clear-code"><a class="link" href="#clearing-all-entries-code-c-clear-code">5.20. Clearing all entries : <code>(c)clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from all components (both contacts and events).<br>
 Format: <code>(c)clear</code></p>
@@ -1158,11 +1173,12 @@ Format: <code>(c)clear</code></p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>=== Importing data : <code>(i)import</code></p>
 </div>
-<div class="sect2">
-<h3 id="importing-data-code-i-import-code"><a class="link" href="#importing-data-code-i-import-code">5.21. Importing data : <code>(i)import</code></a></h3>
-<div class="sect3">
-<h4 id="from-code-xml-code-format"><a class="link" href="#from-code-xml-code-format">5.21.1. From <code>.xml</code> format</a></h4>
+<div class="paragraph">
+<p>==== From <code>.xml</code> format</p>
+</div>
 <div class="paragraph">
 <p>Imports the data in an external XML file, including data from all three components: <strong>Contacts</strong>, <strong>Events</strong> and <strong>Calendar</strong>,
 into the current address book of <strong>BoNUS</strong>.<br>
@@ -1239,9 +1255,9 @@ For <code>macOS</code> and <code>Linux</code> users, use <code>/</code> instead.
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>==== From <code>.bo</code> format</p>
 </div>
-<div class="sect3">
-<h4 id="from-code-bo-code-format"><a class="link" href="#from-code-bo-code-format">5.21.2. From <code>.bo</code> format</a></h4>
 <div class="paragraph">
 <p><em>(Coming in v2.0)</em></p>
 </div>
@@ -1307,9 +1323,9 @@ For <code>macOS</code> and <code>Linux</code> users, use <code>/</code> instead.
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>==== From NUSMods URL</p>
 </div>
-<div class="sect3">
-<h4 id="from-nusmods-url"><a class="link" href="#from-nusmods-url">5.21.3. From NUSMods URL</a></h4>
 <div class="paragraph">
 <p><em>(Exclusive feature for NUS students)</em></p>
 </div>
@@ -1347,12 +1363,12 @@ provided by NUSMods.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>=== Exporting data : <code>(p)export</code></p>
 </div>
+<div class="paragraph">
+<p>==== To <code>.xml</code> format</p>
 </div>
-<div class="sect2">
-<h3 id="exporting-data-code-p-export-code"><a class="link" href="#exporting-data-code-p-export-code">5.22. Exporting data : <code>(p)export</code></a></h3>
-<div class="sect3">
-<h4 id="to-code-xml-code-format"><a class="link" href="#to-code-xml-code-format">5.22.1. To <code>.xml</code> format</a></h4>
 <div class="paragraph">
 <p>Exports the current data in the application, including data from all three components: <strong>Contacts</strong>, <strong>Events</strong> and
 <strong>Calendar</strong>, to an external location.<br>
@@ -1417,9 +1433,9 @@ For <code>macOS</code> and <code>Linux</code> users, use <code>/</code> instead.
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>==== To Microsoft Excel<sup>TM</sup> Worksheet</p>
 </div>
-<div class="sect3">
-<h4 id="to-microsoft-excel-sup-tm-sup-worksheet"><a class="link" href="#to-microsoft-excel-sup-tm-sup-worksheet">5.22.2. To Microsoft Excel<sup>TM</sup> Worksheet</a></h4>
 <div class="paragraph">
 <p><em>(Coming in v2.0)</em></p>
 </div>
@@ -1471,16 +1487,16 @@ For <code>macOS</code> and <code>Linux</code> users, use <code>/</code> instead.
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>=== Advance setting : <code>(cfg)config</code></p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="advance-setting-code-cfg-config-code"><a class="link" href="#advance-setting-code-cfg-config-code">5.23. Advance setting : <code>(cfg)config</code></a></h3>
 <div class="paragraph">
 <p>Changes the configuration of the application or applies some advance settings to the data. Make sure you know what you
 are doing before using any of the following commands. These commands are intended for advance users.</p>
 </div>
-<div class="sect3">
-<h4 id="adding-a-customize-property-code-cfg-config-add-property-code"><a class="link" href="#adding-a-customize-property-code-cfg-config-add-property-code">5.23.1. Adding a customize property : <code>(cfg)config --add-property</code></a></h4>
+<div class="paragraph">
+<p>==== Adding a customize property : <code>(cfg)config --add-property</code></p>
+</div>
 <div class="paragraph">
 <p>Adds a new customize property field available to all persons or events.<br>
 Format: <code>(cfg)config --add-property s/SHORT_NAME f/FULL_NAME [m/MESSAGE r/REGULAR_EXPRESSION]</code></p>
@@ -1551,9 +1567,9 @@ if there is an existing property with the same short name.</p>
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>==== Setting the tag color : <code>(cfg)config --set-tag-color</code></p>
 </div>
-<div class="sect3">
-<h4 id="setting-the-tag-color-code-cfg-config-set-tag-color-code"><a class="link" href="#setting-the-tag-color-code-cfg-config-set-tag-color-code">5.23.2. Setting the tag color : <code>(cfg)config --set-tag-color</code></a></h4>
 <div class="paragraph">
 <p><em>(Tag feature for events coming in v2.0)</em></p>
 </div>
@@ -1608,10 +1624,9 @@ again to set it to a legal color.</p>
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>=== Exiting the program : <code>(x)exit</code></p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="exiting-the-program-code-x-exit-code"><a class="link" href="#exiting-the-program-code-x-exit-code">5.24. Exiting the program : <code>(x)exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>(x)exit</code></p>
@@ -1626,9 +1641,9 @@ Format: <code>(x)exit</code></p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>=== Saving the data</p>
 </div>
-<div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">5.25. Saving the data</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1642,22 +1657,17 @@ Format: <code>(x)exit</code></p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>== FAQ</p>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="faq"><a class="link" href="#faq">6. FAQ</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the
 data of your previous Address Book folder.</p>
 </div>
+<div class="paragraph">
+<p>== Command Summary</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">7. Command Summary</a></h2>
-<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -1696,6 +1706,9 @@ e.g. <code>find James Jake</code></p>
 </li>
 <li>
 <p><strong>List event</strong> : <code>(lE)listE</code></p>
+</li>
+<li>
+<p><strong>Switch Themes</strong> : <code>(t)theme</code></p>
 </li>
 <li>
 <p><strong>Help</strong> : <code>(h)help</code></p>
@@ -1744,9 +1757,12 @@ eg. <code>config --set-tag-color friends blue</code></p>
 </div>
 </div>
 </div>
+</div>
+</div>
+</div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-08 17:35:15 +00:00
+Last updated 2017-11-08 18:09:03 +00:00
 </div>
 </div>
 </body>
