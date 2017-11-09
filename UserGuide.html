@@ -59,17 +59,19 @@
 <li><a href="#deleting-an-event-code-de-deletee-code">5.11. Deleting an event : <code>(dE)deleteE</code></a></li>
 <li><a href="#selecting-a-person-code-s-select-code">5.12. Selecting a person: <code>(s)select</code></a></li>
 <li><a href="#emailing-a-person-code-em-email-code">5.13. Emailing a person : <code>(em)email</code></a></li>
-<li><a href="#adding-avatar-to-a-person-code-avr-avatar-code">5.14. Adding avatar to a person : <code>(avr)avatar</code></a></li>
-<li><a href="#switching-themes-code-t-theme-code">5.15. Switching themes : <code>(t)theme</code></a></li>
-<li><a href="#listing-entered-commands-code-his-history-code">5.16. Listing entered commands : <code>(his)history</code></a></li>
-<li><a href="#undoing-previous-command-code-u-undo-code">5.17. Undoing previous command : <code>(u)undo</code></a></li>
-<li><a href="#redoing-the-previously-undone-command-code-r-redo-code">5.18. Redoing the previously undone command : <code>(r)redo</code></a></li>
-<li><a href="#clearing-all-entries-code-c-clear-code">5.19. Clearing all entries : <code>(c)clear</code></a></li>
-<li><a href="#importing-data-code-i-import-code">5.20. Importing data : <code>(i)import</code></a></li>
-<li><a href="#exporting-data-code-p-export-code">5.21. Exporting data : <code>(p)export</code></a></li>
-<li><a href="#advance-setting-code-cfg-config-code">5.22. Advance setting : <code>(cfg)config</code></a></li>
-<li><a href="#exiting-the-program-code-x-exit-code">5.23. Exiting the program : <code>(x)exit</code></a></li>
-<li><a href="#saving-the-data">5.24. Saving the data</a></li>
+<li><a href="#directions-to-a-person-s-address-code-gm-gmap-code">5.14. Directions to a person&#8217;s address : <code>(gm)gmap</code></a></li>
+<li><a href="#finding-a-contact-on-facebook-code-fb-facebook-code">5.15. Finding a contact on Facebook : <code>(fb)facebook</code></a></li>
+<li><a href="#adding-avatar-to-a-person-code-avr-avatar-code">5.16. Adding avatar to a person : <code>(avr)avatar</code></a></li>
+<li><a href="#switching-themes-code-t-theme-code">5.17. Switching themes : <code>(t)theme</code></a></li>
+<li><a href="#listing-entered-commands-code-his-history-code">5.18. Listing entered commands : <code>(his)history</code></a></li>
+<li><a href="#undoing-previous-command-code-u-undo-code">5.19. Undoing previous command : <code>(u)undo</code></a></li>
+<li><a href="#redoing-the-previously-undone-command-code-r-redo-code">5.20. Redoing the previously undone command : <code>(r)redo</code></a></li>
+<li><a href="#clearing-all-entries-code-c-clear-code">5.21. Clearing all entries : <code>(c)clear</code></a></li>
+<li><a href="#importing-data-code-i-import-code">5.22. Importing data : <code>(i)import</code></a></li>
+<li><a href="#exporting-data-code-p-export-code">5.23. Exporting data : <code>(p)export</code></a></li>
+<li><a href="#advance-setting-code-cfg-config-code">5.24. Advance setting : <code>(cfg)config</code></a></li>
+<li><a href="#exiting-the-program-code-x-exit-code">5.25. Exiting the program : <code>(x)exit</code></a></li>
+<li><a href="#saving-the-data">5.26. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#faq">6. FAQ</a></li>
@@ -946,7 +948,74 @@ Emails the 2nd person in the address book.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-avatar-to-a-person-code-avr-avatar-code"><a class="link" href="#adding-avatar-to-a-person-code-avr-avatar-code">5.14. Adding avatar to a person : <code>(avr)avatar</code></a></h3>
+<h3 id="directions-to-a-person-s-address-code-gm-gmap-code"><a class="link" href="#directions-to-a-person-s-address-code-gm-gmap-code">5.14. Directions to a person&#8217;s address : <code>(gm)gmap</code></a></h3>
+<div class="paragraph">
+<p>Opens Google Maps in default browser with a person&#8217;s (identified by the index number used in the last
+listing) address in the Destination.<br>
+Format: <code>(gm)gmap INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The index refers to the index number shown in the most recent listing.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> like <code>1, 2, 3, &#8230;&#8203;</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>gmap 2</code><br>
+The address of the 2nd person in the address book will be in the Destination field in Google Maps.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="finding-a-contact-on-facebook-code-fb-facebook-code"><a class="link" href="#finding-a-contact-on-facebook-code-fb-facebook-code">5.15. Finding a contact on Facebook : <code>(fb)facebook</code></a></h3>
+<div class="paragraph">
+<p>Searches for a person&#8217;s (identified by the index number used in the last listing) name on Facebook.<br>
+Format: <code>(fb)facebook INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The index refers to the index number shown in the most recent listing.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> like <code>1, 2, 3, &#8230;&#8203;</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>facebook 2</code><br>
+The name of the 2nd person in the address book will be searched on Facebook.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="adding-avatar-to-a-person-code-avr-avatar-code"><a class="link" href="#adding-avatar-to-a-person-code-avr-avatar-code">5.16. Adding avatar to a person : <code>(avr)avatar</code></a></h3>
 <div class="paragraph">
 <p>Adds avatar to a person (identified by the index number used in the last listing).<br>
 Format: <code>(avr)avatar INDEX IMAGE_URL</code></p>
@@ -985,7 +1054,7 @@ Adds avatar to the 2nd person in the address book.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="switching-themes-code-t-theme-code"><a class="link" href="#switching-themes-code-t-theme-code">5.15. Switching themes : <code>(t)theme</code></a></h3>
+<h3 id="switching-themes-code-t-theme-code"><a class="link" href="#switching-themes-code-t-theme-code">5.17. Switching themes : <code>(t)theme</code></a></h3>
 <div class="paragraph">
 <p>Switches between Dark Theme and Bright Theme.<br>
 Format: <code>(t)theme</code></p>
@@ -1036,7 +1105,7 @@ When <strong>boNUS</strong> is opened again, theme will be initialized to the th
 </div>
 </div>
 <div class="sect2">
-<h3 id="listing-entered-commands-code-his-history-code"><a class="link" href="#listing-entered-commands-code-his-history-code">5.16. Listing entered commands : <code>(his)history</code></a></h3>
+<h3 id="listing-entered-commands-code-his-history-code"><a class="link" href="#listing-entered-commands-code-his-history-code">5.18. Listing entered commands : <code>(his)history</code></a></h3>
 <div class="paragraph">
 <p>Lists all the commands that you have entered in reverse chronological order.<br>
 Format: <code>(his)history</code></p>
@@ -1067,7 +1136,7 @@ Format: <code>(his)history</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="undoing-previous-command-code-u-undo-code"><a class="link" href="#undoing-previous-command-code-u-undo-code">5.17. Undoing previous command : <code>(u)undo</code></a></h3>
+<h3 id="undoing-previous-command-code-u-undo-code"><a class="link" href="#undoing-previous-command-code-u-undo-code">5.19. Undoing previous command : <code>(u)undo</code></a></h3>
 <div class="paragraph">
 <p>Restores the application to the state before the previous <em>undoable</em> command was executed.<br>
 Format: <code>(u)undo</code></p>
@@ -1124,7 +1193,7 @@ You can view what command you have undone from the user feedback message.
 </div>
 </div>
 <div class="sect2">
-<h3 id="redoing-the-previously-undone-command-code-r-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-r-redo-code">5.18. Redoing the previously undone command : <code>(r)redo</code></a></h3>
+<h3 id="redoing-the-previously-undone-command-code-r-redo-code"><a class="link" href="#redoing-the-previously-undone-command-code-r-redo-code">5.20. Redoing the previously undone command : <code>(r)redo</code></a></h3>
 <div class="paragraph">
 <p>Reverses the most recent <code>undo</code> command.<br>
 Format: <code>(r)redo</code></p>
@@ -1168,7 +1237,7 @@ You can view what command you have redone from the user feedback message.
 </div>
 </div>
 <div class="sect2">
-<h3 id="clearing-all-entries-code-c-clear-code"><a class="link" href="#clearing-all-entries-code-c-clear-code">5.19. Clearing all entries : <code>(c)clear</code></a></h3>
+<h3 id="clearing-all-entries-code-c-clear-code"><a class="link" href="#clearing-all-entries-code-c-clear-code">5.21. Clearing all entries : <code>(c)clear</code></a></h3>
 <div class="paragraph">
 <p>Clears all entries from all components (both contacts and events).<br>
 Format: <code>(c)clear</code></p>
@@ -1185,9 +1254,9 @@ Format: <code>(c)clear</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="importing-data-code-i-import-code"><a class="link" href="#importing-data-code-i-import-code">5.20. Importing data : <code>(i)import</code></a></h3>
+<h3 id="importing-data-code-i-import-code"><a class="link" href="#importing-data-code-i-import-code">5.22. Importing data : <code>(i)import</code></a></h3>
 <div class="sect3">
-<h4 id="from-code-xml-code-format"><a class="link" href="#from-code-xml-code-format">5.20.1. From <code>.xml</code> format</a></h4>
+<h4 id="from-code-xml-code-format"><a class="link" href="#from-code-xml-code-format">5.22.1. From <code>.xml</code> format</a></h4>
 <div class="paragraph">
 <p>Imports the data in an external XML file, including data from all three components: <strong>Contacts</strong>, <strong>Events</strong> and <strong>Calendar</strong>,
 into the current address book of <strong>BoNUS</strong>.<br>
@@ -1266,7 +1335,7 @@ For <code>macOS</code> and <code>Linux</code> users, use <code>/</code> instead.
 </div>
 </div>
 <div class="sect3">
-<h4 id="from-code-bo-code-format"><a class="link" href="#from-code-bo-code-format">5.20.2. From <code>.bo</code> format</a></h4>
+<h4 id="from-code-bo-code-format"><a class="link" href="#from-code-bo-code-format">5.22.2. From <code>.bo</code> format</a></h4>
 <div class="paragraph">
 <p><em>(Coming in v2.0)</em></p>
 </div>
@@ -1334,7 +1403,7 @@ For <code>macOS</code> and <code>Linux</code> users, use <code>/</code> instead.
 </div>
 </div>
 <div class="sect3">
-<h4 id="from-nusmods-url"><a class="link" href="#from-nusmods-url">5.20.3. From NUSMods URL</a></h4>
+<h4 id="from-nusmods-url"><a class="link" href="#from-nusmods-url">5.22.3. From NUSMods URL</a></h4>
 <div class="paragraph">
 <p><em>(Exclusive feature for NUS students)</em></p>
 </div>
@@ -1375,9 +1444,9 @@ provided by NUSMods.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exporting-data-code-p-export-code"><a class="link" href="#exporting-data-code-p-export-code">5.21. Exporting data : <code>(p)export</code></a></h3>
+<h3 id="exporting-data-code-p-export-code"><a class="link" href="#exporting-data-code-p-export-code">5.23. Exporting data : <code>(p)export</code></a></h3>
 <div class="sect3">
-<h4 id="to-code-xml-code-format"><a class="link" href="#to-code-xml-code-format">5.21.1. To <code>.xml</code> format</a></h4>
+<h4 id="to-code-xml-code-format"><a class="link" href="#to-code-xml-code-format">5.23.1. To <code>.xml</code> format</a></h4>
 <div class="paragraph">
 <p>Exports the current data in the application, including data from all three components: <strong>Contacts</strong>, <strong>Events</strong> and
 <strong>Calendar</strong>, to an external location.<br>
@@ -1444,7 +1513,7 @@ For <code>macOS</code> and <code>Linux</code> users, use <code>/</code> instead.
 </div>
 </div>
 <div class="sect3">
-<h4 id="to-microsoft-excel-sup-tm-sup-worksheet"><a class="link" href="#to-microsoft-excel-sup-tm-sup-worksheet">5.21.2. To Microsoft Excel<sup>TM</sup> Worksheet</a></h4>
+<h4 id="to-microsoft-excel-sup-tm-sup-worksheet"><a class="link" href="#to-microsoft-excel-sup-tm-sup-worksheet">5.23.2. To Microsoft Excel<sup>TM</sup> Worksheet</a></h4>
 <div class="paragraph">
 <p><em>(Coming in v2.0)</em></p>
 </div>
@@ -1499,13 +1568,13 @@ For <code>macOS</code> and <code>Linux</code> users, use <code>/</code> instead.
 </div>
 </div>
 <div class="sect2">
-<h3 id="advance-setting-code-cfg-config-code"><a class="link" href="#advance-setting-code-cfg-config-code">5.22. Advance setting : <code>(cfg)config</code></a></h3>
+<h3 id="advance-setting-code-cfg-config-code"><a class="link" href="#advance-setting-code-cfg-config-code">5.24. Advance setting : <code>(cfg)config</code></a></h3>
 <div class="paragraph">
 <p>Changes the configuration of the application or applies some advance settings to the data. Make sure you know what you
 are doing before using any of the following commands. These commands are intended for advance users.</p>
 </div>
 <div class="sect3">
-<h4 id="adding-a-customize-property-code-cfg-config-add-property-code"><a class="link" href="#adding-a-customize-property-code-cfg-config-add-property-code">5.22.1. Adding a customize property : <code>(cfg)config --add-property</code></a></h4>
+<h4 id="adding-a-customize-property-code-cfg-config-add-property-code"><a class="link" href="#adding-a-customize-property-code-cfg-config-add-property-code">5.24.1. Adding a customize property : <code>(cfg)config --add-property</code></a></h4>
 <div class="paragraph">
 <p>Adds a new customize property field available to all persons or events.<br>
 Format: <code>(cfg)config --add-property s/SHORT_NAME f/FULL_NAME [m/MESSAGE r/REGULAR_EXPRESSION]</code></p>
@@ -1578,7 +1647,7 @@ if there is an existing property with the same short name.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="setting-the-tag-color-code-cfg-config-set-tag-color-code"><a class="link" href="#setting-the-tag-color-code-cfg-config-set-tag-color-code">5.22.2. Setting the tag color : <code>(cfg)config --set-tag-color</code></a></h4>
+<h4 id="setting-the-tag-color-code-cfg-config-set-tag-color-code"><a class="link" href="#setting-the-tag-color-code-cfg-config-set-tag-color-code">5.24.2. Setting the tag color : <code>(cfg)config --set-tag-color</code></a></h4>
 <div class="paragraph">
 <p><em>(Tag feature for events coming in v2.0)</em></p>
 </div>
@@ -1636,7 +1705,7 @@ again to set it to a legal color.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-x-exit-code"><a class="link" href="#exiting-the-program-code-x-exit-code">5.23. Exiting the program : <code>(x)exit</code></a></h3>
+<h3 id="exiting-the-program-code-x-exit-code"><a class="link" href="#exiting-the-program-code-x-exit-code">5.25. Exiting the program : <code>(x)exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>(x)exit</code></p>
@@ -1653,7 +1722,7 @@ Format: <code>(x)exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">5.24. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">5.26. Saving the data</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1774,7 +1843,7 @@ eg. <code>config --set-tag-color friends blue</code></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-09 05:22:55 +00:00
+Last updated 2017-11-09 08:31:26 +00:00
 </div>
 </div>
 </body>
