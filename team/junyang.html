@@ -109,7 +109,7 @@ or if the expression is not simple or clear enough.</p>
 <li>
 <p>Red Bell : Day of event<br>
 Orange Bell: One day before event<br>
-Green Bell: Two days before event.</p>
+Green Bell: Two days before event</p>
 </li>
 </ul>
 </div>
@@ -255,6 +255,158 @@ relationship between <code>Event</code> and <code>Reminder</code>.</p>
 </div>
 </div>
 <div class="sect2">
+<h3 id="enhancement-proposed-booking-of-facilities-from-nus"><a class="link" href="#enhancement-proposed-booking-of-facilities-from-nus">Enhancement proposed: Booking of facilities from NUS</a></h3>
+<div class="sect3">
+<h4 id="external-behavior-2"><a class="link" href="#external-behavior-2">External behavior</a></h4>
+<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="booking-of-nus-facilities"><a class="link" href="#booking-of-nus-facilities">Booking of NUS facilities</a></h3>
+<div class="paragraph">
+<p><em>(Exclusive feature for NUS students)</em>
+<em>(Coming in v2.0)</em></p>
+</div>
+<div class="paragraph">
+<p>The <strong>BoNUS</strong> team understands that booking of facilities in NUS may be troublesome. Therefore, we have decided to integrate
+the facility booking website with <strong>BoNUS</strong> such that upon successful booking of a specific facility, your Events List will
+be updated accordingly with the Date, Time and Venue of booking.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>(book)bookNUS</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Upon execution the command, you will be brought the the NUS facility booking website on a separate browser.</p>
+</li>
+<li>
+<p>Upon successful booking of the facility, Event with date, time and venue will automatically be added as events to the application.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>bookNUS</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Make sure you have stable Internet connection when using this command.</p>
+</li>
+<li>
+<p>There may be some waiting time involved due to the retrieval of information from the website to update <strong>BoNUS</strong>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<hr>
+<div class="sect3">
+<h4 id="justification-2"><a class="link" href="#justification-2">Justification</a></h4>
+<div class="paragraph">
+<p>Since NUSMods is already being integrated with <strong>BoNUS</strong>, what is another factor that NUS students are largely concerned with in terms of school resources?
+The idea of integrating the booking of facilities in NUS with <strong>BoNUS</strong> then came about.</p>
+</div>
+<div class="paragraph">
+<p>BoNUS is an organizer for NUS students. In view of the busy schedules of students in school, <strong>BoNUS</strong> not only aims to make lives for students more
+convenient, but also allow students to be updated of their personal upcoming events. As such, we took into consideration the booking of facilities for consultation, group meetings or even study groups. To facilitate this
+, we decided to integrate the booking of facilities with the <code>Event</code> component from <strong>BoNUS</strong> such that upon successful booking of facilities,
+the <code>Event</code> list in <strong>BoNUS</strong> would automatically be updated with your latest booking.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enhancement-proposed-importing-of-contacts-events-from-google"><a class="link" href="#enhancement-proposed-importing-of-contacts-events-from-google">Enhancement proposed: Importing of contacts / events from Google</a></h3>
+<div class="sect3">
+<h4 id="external-behavior-3"><a class="link" href="#external-behavior-3">External behavior</a></h4>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="from-google-accounts"><a class="link" href="#from-google-accounts">From Google Accounts</a></h4>
+<div class="paragraph">
+<p><em>(Coming in v2.0)</em></p>
+</div>
+<div class="paragraph">
+<p>Imports your contacts and events from Google Contacts and Google Calender respectively.<br>
+Format: <code>(i)import --google <a href="https://myaccount.google.com/" class="bare">https://myaccount.google.com/</a></code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Upon execution of the command, you will be brought to Google&#8217;s login page for authentication.</p>
+</li>
+<li>
+<p>Upon successful authentication, data from Google contacts and calendar will automatically be imported into <strong>BoNUS</strong>'s contact list and event list.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:
+<code>import --google <a href="https://myaccount.google.com/" class="bare">https://myaccount.google.com/</a></code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>URL as shown in example is the default URL that will be opened for you</p>
+</li>
+<li>
+<p>You would have to enter your login credentials on Google&#8217;s sign in page before data from Google Contacts and Google Calendar gets imported.</p>
+</li>
+<li>
+<p>In the case of you not entering proper login credentials after three tries, <strong>BoNUS</strong> will cancel the request for importing from Google.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<hr>
+</div>
+<div class="sect3">
+<h4 id="justification-3"><a class="link" href="#justification-3">Justification</a></h4>
+<div class="paragraph">
+<p>Since majority of students often use Google for multiple purposes, GMail, Google Docs or even Google slides. It is no wonder that
+most students have Google Accounts and have important information stored within.<br></p>
+</div>
+<div class="paragraph">
+<p>Therefore, to facilitate your transition to <strong>BoNUS</strong>, we have decided to include the import of contacts / events from Google itself,
+making the transition to <strong>BoNUS</strong> a comfortable one. Furthermore, as Google acts as a back up for Contact Storage, with <strong>BoNUS</strong>,
+it can act as a secondary storage/backup for each of your contacts and events stored in calendar.</p>
+</div>
+<div class="paragraph">
+<p>With facilitated transition towards <strong>BoNUS</strong>, your life can now be better organized with <strong>BoNUS</strong>.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
 <h3 id="other-contributions"><a class="link" href="#other-contributions">Other contributions</a></h3>
 <div class="ulist">
 <ul>
@@ -272,7 +424,7 @@ relationship between <code>Event</code> and <code>Reminder</code>.</p>
 </li>
 <li>
 <p>Wrote JUnit tests in various classes
-(Pull request <a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/140">#140</a>, <a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/55">#55</a>)</p>
+(Pull request <a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/140">#140</a>, <a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/55">#55</a>, <a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/182">#182</a>)</p>
 </li>
 <li>
 <p>Assisted Project UNIBOOK in bug reporting
@@ -286,7 +438,7 @@ relationship between <code>Event</code> and <code>Reminder</code>.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-11 09:02:55 +00:00
+Last updated 2017-11-11 11:28:30 +00:00
 </div>
 </div>
 </body>

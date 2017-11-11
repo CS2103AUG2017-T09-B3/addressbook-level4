@@ -70,8 +70,9 @@
 <li><a href="#importing-data-code-i-import-code">5.22. Importing data : <code>(i)import</code></a></li>
 <li><a href="#exporting-data-code-p-export-code">5.23. Exporting data : <code>(p)export</code></a></li>
 <li><a href="#advance-setting-code-cfg-config-code">5.24. Advance setting : <code>(cfg)config</code></a></li>
-<li><a href="#exiting-the-program-code-x-exit-code">5.25. Exiting the program : <code>(x)exit</code></a></li>
-<li><a href="#saving-the-data">5.26. Saving the data</a></li>
+<li><a href="#booking-of-nus-facilities">5.25. Booking of NUS facilities</a></li>
+<li><a href="#exiting-the-program-code-x-exit-code">5.26. Exiting the program : <code>(x)exit</code></a></li>
+<li><a href="#saving-the-data">5.27. Saving the data</a></li>
 </ul>
 </li>
 <li><a href="#faq">6. FAQ</a></li>
@@ -243,8 +244,7 @@ under the same group. You can even customize the colour of the tags to your liki
 <p>Setting a starting and/or end time for an event, will be reflected accordingly on the <a href="#calendar">calendar</a> component.</p>
 </li>
 <li>
-<p>You can set a notification at a specific time before an event starts (when to arrive at the venue before a meeting
-begins) or before an event ends (when you need to finalize your assignment and submit it to your professor).</p>
+<p>Reminders will automatically be added upon addition of event and start to notify you from 2 days before the actual event.</p>
 </li>
 <li>
 <p>If one or more of your <a href="#contacts">contacts</a> are attending the event with you, you can link them to the event too.</p>
@@ -551,7 +551,7 @@ or if the expression is not simple or clear enough.</p>
 <li>
 <p>Red Bell : Day of event<br>
 Orange Bell: One day before event<br>
-Green Bell: Two days before event.</p>
+Green Bell: Two days before event</p>
 </li>
 </ul>
 </div>
@@ -1484,6 +1484,58 @@ provided by NUSMods.</p>
 </table>
 </div>
 </div>
+<div class="sect3">
+<h4 id="from-google-accounts"><a class="link" href="#from-google-accounts">5.22.4. From Google Accounts</a></h4>
+<div class="paragraph">
+<p><em>(Coming in v2.0)</em></p>
+</div>
+<div class="paragraph">
+<p>Imports your contacts and events from Google Contacts and Google Calender respectively.<br>
+Format: <code>(i)import --google <a href="https://myaccount.google.com/" class="bare">https://myaccount.google.com/</a></code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Upon execution of the command, you will be brought to Google&#8217;s login page for authentication.</p>
+</li>
+<li>
+<p>Upon successful authentication, data from Google contacts and calendar will automatically be imported into <strong>BoNUS</strong>'s contact list and event list.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:
+<code>import --google <a href="https://myaccount.google.com/" class="bare">https://myaccount.google.com/</a></code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>URL as shown in example is the default URL that will be opened for you</p>
+</li>
+<li>
+<p>You would have to enter your login credentials on Google&#8217;s sign in page before data from Google Contacts and Google Calendar gets imported.</p>
+</li>
+<li>
+<p>In the case of you not entering proper login credentials after three tries, <strong>BoNUS</strong> will cancel the request for importing from Google.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="exporting-data-code-p-export-code"><a class="link" href="#exporting-data-code-p-export-code">5.23. Exporting data : <code>(p)export</code></a></h3>
@@ -1747,7 +1799,63 @@ again to set it to a legal color.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program-code-x-exit-code"><a class="link" href="#exiting-the-program-code-x-exit-code">5.25. Exiting the program : <code>(x)exit</code></a></h3>
+<h3 id="booking-of-nus-facilities"><a class="link" href="#booking-of-nus-facilities">5.25. Booking of NUS facilities</a></h3>
+<div class="paragraph">
+<p><em>(Exclusive feature for NUS students)</em>
+<em>(Coming in v2.0)</em></p>
+</div>
+<div class="paragraph">
+<p>The <strong>BoNUS</strong> team understands that booking of facilities in NUS may be troublesome. Therefore, we have decided to integrate
+the facility booking website with <strong>BoNUS</strong> such that upon successful booking of a specific facility, your Events List will
+be updated accordingly with the Date, Time and Venue of booking.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>(book)bookNUS</code></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Upon execution the command, you will be brought the the NUS facility booking website on a separate browser.</p>
+</li>
+<li>
+<p>Upon successful booking of the facility, Event with date, time and venue will automatically be added as events to the application.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>bookNUS</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Make sure you have stable Internet connection when using this command.</p>
+</li>
+<li>
+<p>There may be some waiting time involved due to the retrieval of information from the website to update <strong>BoNUS</strong>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="exiting-the-program-code-x-exit-code"><a class="link" href="#exiting-the-program-code-x-exit-code">5.26. Exiting the program : <code>(x)exit</code></a></h3>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>(x)exit</code></p>
@@ -1764,7 +1872,7 @@ Format: <code>(x)exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">5.26. Saving the data</a></h3>
+<h3 id="saving-the-data"><a class="link" href="#saving-the-data">5.27. Saving the data</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -1885,7 +1993,7 @@ eg. <code>config --set-tag-color friends blue</code></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-11 09:02:55 +00:00
+Last updated 2017-11-11 11:28:29 +00:00
 </div>
 </div>
 </body>
