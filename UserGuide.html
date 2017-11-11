@@ -70,7 +70,7 @@
 <li><a href="#importing-data-code-i-import-code">5.22. Importing data : <code>(i)import</code></a></li>
 <li><a href="#exporting-data-code-p-export-code">5.23. Exporting data : <code>(p)export</code></a></li>
 <li><a href="#advance-setting-code-cfg-config-code">5.24. Advance setting : <code>(cfg)config</code></a></li>
-<li><a href="#booking-of-nus-facilities">5.25. Booking of NUS facilities</a></li>
+<li><a href="#booking-of-nus-facilities-code-book-booknus-code">5.25. Booking of NUS facilities: <code>(book)bookNUS</code></a></li>
 <li><a href="#exiting-the-program-code-x-exit-code">5.26. Exiting the program : <code>(x)exit</code></a></li>
 <li><a href="#saving-the-data">5.27. Saving the data</a></li>
 </ul>
@@ -1020,14 +1020,14 @@ The name of the 2nd person in the address book will be searched on Facebook.</p>
 <h3 id="adding-avatar-to-a-person-code-avr-avatar-code"><a class="link" href="#adding-avatar-to-a-person-code-avr-avatar-code">5.16. Adding avatar to a person : <code>(avr)avatar</code></a></h3>
 <div class="paragraph">
 <p>Adds avatar to a person (identified by the index number used in the last listing).<br>
-Format: <code>(avr)avatar INDEX IMAGE_URL</code></p>
+Format: <code>(avr)avatar INDEX IMAGE_PATH</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>The given URL must be pointed to a valid image in <code>png</code>, <code>jp(e)g</code> and <code>svg</code> format.</p>
+<p>The given path must be pointed to a valid image in <code>png</code>, <code>jp(e)g</code> and <code>svg</code> format.</p>
 </li>
 <li>
 <p>The index refers to the index number shown in the most recent listing.</p>
@@ -1036,11 +1036,27 @@ Format: <code>(avr)avatar INDEX IMAGE_URL</code></p>
 <p>The index <strong>must be a positive integer</strong> like <code>1, 2, 3, &#8230;&#8203;</code></p>
 </li>
 <li>
-<p>The image will only be displayed correctly when you have Internet connection.</p>
+<p>The path should not be empty, nor should it contain any prohibited characters <code>?!%*+:|"&lt;&gt;</code>.</p>
+</li>
+<li>
+<p>The application will infer the path as from a location relative to the <strong>BoNUS</strong> home folder if the given path
+is not complete (or an absolute path).</p>
 </li>
 </ul>
 </div>
 </div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>avatar 2 linda.jpg</code><br>
+Adds avatar to the 2nd person in the address book.</p>
+</li>
+</ul>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1052,28 +1068,16 @@ Format: <code>(avr)avatar INDEX IMAGE_URL</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p>The avatar will only be shown to you if you have stable Internet connection.</p>
+<p>Do not move, rename or delete the image you use as an avatar; otherwise, it will not be shown in <strong>BoNUS</strong>.</p>
 </li>
 <li>
-<p>You may need to wait for a while as the application is downloading the image from the specified URL.</p>
+<p>You are suggested to move the image into the home folder where you use <strong>BoNUS</strong>.</p>
 </li>
 </ul>
 </div>
 </td>
 </tr>
 </table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>list</code><br>
-<code>avatar 2 <a href="https://avatars0.githubusercontent.com/u/1342004" class="bare">https://avatars0.githubusercontent.com/u/1342004</a></code><br>
-Adds avatar to the 2nd person in the address book.</p>
-</li>
-</ul>
 </div>
 </div>
 <div class="sect2">
@@ -1805,9 +1809,9 @@ again to set it to a legal color.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="booking-of-nus-facilities"><a class="link" href="#booking-of-nus-facilities">5.25. Booking of NUS facilities</a></h3>
+<h3 id="booking-of-nus-facilities-code-book-booknus-code"><a class="link" href="#booking-of-nus-facilities-code-book-booknus-code">5.25. Booking of NUS facilities: <code>(book)bookNUS</code></a></h3>
 <div class="paragraph">
-<p><em>(Exclusive feature for NUS students)</em>
+<p><em>(Exclusive feature for NUS students)</em><br>
 <em>(Coming in v2.0)</em></p>
 </div>
 <div class="paragraph">
@@ -1999,7 +2003,7 @@ eg. <code>config --set-tag-color friends blue</code></p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-11 13:48:40 +00:00
+Last updated 2017-11-11 17:05:42 +00:00
 </div>
 </div>
 </body>
