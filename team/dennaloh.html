@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.3">
+<title>Denna Loh - Project Portfolio</title>
+<link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css">
+</head>
+<body class="article">
+<div id="header">
+<h1>Denna Loh - Project Portfolio</h1>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="project-addressbook-level-4"><a class="link" href="#project-addressbook-level-4">Project: AddressBook - Level 4</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>AddressBook - Level 4 is a desktop address book application used for teaching Software Engineering principles. The user interacts with it using a CLI, and it has a GUI created with JavaFX. It is written in Java, and has about 6 kLoC.</p>
+</div>
+<div class="paragraph">
+<p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] {give links to collated code files}</p>
+</div>
+<div class="sect2">
+<h3 id="enhancements-added-sorting-contacts-by-name-finding-contacts-by-tag-email-command"><a class="link" href="#enhancements-added-sorting-contacts-by-name-finding-contacts-by-tag-email-command">Enhancements Added: Sorting Contacts by Name, Finding Contacts by Tag, Email Command</a></h3>
+<div class="sect3">
+<h4 id="external-behavior"><a class="link" href="#external-behavior">External behavior</a></h4>
+<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="listing-all-persons-code-l-list-code"><a class="link" href="#listing-all-persons-code-l-list-code">Listing all persons : <code>(l)list</code></a></h3>
+<div class="paragraph">
+<p>You want to view all your contacts in your contact list.<br>
+Format: <code>(l)list</code></p>
+</div>
+<div class="paragraph">
+<p>This will list out all of your contacts in alphabetical order.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+Contacts will be sorted by their names (increment).
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="locating-persons-by-their-tag-code-ft-findtag-code"><a class="link" href="#locating-persons-by-their-tag-code-ft-findtag-code">Locating persons by their tag : <code>(ft)findtag</code></a></h3>
+<div class="paragraph">
+<p>Finds persons whose corresponding tags contain any of the given keywords and lists them out.<br>
+Format: <code>(ft)findtag KEYWORD [MORE_KEYWORDS]&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The search is not case insensitive. e.g <code>friends</code> will match <code>Friends</code></p>
+</li>
+<li>
+<p>Only full word matching will be returned. e.g. <code>friend</code> will not match <code>friends</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>findtag family</code><br>
+Returns any person that contains a <code>family</code> tag</p>
+</li>
+<li>
+<p><code>findtag family colleagues</code><br>
+Returns any person that contains the tags <code>family</code> and <code>colleagues</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="emailing-a-person-code-em-email-code"><a class="link" href="#emailing-a-person-code-em-email-code">Emailing a person : <code>(em)email</code></a></h3>
+<div class="paragraph">
+<p>Emails a person (identified by the index number used in the last listing) to email that person.<br>
+Format: <code>(em)email INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Emails the person by opening your default mail app with the "To: " field filled up with the person&#8217;s email.</p>
+</li>
+<li>
+<p>The index refers to the index number shown in the most recent listing.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> like <code>1, 2, 3, &#8230;&#8203;</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>email 2</code><br>
+Emails the 2nd person in the address book.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="directions-to-a-person-s-address-code-gm-gmap-code"><a class="link" href="#directions-to-a-person-s-address-code-gm-gmap-code">Directions to a person&#8217;s address : <code>(gm)gmap</code></a></h3>
+<div class="paragraph">
+<p>Opens Google Maps in default browser with a person&#8217;s (identified by the index number used in the last
+listing) address in the Destination.<br>
+Format: <code>(gm)gmap INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The index refers to the index number shown in the most recent listing.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> like <code>1, 2, 3, &#8230;&#8203;</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>gmap 2</code><br>
+The address of the 2nd person in the address book will be in the Destination field in Google Maps.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="finding-a-contact-on-facebook-code-fb-facebook-code"><a class="link" href="#finding-a-contact-on-facebook-code-fb-facebook-code">Finding a contact on Facebook : <code>(fb)facebook</code></a></h3>
+<div class="paragraph">
+<p>Searches for a person&#8217;s (identified by the index number used in the last listing) name on Facebook.<br>
+Format: <code>(fb)facebook INDEX</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The index refers to the index number shown in the most recent listing.</p>
+</li>
+<li>
+<p>The index <strong>must be a positive integer</strong> like <code>1, 2, 3, &#8230;&#8203;</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>list</code><br>
+<code>facebook 2</code><br>
+The name of the 2nd person in the address book will be searched on Facebook.</p>
+</li>
+</ul>
+</div>
+<hr>
+<div class="sect3">
+<h4 id="justification"><a class="link" href="#justification">Justification</a></h4>
+<div class="paragraph">
+<p><strong>Listing all persons:</strong><br>
+There is a need to have the contacts sorted by default as this would allow users to be able to look through
+a more organized contact list by default, rather than one without order.</p>
+</div>
+<div class="paragraph">
+<p><strong>Locating persons by their tag:</strong><br>
+This is necessary for better organization as it will reduce the time users need to spend scrolling through
+the entire list to look for contacts from a particular social group. This adds on to the convenient factor
+of the application.</p>
+</div>
+<div class="paragraph">
+<p><strong>Emailing a person:</strong><br>
+This command allows users to be able to email their contacts hassle-free as they do not need to open their
+email, compose a new email and copy their contact&#8217;s email inside. Instead, after typing in the command line,
+the default mail app will appear with the email of the contact already inside.</p>
+</div>
+<div class="paragraph">
+<p><strong>Google Map directions to a person&#8217;s address:</strong><br>
+This provides a shortcut to Google Maps using the default browser with the Destination filled up with
+a contact&#8217;s address. This will allow users to easily get directions to their contact&#8217;s house for when
+users are visiting their friends or family. This saves users the of mundane task of having to manually open Google Maps
+and typing in their contact&#8217;s address into the Destination field.</p>
+</div>
+<div class="paragraph">
+<p><strong>Searching for a contact on Facebook:</strong><br>
+Users can easily search for their contacts on Facebook. As most people use social media as a way to keep up with
+their friends' or family&#8217;s lives, they often want to add them of platforms such as Facebook. This feature offers a
+convenient way for users to search for any of their contacts on Facebook to add them.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<hr>
+<div class="paragraph">
+<p><mark>Start of Extract [from: Developer Guide]</mark></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="emailing-mechanism"><a class="link" href="#emailing-mechanism">Emailing mechanism</a></h3>
+<div class="paragraph">
+<p>The automatic opening of email on the user&#8217;s desktop is facilitated mainly by the <code>Desktop</code> class which allows a Java application
+to launch the default mail application registered inside the user&#8217;s native desktop to handle the email <code>URI</code>.</p>
+</div>
+<div class="paragraph">
+<p><mark>End of Extract</mark></p>
+</div>
+<hr>
+</div>
+<div class="sect2">
+<h3 id="enhancement-proposed-add-subject-and-more-emails-via-command-line"><a class="link" href="#enhancement-proposed-add-subject-and-more-emails-via-command-line">Enhancement Proposed: Add Subject and more emails via command line</a></h3>
+<div class="paragraph">
+<p>This will make it more convenient to email multiple people at once.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2017-11-12 17:12:55 +00:00
+</div>
+</div>
+</body>
+</html>

@@ -255,9 +255,200 @@ relationship between <code>Event</code> and <code>Reminder</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="enhancement-proposed-booking-of-facilities-from-nus"><a class="link" href="#enhancement-proposed-booking-of-facilities-from-nus">Enhancement proposed: Booking of facilities from NUS</a></h3>
+<h3 id="enhancement-added-switch-themes"><a class="link" href="#enhancement-added-switch-themes">Enhancement Added: Switch Themes</a></h3>
 <div class="sect3">
 <h4 id="external-behavior-2"><a class="link" href="#external-behavior-2">External behavior</a></h4>
+<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="switching-themes-code-t-theme-code"><a class="link" href="#switching-themes-code-t-theme-code">Switching themes : <code>(t)theme</code></a></h3>
+<div class="paragraph">
+<p>Switches between Dark Theme and Bright Theme.<br>
+Format: <code>(t)theme</code></p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>theme</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Theme will be saved upon exit.
+When <strong>BoNUS</strong> is opened again, theme will be initialized to the theme that was saved previously.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>As shown in Figure 5.15.1 and Figure 5.15.2, Figures depict the Bright Theme and Dark Theme respectively.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/BrightTheme.png" alt="BrightTheme" width="400">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 5.15.1 : Bright Theme</em></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DarkTheme.png" alt="DarkTheme" width="400">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 5.15.2 : Dark Theme</em></p>
+</div>
+<hr>
+<div class="sect3">
+<h4 id="justification-2"><a class="link" href="#justification-2">Justification</a></h4>
+<div class="paragraph">
+<p>As the target audience for <strong>BoNUS</strong> are students, we aim to allow students to personalize their own <strong>BoNUS</strong>. Therefore,
+to kick start such an initiative, we decided to allow the switching of themes between Dark and Bright Themes. Also, this adds
+to the aesthetic aspect of our product, attracting more students to start using <strong>BoNUS</strong>.</p>
+</div>
+<div class="paragraph">
+<p>To further develop on this aspect of personalisation, we seek to add more themes for students to personalize their own
+<strong>BoNUS</strong> in future releases.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="realization-2"><a class="link" href="#realization-2">Realization</a></h4>
+<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="switch-themes-mechanism"><a class="link" href="#switch-themes-mechanism">Switch Themes mechanism</a></h3>
+<div class="paragraph">
+<p>As <strong>BoNUS</strong> is targeted at students, we want to allow students to personalise <strong>BoNUS</strong>. Therefore, to open up such a
+possibility, we decided to introduce the <code>SwitchThemeCommand</code> to support the toggling of themes between bright and dark
+themes.</p>
+</div>
+<div class="paragraph">
+<p>In the following sections below, the Switch Themes mechanism will be further elaborated with the aid of
+illustrated diagrams to depict the interactions between the components in <strong>BoNUS</strong></p>
+</div>
+<div class="paragraph">
+<p>The <em>Sequence Diagram</em> in <em>Figure 4.5.1</em> illustrates how the components interact for the scenario where the user issues the command
+<code>delete 1</code>. Also, the <em>Sequence Diagram</em> illustrates the events-driven architectural style in <strong>BoNUS</strong></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SDforSwitchTheme.png" alt="SDforSwitchTheme" width="400">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.5.1 : Events-Driven nature of Switch Theme</em></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SDforSwitchThemesEmphasis.png" alt="SDforSwitchThemesEmphasis" width="400">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.5.2 : Sequence diagram for Switch Theme mechanism</em></p>
+</div>
+<div class="paragraph">
+<p>As can be seen from <em>Figure 4.5.2</em>, upon the execution of <code>theme</code> command, SwitchThemeEvent
+is then raised :</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="type">class</span> <span class="class">SwitchThemeCommand</span> <span class="directive">extends</span> Command {
+
+    <span class="directive">public</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">String</span> COMMAND_WORD = <span class="string"><span class="delimiter">&quot;</span><span class="content">theme</span><span class="delimiter">&quot;</span></span>;
+    <span class="directive">public</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">String</span> COMMAND_ALIAS = <span class="string"><span class="delimiter">&quot;</span><span class="content">t</span><span class="delimiter">&quot;</span></span>;
+
+    <span class="directive">public</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">String</span> MESSAGE_USAGE = COMMAND_WORD + <span class="string"><span class="delimiter">&quot;</span><span class="content">: Toggles between bright and dark theme.</span><span class="char">\n</span><span class="delimiter">&quot;</span></span>
+            + <span class="string"><span class="delimiter">&quot;</span><span class="content">Example: </span><span class="delimiter">&quot;</span></span> + COMMAND_WORD;
+
+    <span class="directive">public</span> <span class="directive">static</span> <span class="directive">final</span> <span class="predefined-type">String</span> MESSAGE_SUCCESS = <span class="string"><span class="delimiter">&quot;</span><span class="content">Theme switched!</span><span class="delimiter">&quot;</span></span>;
+
+    <span class="annotation">@Override</span>
+    <span class="directive">public</span> CommandResult execute() {
+        raise(<span class="keyword">new</span> SwitchThemeEvent());
+        <span class="keyword">return</span> <span class="keyword">new</span> CommandResult(MESSAGE_SUCCESS);
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>It is from there that the event will be handled by <code>MainWindow</code> where the change of theme occurs as shown below:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"> <span class="annotation">@Subscribe</span>
+    <span class="directive">private</span> <span class="type">void</span> handleThemeChanged(SwitchThemeEvent event) {
+        <span class="keyword">if</span> (prefs.getAddressBookTheme() == darkTheme) {
+            getRoot().getStylesheets().clear();
+            getRoot().getStylesheets().add(brightTheme);
+            getRoot().getStylesheets().add(brightExtension);
+            prefs.setAddressBookTheme(brightTheme);
+        } <span class="keyword">else</span> {
+            getRoot().getStylesheets().clear();
+            getRoot().getStylesheets().add(darkTheme);
+            getRoot().getStylesheets().add(darkExtension);
+            prefs.setAddressBookTheme(darkTheme);
+        }
+
+    }</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-consideration-2"><a class="link" href="#design-consideration-2">Design Consideration</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong>  How to implement the <code>theme</code> command <br>
+<strong>Alternative 1 (current choice):</strong> Create a <code>SwitchThemeCommand</code> command under <code>Logic</code> component.
+Create an event for it to handle<br>
+the switching of themes in <code>MainWindow</code>. Implement the switch theme process in <code>MainWindow</code>. No parsing is involved since<br>
+it is switching between two themes.<br>
+<strong>Pros:</strong> Simple interaction between <code>UI</code> and <code>Logic</code> by raising an event to handle the changing of themes in <code>MainWindow</code><br>
+from <code>SwitchThemeCommand</code> under the <code>Logic</code> component.<br>
+<strong>Cons:</strong> Without parsing, only two themes can be set.<br>
+<strong>Alternative 2:</strong> Handle theme switch by directly accessing <code>MainWindow</code> from <code>SwitchThemeCommand</code><br>
+<strong>Pros:</strong> Shortcut to make the <code>theme</code> command work.<br>
+<strong>Cons:</strong> <code>Logic</code> and <code>UI</code> component should not be easily interchangeably accessed in this manner. Also, it violates
+ Single Responsibility Principle (SRP). <code>Logic</code> is only supposed to handle logic components such as commands, it should
+ not be able to openly access <code>UI</code> components such as <code>MainWindow</code>. <br></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-outline-2"><a class="link" href="#implementation-outline-2">Implementation Outline</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a <code>SwitchThemeCommand</code> under logic component. Create a <code>SwitchThemeEvent</code> for <code>EventBus</code> to handle the event
+accordingly whenever <code>SwitchThemeCommand</code> is executed.</p>
+</li>
+<li>
+<p>Create a CSS file for BrightTheme which include its main CSS file as well as its extension files. Remove the default
+CSS styles from the <code>FXML</code> files in <strong>BoNUS</strong>.</p>
+</li>
+<li>
+<p>Implement the switching of themes in <code>MainWindow</code>. Create a method in <code>MainWindow</code> to subscribe it to the event change.
+Raise the event whenever <code>SwitchThemeCommand</code> is executed such that the theme will change accordingly in <code>MainWindow</code>.</p>
+</li>
+</ol>
+</div>
+<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enhancement-proposed-booking-of-facilities-from-nus"><a class="link" href="#enhancement-proposed-booking-of-facilities-from-nus">Enhancement proposed: Booking of facilities from NUS</a></h3>
+<div class="sect3">
+<h4 id="external-behavior-3"><a class="link" href="#external-behavior-3">External behavior</a></h4>
 <hr>
 </div>
 </div>
@@ -318,7 +509,7 @@ be updated accordingly with the Date, Time and Venue of booking.</p>
 </div>
 <hr>
 <div class="sect3">
-<h4 id="justification-2"><a class="link" href="#justification-2">Justification</a></h4>
+<h4 id="justification-3"><a class="link" href="#justification-3">Justification</a></h4>
 <div class="paragraph">
 <p>Since NUSMods is already being integrated with <strong>BoNUS</strong>, what is another factor that NUS students are largely concerned with in terms of school resources?
 The idea of integrating the booking of facilities in NUS with <strong>BoNUS</strong> then came about.</p>
@@ -334,7 +525,7 @@ the <code>Event</code> list in <strong>BoNUS</strong> would automatically be upd
 <div class="sect2">
 <h3 id="enhancement-proposed-importing-of-contacts-events-from-google"><a class="link" href="#enhancement-proposed-importing-of-contacts-events-from-google">Enhancement proposed: Importing of contacts / events from Google</a></h3>
 <div class="sect3">
-<h4 id="external-behavior-3"><a class="link" href="#external-behavior-3">External behavior</a></h4>
+<h4 id="external-behavior-4"><a class="link" href="#external-behavior-4">External behavior</a></h4>
 <hr>
 </div>
 <div class="sect3">
@@ -391,7 +582,7 @@ Format: <code>(i)import --google <a href="https://myaccount.google.com/" class="
 <hr>
 </div>
 <div class="sect3">
-<h4 id="justification-3"><a class="link" href="#justification-3">Justification</a></h4>
+<h4 id="justification-4"><a class="link" href="#justification-4">Justification</a></h4>
 <div class="paragraph">
 <p>Since majority of students often use Google for multiple purposes, GMail, Google Docs or even Google slides. It is no wonder that
 most students have Google Accounts and have important information stored within.<br></p>
@@ -411,10 +602,6 @@ it can act as a secondary storage/backup for each of your contacts and events st
 <div class="ulist">
 <ul>
 <li>
-<p>Added a command to switch in between bright and dark themes for students to personalize BoNUS.
-(Pull request <a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/166">#166</a>)</p>
-</li>
-<li>
 <p>Introduced Events component in BoNUS
 (Pull request <a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/55">#55</a>, <a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/73">#73</a>, <a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/76">#76</a>)</p>
 </li>
@@ -430,6 +617,10 @@ it can act as a secondary storage/backup for each of your contacts and events st
 <p>Assisted Project UNIBOOK in bug reporting
 (Issues <a href="https://github.com/CS2103AUG2017-T13-B2/main/issues/73">#73</a>)</p>
 </li>
+<li>
+<p>Assisted Project BlueBird in bug reporting
+(Issues <a href="https://github.com/CS2103AUG2017-T15-B4/main/issues/268">#268</a>)</p>
+</li>
 </ul>
 </div>
 </div>
@@ -438,7 +629,7 @@ it can act as a secondary storage/backup for each of your contacts and events st
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-12 14:13:09 +00:00
+Last updated 2017-11-12 17:12:55 +00:00
 </div>
 </div>
 </body>
