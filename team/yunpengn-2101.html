@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.3">
+<title>Niu Yunpeng - Project Portfolio</title>
+<link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css">
+</head>
+<body class="article">
+<div id="header">
+<h1>Niu Yunpeng - Project Portfolio</h1>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="purpose"><a class="link" href="#purpose">Purpose</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This project portfolio documents the work I have done as a developer of the <strong>BoNUS</strong> development team. It describes the
+features that I have added and purposed. Some sections from <a href="https://cs2103aug2017-t09-b3.github.io/main/UserGuide.html">User Guide</a>
+and <a href="https://cs2103aug2017-t09-b3.github.io/main/DeveloperGuide.html">Developer Guide</a> are extracted out to help with the
+explanation.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="project-bonus"><a class="link" href="#project-bonus">Project: BoNUS</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>BoNUS</strong> is a desktop personal organizer application dedicated to NUS students to carry out various tasks such as storing
+contacts, scheduling for upcoming events, timetable planning as well as a calendar to better organise their campus life.</p>
+</div>
+<div class="paragraph">
+<p>This project is the result of a semester-long software engineering <a href="https://nus-cs2103.github.io/website/">module</a> at
+<a href="http://www.nus.edu.sg/">NUS</a>. It is built by my teammates and me, as listed <a href="https://cs2103aug2017-t09-b3.github.io/main/AboutUs.html">here</a>.
+Most of the backend codes are written in Java, while <a href="https://docs.oracle.com/javase/8/javafx/get-started-tutorial/jfx-overview.htm#JFXST784">JavaFX</a>
+is adapted as the frontend framework.</p>
+</div>
+<div class="paragraph">
+<p>See our <a href="https://cs2103aug2017-t09-b3.github.io/">project website</a> or <a href="https://github.com/CS2103AUG2017-T09-B3/main">GitHub repository</a>
+for more information.</p>
+</div>
+<div class="paragraph">
+<p><strong>Code contributed</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://github.com/CS2103AUG2017-T09-B3/main/blob/master/collated/main/yunpengn.md">Functional code</a></p>
+</li>
+<li>
+<p><a href="https://github.com/CS2103AUG2017-T09-B3/main/blob/master/collated/test/yunpengn.md">Test code</a></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="enhancement-added-generic-property"><a class="link" href="#enhancement-added-generic-property">Enhancement Added: Generic Property</a></h3>
+<div class="sect3">
+<h4 id="justification"><a class="link" href="#justification">Justification</a></h4>
+<div class="paragraph">
+<p>All similar <a href="https://nus-cs2103.github.io/website/admin/projectList.html">products</a> have provided a few fields for users to
+store their contacts' information. Our application <strong>BoNUS</strong> should provide something unique to stand out of them.</p>
+</div>
+<div class="paragraph">
+<p>What if we provide the flexibility to allow users to define customize properties on their own? Different users certainly
+have different requirements and thus would like to store different information about their contacts. The fields pre-defined
+by the software may not suit their needs. Therefore, it is necessary to provide the <code>config --add-property</code> command to
+allow users define as many customize properties as they want.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="external-behavior"><a class="link" href="#external-behavior">External behavior</a></h4>
+<div class="paragraph">
+<p>Do you feel that the pre-defined properties in <strong>BoNUS</strong> does not suit your needs or you need more properties? No worry! You
+can use <code>config -add-property</code> command to add a new customize property field.</p>
+</div>
+<div class="paragraph">
+<p>Format:<br>
+<code>config --add-property s/SHORT_NAME f/FULL_NAME [m/MESSAGE r/REGULAR_EXPRESSION]</code><br>
+or<br>
+<code>cfg --add-property s/SHORT_NAME f/FULL_NAME [m/MESSAGE r/REGULAR_EXPRESSION]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><em>(As shown in Figure 1)</em></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>You need to think of a short name for this new property (corresponding to <code>s/SHORT_NAME</code>).</p>
+</li>
+<li>
+<p>You should make sure this short name is unique, meaning that there is no existing property with the same short name.</p>
+</li>
+<li>
+<p>You need to define a full name for this new property (corresponding to <code>f/FULL_NAME</code>).</p>
+</li>
+<li>
+<p>You should choose an identifiable value for this full name because it will be displayed when you view the details of contacts.</p>
+</li>
+<li>
+<p>You can optionally write a constraint message for this new property (corresponding to <code>m/MESSAGE</code>).</p>
+</li>
+<li>
+<p>You can optionally write a regular expression to restrict the accepted value for this new property to be in certain
+format (corresponding to <code>m/MESSAGE</code>).</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddNewPropertyCommandBox.png" alt="AddNewPropertyCommandBox" width="700">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 1: Add a new property "birthday"</em></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>config --add-property s/ag f/age</code></p>
+</li>
+<li>
+<p><code>config --add-property s/b f/birthday m/Birthday should be in the format of DD/MM/YYYY r/[^\s].*</code><br>
+After adding a new property <em>birthday</em>, you can use it when adding a new contact.<br>
+<code>add n/Linda p/85438796 e/linda@example.com a/5 Marina Bay Road b/Jan 29, 1987 t/friends</code><br>
+Now, Linda&#8217;s birthday is stored as Jan 29th, 1987 (as shown in Figure 2).</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>You need to use the short name as the prefix in <code>add</code>/<code>addE</code> and <code>edit</code>/<code>editE</code> commands.</p>
+</li>
+<li>
+<p>You will see the full name when viewing contact&#8217;s details on the right panel (as shown in Figure 2).</p>
+</li>
+<li>
+<p>You will see the constraint message when the input value for this property is not in the required format.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/PersonDetailsWithCustomizeProperty.png" alt="PersonDetailsWithCustomizeProperty" width="550">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 2: Linda with her birthday on Jan 29th, 1987</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="sect4">
+<h5 id="inspiration"><a class="link" href="#inspiration">Inspiration</a></h5>
+<div class="paragraph">
+<p>Users should not be limited to the provided four fields, i.e. <code>Name</code>, <code>Email</code>, <code>Phone</code>, <code>Address</code> (we are talking about
+the contact component here, of course one more <code>DateTime</code> for event component). They should have the freedom to enter all
+kinds of information about their contacts apart from the pre-defined ones.</p>
+</div>
+<div class="paragraph">
+<p>Through a brief product survey on other existing similar software in the market, we found that they usually ask users to
+type all other information in the <em>so-called</em> <code>Description</code> or <code>Details</code> field. This is not a good design because doing
+so will make the information stored messy. The application is used to organize personal information conveniently. It is
+a major drawback if the data are not stored (and thus presented to users) in a well-organized way.</p>
+</div>
+<div class="paragraph">
+<p>Learning from many modern database implementations, we should think of the data as two tables: one for <strong>contacts</strong> and the
+other one for <strong>events</strong>. Each table is composed of many rows and many columns. A single contact/event is one row, while
+all their different properties/fields are the columns (as shown in Figure 3 and 4).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/phpmyadminTableView.png" alt="phpmyadminTableView" width="700">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 3 : Data Table View of phpMyAdmin (a MySQL visualization tool)</em></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/phpmyadminAddColumn.png" alt="phpmyadminAddColumn" width="700">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4 : Add New Column in phpMyAdmin</em></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="design-consideration"><a class="link" href="#design-consideration">Design Consideration</a></h5>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Where to store the "<em>metadata</em>" of different properties (short name, full name, regular expression, etc.)<br>
+<strong>Alternative 1 (current choice):</strong> Create a new class <code>PropertyManager</code> in Figure 5<br>
+<strong>Pros:</strong> Efficient (there is only one copy) and easy for future development since it is centralized.<br>
+<strong>Cons:</strong> Requires major change to <code>Model</code> component and <code>Storage</code> component.<br>
+<strong>Alternative 2:</strong> Store these data along with each specific property class, like <code>Name</code>, <code>Email</code><br>
+<strong>Pros:</strong> Able to adapt the current implementation of <code>Model</code> component.<br>
+<strong>Cons:</strong> Hard to implement <code>AddPropertyCommand</code>, and difficult to manage as the project grows larger.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/PropertyManagerClassDiagram.png" alt="PropertyManagerClassDiagram" width="200">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 5 : Class diagram for</em> <code>PropertyManager</code></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="implementation-outline"><a class="link" href="#implementation-outline">Implementation Outline</a></h5>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a more general class to capture the common patterns among all columns (all different fields/properties): according to
+the basic OOP concept, a more generic class should become the superclass <code>Property</code>; then, other more specific classes
+(like <code>Name</code>, <code>Email</code>, <code>Phone</code>, etc.) can inherit from it. You can reduce code duplicates using this design.</p>
+</li>
+<li>
+<p>Find a way to store the metadata of all columns (fields/properties): in popular SQL database implementation, database
+server usually have a separate database reserved for the system itself. You have to store similar information somewhere
+as well. Thus, you should create a <code>PropertyManager</code> to store these "metadata", including short names, full names, constraint
+messages and regular expressions used for input validation. They are all <code>static</code> variables because there should only be
+one copy of these "metadata". You will waste a lot of resources if you store these "metadata" with each instance of the
+<code>Property</code> class.</p>
+</li>
+<li>
+<p>Deal with <em>Pre-loaded properties</em>: things like <code>Name</code>, <code>Email</code> and <code>Phone</code> are commonly used. Thus, you should ship
+them with the application so that users do not need any additional setup steps to use them.</p>
+</li>
+<li>
+<p>Add new customize properties: you should provide a command (<code>config --add-property</code>) to allow advance users to add their
+own customize fields (as shown in Figure 6). Thus, they should have the freedom to arbitrarily choose things like short
+name, full name, etc. They can easily add/edit these properties of each contact stored in the application as well, just
+like the <em>pre-loaded</em> ones.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/PropertyManagerSequenceDiagram.png" alt="PropertyManagerSequenceDiagram" width="800">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 6 : Sequence diagram for adding a customize property</em></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enhancement-added-import-nusmods-timetable"><a class="link" href="#enhancement-added-import-nusmods-timetable">Enhancement Added: Import NUSMods Timetable</a></h3>
+<div class="sect3">
+<h4 id="justification-2"><a class="link" href="#justification-2">Justification</a></h4>
+<div class="paragraph">
+<p>This feature addresses a specific need of NUS students, since they are our target users.</p>
+</div>
+<div class="paragraph">
+<p>For university students, the lessons and exams reflected on their school timetable account for a large part of their
+schedule. When they are using <strong>BoNUS</strong>, it is very likely they want to put all these activities into the application as
+upcoming events. However, it becomes very tedious to do so manually.</p>
+</div>
+<div class="paragraph">
+<p>Most of the NUS students are currently using NUSMods as their school timetable builder. Their NUSMods timetable contains
+information about all their lessons and exams (as shown in Figure 7). Thus, it would be very convenient if users could
+directly import their NUSMods timetable into <strong>BoNUS</strong> in one step.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/NusmodsWebsite.png" alt="NusmodsWebsite" width="750">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 7 : NUSMods Website Interface</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="external-behavior-2"><a class="link" href="#external-behavior-2">External behavior</a></h4>
+<div class="paragraph">
+<p>Do you want to get reminders for all your lessons and exams at NUS? Do you want to import your NUSMods timetable into <strong>BoNUS</strong>
+automatically? <code>import --nusmods</code> command can easily help you achieve this.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>(i)import --nusmods YOUR_NUSMODS_URL</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>You should directly copy the URL from the address bar of your browser, which should begin with <code>http(s)://nusmods.com/timetable/</code>.</p>
+</li>
+<li>
+<p>You should refrain from using the short URL generated by the <em>Sharing Timetable</em> feature in NUSMods.</p>
+</li>
+<li>
+<p>You should see final examinations for all modules in your NUSMods timetable in the event listing interface (as shown
+in Figure 8).</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ImportNusmodsResult.png" alt="ImportNusmodsResult" width="400">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 8 : Result of importing NUSMods timetable</em></p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>import --nusmods https://nusmods.com/timetable/2017-2018/sem1?CS2103T[TUT]=C01</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Make sure you have stable Internet connection when using this command.</p>
+</li>
+<li>
+<p>You may need to wait for a while as the application is retrieving information from NUSMods.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-2"><a class="link" href="#implementation-2">Implementation</a></h4>
+<div class="sect4">
+<h5 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h5>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Relationship between <code>ImportXmlCommand</code> and <code>ImportNusmodsCommand</code><br>
+<strong>Alternative 1 (current choice):</strong> Add a new abstract <code>ImportCommand</code> class and let both of them become its sub-commands
+(inherit from it).<br>
+<strong>Pros:</strong> This is inspired by many popular command-line tools (like Git). <code>import</code> is called the actual command, while
+<code>--xml</code> and <code>--script</code> is called the options. Most Unix/Linux users would be used to this approach. This is important for
+us because we assume our users are typists and they are very likely to frequently use these command-line tools.<br>
+<strong>Cons:</strong> Need to write extra codes and parsing also becomes more complicated.<br>
+<strong>Alternative 2:</strong> Implement these two commands separately.<br>
+<strong>Pros:</strong> Easy to implement and similar to other commands.<br>
+<strong>Cons:</strong> Our users may not be used to it. The command word will become longer. It is not a good OOP practice as well
+because common details are not abstracted into a parent class and this produces duplicate codes.</p>
+</div>
+<div class="paragraph">
+<p><em>(Similar strategy has been adopted in <code>ConfigCommand</code>)</em></p>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>Aspect:</strong> How to obtain user&#8217;s NUSMods timetable<br>
+<strong>Alternative 1 (current choice):</strong> Let users copy-paste the URL as a parameter of <code>ImportNusmodsCommand</code>.<br>
+<strong>Pros:</strong> Simple to use and easy to implement as well<br>
+<strong>Cons:</strong> Need to check whether the URL is valid and from NUSMods (currently using regular expression).<br>
+<strong>Alternative 2:</strong> Implement a built-in browser and render the NUSMods page<br>
+<strong>Pros:</strong> Users are more used to this interface.<br>
+<strong>Cons:</strong> Need much extra work to implement the built-in browser. The page may not be rendered well since the built-in
+browser is typically smaller than OS browser and NUSMods does not fully adopt <a href="#mainstream-os">responsive UI framework</a>
+and may not work well on a small browser window.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="implementation-outline-2"><a class="link" href="#implementation-outline-2">Implementation Outline</a></h5>
+<div class="sect5">
+<h6 id="code-importcommand-code-abstract-class"><a class="link" href="#code-importcommand-code-abstract-class"><code>ImportCommand</code> abstract class</a></h6>
+<div class="paragraph">
+<p>You should create an <code>ImportCommand</code> abstract class and let <code>ImportXmlCommand</code> and <code>ImportNusmodsCommand</code> inherit from it (as in
+Figure 9). It is also a good practice to use an enumeration <code>ImportType</code> because the possible types of the import
+are within a fixed set of values. This leads to better modularity in <code>ImportCommandParser</code> as well.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ImportNusmodsClassDiagram.png" alt="ImportNusmodsClassDiagram" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 9 : Class diagram for related import commands</em><br></p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="parsing-of-nusmods-timetable-url"><a class="link" href="#parsing-of-nusmods-timetable-url">Parsing of NUSMods Timetable URL</a></h5>
+<div class="paragraph">
+<p>You need to implement utility method to validate a given URL and parse the <code>GET</code> parameters. Although it is possible to
+utilize external library like <a href="https://hc.apache.org/">Apache HttpComponents</a>, it is better to implement on your own because
+it is relative simple to do so and using external library comes with extra expenses (such as licence, etc).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="directive">static</span> <span class="predefined-type">Map</span>&lt;<span class="predefined-type">String</span>, <span class="predefined-type">String</span>&gt; fetchUrlParameters(<span class="predefined-type">URL</span> url) <span class="directive">throws</span> <span class="exception">UnsupportedEncodingException</span> {
+    <span class="predefined-type">String</span> query = urlDecode(url.getQuery());
+
+    <span class="keyword">if</span> (Strings.isNullOrEmpty(query)) {
+        <span class="keyword">return</span> <span class="predefined-type">Collections</span>.emptyMap();
+    }
+
+    <span class="predefined-type">Map</span>&lt;<span class="predefined-type">String</span>, <span class="predefined-type">String</span>&gt; pairs = <span class="keyword">new</span> <span class="predefined-type">HashMap</span>&lt;&gt;();
+    <span class="keyword">for</span> (<span class="predefined-type">String</span> pair: query.split(<span class="string"><span class="delimiter">&quot;</span><span class="content">&amp;</span><span class="delimiter">&quot;</span></span>)) {
+        <span class="type">int</span> index = pair.indexOf(<span class="string"><span class="delimiter">&quot;</span><span class="content">=</span><span class="delimiter">&quot;</span></span>);
+        pairs.put(pair.substring(<span class="integer">0</span>, index), pair.substring(index + <span class="integer">1</span>));
+    }
+
+    <span class="keyword">return</span> pairs;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="fetch-information-from-nusmods-api"><a class="link" href="#fetch-information-from-nusmods-api">Fetch information from NUSMods API</a></h5>
+<div class="paragraph">
+<p>The URL parsed just now only contains the module codes and grouping for each module. In order to add upcoming events, you
+need more information such as module names, examination dates, etc. You can use API provided by NUSMods to fetch the
+information you need. NUSMods API is in JSON format, which would be very suitable to use as <a href="https://github.com/FasterXML/jackson">Jackson</a>
+library in this project.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="comment">/**
+ * Read JSON data from a given URL and convert the data to an instance of the given class.
+ * @param url is the URL to the remote JSON data.
+ */</span>
+<span class="directive">public</span> <span class="directive">static</span> &lt;T&gt; T fromJsonUrl(<span class="predefined-type">URL</span> url, <span class="predefined-type">Class</span>&lt;T&gt; instanceClass) <span class="directive">throws</span> <span class="exception">IOException</span> {
+    <span class="keyword">return</span> objectMapper.readValue(url, instanceClass);
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="add-upcoming-events"><a class="link" href="#add-upcoming-events">Add upcoming events</a></h5>
+<div class="paragraph">
+<p>After obtaining all the information you need, you can simply use the <code>addEvent</code> method in <code>ModelManager</code> class to add the
+final examinations as upcoming events into <strong>BoNUS</strong>. This should be a similar process as <code>AddEventCommand</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enhancement-proposed-import-from-bonus-specified-script-file"><a class="link" href="#enhancement-proposed-import-from-bonus-specified-script-file">Enhancement Proposed: Import From BoNUS-specified Script file</a></h3>
+<div class="sect3">
+<h4 id="justification-3"><a class="link" href="#justification-3">Justification</a></h4>
+<div class="paragraph">
+<p>This feature is meant for advanced users. To build an <strong>epic</strong> application, it is essential to build an <em>ecosystem</em> for
+the software. According to the <em>Unix</em> philosophy, providing a shell scripting and command language is the minimum requirement
+for a complete system.</p>
+</div>
+<div class="paragraph">
+<p>With the support for scripting file, advance users (or system administers if <strong>BoNUS</strong> is used as an enterprise application)
+can generate a scripting file and import it into <strong>BoNUS</strong>. Data management and frequent operations can be done easily in
+one step. Otherwise, they have to type one command each time in the GUI interface, which becomes a very tedious work.</p>
+</div>
+<div class="paragraph">
+<p>A sample script file is shown as follows in Figure 10.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ScriptFileSample.png" alt="ScriptFileSample" width="900">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 10 : A sample script file</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="external-behavior-3"><a class="link" href="#external-behavior-3">External behavior</a></h4>
+<div class="paragraph">
+<p><em>(Coming in v2.0)</em></p>
+</div>
+<div class="paragraph">
+<p>Do you repeat doing the same set of commands again and again in <strong>BoNUS</strong>? Why not save them in a script file and import
+it whenever you need so that you do not need to type all the commands again?</p>
+</div>
+<div class="paragraph">
+<p>If so, <code>import --script</code> command is here for you.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>(i)import --script FILEPATH</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>You must explicitly provide the <code>--script</code> parameter.</p>
+</li>
+<li>
+<p>You need to make sure <code>FILEPATH</code> ends with an extension of <code>.bo</code>.</p>
+</li>
+<li>
+<p>You should put <strong>at most one</strong> command per line in the script file.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>For <code>Windows</code> users:<br>
+<code>import --script C:\Users\John Doe\Documents\bonus.bo</code></p>
+</li>
+<li>
+<p>For <code>macOS</code> and <code>Linux</code> users:<br>
+<code>import --script /Users/John Doe/Documents/bonus.bo</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enhancement-proposed-export-data-to-microsoft-excel-sup-tm-sup-worksheet"><a class="link" href="#enhancement-proposed-export-data-to-microsoft-excel-sup-tm-sup-worksheet">Enhancement Proposed: Export Data to Microsoft Excel<sup>TM</sup> Worksheet</a></h3>
+<div class="sect3">
+<h4 id="justification-4"><a class="link" href="#justification-4">Justification</a></h4>
+<div class="paragraph">
+<p>Currently, users can use <code>ExportCommand</code> to save data to a separate location as a backup. However, <code>.xml</code> files
+are not considered to be user-friendly, as you can see from Figure 11.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SampleXmlFile.png" alt="SampleXmlFile" width="900">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 11 : A sample XML file</em></p>
+</div>
+<div class="paragraph">
+<p>Thus, it would be useful to natively support exporting data to a format with better visuals. As stated before,
+data stored in <strong>BoNUS</strong> can be considered as <em>tables</em>. Naturally,  Microsoft Excel<sup>TM</sup> would be an appropriate format
+to present data to users.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="external-behavior-4"><a class="link" href="#external-behavior-4">External behavior</a></h4>
+<div class="paragraph">
+<p><em>(Coming in v2.0)</em></p>
+</div>
+<div class="paragraph">
+<p>Do you hate reading <code>XML</code> files? Are you looking for exporting your data in *BoNUS to a reader-friendly format?</p>
+</div>
+<div class="paragraph">
+<p>You can export the data in the application to an external file of Microsoft Excel<sup>TM</sup> format now.<br>
+Format: <code>(p)export --excel FILEPATH</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>You must explicitly provide the <code>--excel</code> parameter.</p>
+</li>
+<li>
+<p>You need to make sure <code>FILEPATH</code> ends with an extension of <code>.xls</code>.</p>
+</li>
+<li>
+<p>You should have installer Microsoft Excel<sup>TM</sup> on your computer to open the exported file.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>For <code>Windows</code> users:<br>
+<code>export --excel C:\Users\John Doe\Documents\bonus.xls</code></p>
+</li>
+<li>
+<p>For <code>macOS</code> and <code>Linux</code> users:<br>
+<code>export --excel /Users/John Doe/Documents/bonus.xls</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="other-contributions"><a class="link" href="#other-contributions">Other contributions</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Repository setup, CI setup and Slack automatic notification using WebHook (Pull requests <a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/1">#1</a>,
+<a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/6">#6</a>, <a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/7">#7</a>)</p>
+</li>
+<li>
+<p>Design and refine multiple parts of UI (Pull requests <a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/41">#41</a>,
+<a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/43">#43</a>, <a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/44">#44</a>,
+<a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/82">#82</a>, <a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/106">#106</a>)</p>
+</li>
+<li>
+<p>Support setting customize colors for tags (Pull requests <a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/83">#83</a>,
+<a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/101">#101</a>, <a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/147">#147</a>)</p>
+</li>
+<li>
+<p>Support natural language parsing (Pull request <a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/148">#148</a>)</p>
+</li>
+<li>
+<p>Support adding avatar to contacts (Pull request <a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/162">#162</a>)</p>
+</li>
+<li>
+<p>Write unit tests for various classes</p>
+</li>
+<li>
+<p>Update various sections in <code>AboutUs</code>, <code>ContactUs</code>, <code>UserGuide</code> and <code>DeveloperGuide</code>, etc.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="reuse-offer"><a class="link" href="#reuse-offer">Reuse offer</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Generic property: Issue <a href="https://github.com/nus-cs2103-AY1718S1/forum/issues/180">#180</a></p>
+</li>
+<li>
+<p>Set customize color for tags: Issue <a href="https://github.com/nus-cs2103-AY1718S1/forum/issues/199">#199</a></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="helping-others"><a class="link" href="#helping-others">Helping others</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>On the forum: Issue <a href="https://github.com/nus-cs2103-AY1718S1/forum/issues/195">#195</a>,
+<a href="https://github.com/nus-cs2103-AY1718S1/forum/issues/197">#197</a>, <a href="https://github.com/nus-cs2103-AY1718S1/forum/issues/200">#200</a></p>
+</li>
+<li>
+<p>Report bug for <a href="https://github.com/CS2103AUG2017-T13-B2/main">UniBook</a>: Issue <a href="https://github.com/CS2103AUG2017-T13-B2/main/issues/72">#72</a></p>
+</li>
+<li>
+<p>Report bug for <a href="https://nus-cs2103.github.io/website/">module website</a>: Issue <a href="https://github.com/nus-cs2103/website/issues/18">#18</a>,
+<a href="https://github.com/nus-cs2103/website/issues/28">#28</a>, <a href="https://github.com/nus-cs2103/website/issues/29">#29</a>,
+<a href="https://github.com/nus-cs2103/website/issues/34">#34</a>, <a href="https://github.com/nus-cs2103/website/issues/39">#39</a>,
+<a href="https://github.com/nus-cs2103/website/issues/41">#41</a>, <a href="https://github.com/nus-cs2103/website/issues/43">#43</a></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2017-11-13 14:42:52 +00:00
+</div>
+</div>
+</body>
+</html>
