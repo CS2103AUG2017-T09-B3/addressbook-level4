@@ -25,7 +25,7 @@
 <p><strong>Code contributed</strong>: [<a href="https://github.com">Functional code</a>] [<a href="https://github.com">Test code</a>] {give links to collated code files}</p>
 </div>
 <div class="sect2">
-<h3 id="enhancements-added-sorting-contacts-by-name-finding-contacts-by-tag-email-command"><a class="link" href="#enhancements-added-sorting-contacts-by-name-finding-contacts-by-tag-email-command">Enhancements Added: Sorting Contacts by Name, Finding Contacts by Tag, Email Command</a></h3>
+<h3 id="enhancements-added-sorting-contacts-by-name-finding-contacts-by-tag-email-command-in-built-calendar"><a class="link" href="#enhancements-added-sorting-contacts-by-name-finding-contacts-by-tag-email-command-in-built-calendar">Enhancements Added: Sorting Contacts by Name, Finding Contacts by Tag, Email Command, In-built Calendar</a></h3>
 <div class="sect3">
 <h4 id="external-behavior"><a class="link" href="#external-behavior">External behavior</a></h4>
 <hr>
@@ -234,30 +234,101 @@ Users can easily search for their contacts on Facebook. As most people use socia
 their friends' or family&#8217;s lives, they often want to add them of platforms such as Facebook. This feature offers a
 convenient way for users to search for any of their contacts on Facebook to add them.</p>
 </div>
+<div class="paragraph">
+<p><strong>Calendar</strong><br>
+This allows users to be able to easily check their events with a monthly view to see what day of the week it is and be
+able to clearly see in how many weeks time is the event happening. Also, users can use it to look at the calendar
+conveniently without having to open any external applications. A calendar is often used when doing scheduling or
+planning and is thus useful when placed with the events.</p>
+</div>
 </div>
 <div class="sect3">
 <h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
 <hr>
-<div class="paragraph">
-<p><mark>Start of Extract [from: Developer Guide]</mark></p>
-</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="emailing-mechanism"><a class="link" href="#emailing-mechanism">Emailing mechanism</a></h3>
 <div class="paragraph">
-<p>The automatic opening of email on the user&#8217;s desktop is facilitated mainly by the <code>Desktop</code> class which allows a Java application
-to launch the default mail application registered inside the user&#8217;s native desktop to handle the email <code>URI</code>.</p>
+<p>The automatic opening of email on the user&#8217;s desktop is facilitated mainly by the <code>Desktop</code> class which allows the Java
+application to launch the default mail application registered inside the user&#8217;s native desktop to handle the email <code>URI</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="calendar-mechanism"><a class="link" href="#calendar-mechanism">Calendar mechanism</a></h3>
+<div class="paragraph">
+<p>An in-built calendar is added to the panel beside the list of events. This calendar shows a monthly view of the current month.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/Calendar.png" alt="Calendar" width="600">
+</div>
 </div>
 <div class="paragraph">
-<p><mark>End of Extract</mark></p>
+<p><em>Figure 4.9.1 : Calendar</em></p>
+</div>
+<div class="paragraph">
+<p>This is useful for users to be able to compare their list of events in the calendar. It can help users to check what day of the week their event is happening on. This is especially useful for NUS students as there is a fixed daily schedule and it would be easy to check what day it falls on to ensure their availability for the event. Other usages include having to see what dates lie on a particular day for students to plan weekly events. All in all, it provides a convenient way for students to have access to a calendar without having to open any external applications.</p>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> How to display the individual dates.<br>
+<strong>Alternative 1 (current choice):</strong> Use a GridPane to design the table in XML. Include a class to calculate dates to be shown, before populating individual cells in GridPane using data from class.<br>
+<strong>Pros:</strong> This method makes use of JavaFX, possibly allowing us to improve the aesthetic design in the future. It also allows individual objects to be created for individual cells. This could allow us to write more functionality such as showing number of events per day to dynamic colour changes in the future. The monthDateBuilder method provides an accurate graphical representation of the days in a monthly calendar.<br>
+<strong>Cons:</strong> The 42 cell design is fairly cumbersome, requiring the initialization of at least 42 cells. The class is limited in a way that it must have 42 cells, thus sometimes many cells are left unused, and there is a wastage of memory.<br>
+<strong>Alternative 2:</strong> Use JTable to display individual dates.<br>
+<strong>Pros:</strong> A ready to use API that can allow easy building of table showing dates. It is also a powerful tool with many functions.<br>
+<strong>Cons:</strong> JTable is a UI element from a different UI design model, and cannot make use of advantages brought about by the new advantages from JavaFX, such as the node capability of JavaFX and certain aesthetic modifications. Many of the JTable functions might not be used.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-outline"><a class="link" href="#implementation-outline">Implementation Outline</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create a EventCalendar class that contains the month that will be shown, containing all the necessary information required for a monthly calendar (i.e. dates, name of month).</p>
+</li>
+<li>
+<p>Create a monthDateBuilder class that will be used to set the current month and year of the calendar. It will also be arranging the dates in a way that will correspond to which day of the week it belongs to.</p>
+</li>
+<li>
+<p>Use Calendar class to set the current year and month and store in an array (i.e.monthYearArray) in monthDateBuilder. Also, use Calendar class to set the number of days in the current month and the day that the first date of the month falls on (i.e. set using setMonthAnchors method). These details are required to build the monthly view.</p>
+</li>
+<li>
+<p>There are a maximum of 42 cells to fill up in every month. Create a method (i.e. buildMonthArray method) to store the position of the dates in. Use an algorithm to store all the dates before the first date of the month as a blank, fill up the subsequent dates using the value of the first day of the month and their cell number, and the leftover dates will continue to be blanks until the 42nd cell.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/EventCalendarClassDiagram.png" alt="EventCalendarClassDiagram" width="300">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.9.1.1 : Class Diagram for `EventCalendar`</em></p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/MonthDateBuilderClassDiagram.png" alt="MonthDateBuilderClassDiagram" width="300">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.9.1.2 : Class Diagram for `MonthDateBuilder`</em></p>
 </div>
 <hr>
 </div>
+</div>
 <div class="sect2">
-<h3 id="enhancement-proposed-add-subject-and-more-emails-via-command-line"><a class="link" href="#enhancement-proposed-add-subject-and-more-emails-via-command-line">Enhancement Proposed: Add Subject and more emails via command line</a></h3>
+<h3 id="enhancement-proposed-add-subject-and-more-emails-via-command-line-more-interactive-calendar"><a class="link" href="#enhancement-proposed-add-subject-and-more-emails-via-command-line-more-interactive-calendar">Enhancement Proposed: Add Subject and more emails via command line, More Interactive Calendar</a></h3>
 <div class="paragraph">
-<p>This will make it more convenient to email multiple people at once.</p>
+<p><strong>Email</strong><br>
+This will make it more convenient to email multiple people at once.</p>
+</div>
+<div class="paragraph">
+<p><strong>Calendar</strong><br>
+Future plans include highlighting today&#8217;s date, having weekly or even yearly views, being able to view any month
+instead of just the current month. Future enhancements also include integrating the list of events into the calendar.</p>
 </div>
 </div>
 </div>
@@ -265,7 +336,7 @@ to launch the default mail application registered inside the user&#8217;s native
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-13 02:19:49 +00:00
+Last updated 2017-11-13 04:54:34 +00:00
 </div>
 </div>
 </body>
