@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.3">
+<title>BoNUS - Test Script</title>
+<link rel="stylesheet" href="stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css">
+</head>
+<body class="article">
+<div id="header">
+<h1>BoNUS - Test Script</h1>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>By: <code>CS2103T T09-B3 Team</code>      Since: <code>Sep 2017</code>      Licence: <code>MIT</code></p>
+</div>
+</div>
+<div id="toc" class="toc">
+<div id="toctitle"></div>
+<ul class="sectlevel1">
+<li><a href="#setting-up">1. Setting up</a>
+<ul class="sectlevel2">
+<li><a href="#prerequisites">1.1. Prerequisites</a></li>
+<li><a href="#importing-the-sample-data">1.2. Importing the Sample Data</a></li>
+<li><a href="#troubleshooting">1.3. Troubleshooting</a></li>
+</ul>
+</li>
+<li><a href="#testing">2. Testing</a>
+<ul class="sectlevel2">
+<li><a href="#add-view-edit-delete-contacts">2.1. Add/view/edit/delete contacts</a></li>
+<li><a href="#add-view-edit-delete-events">2.2. Add/view/edit/delete events</a></li>
+<li><a href="#import-export-data">2.3. Import/export data</a></li>
+<li><a href="#email-a-contact-on-your-contact-list">2.4. Email a contact on your contact list</a></li>
+<li><a href="#searching-up-a-contact-on-google-maps">2.5. Searching up a contact on Google Maps</a></li>
+<li><a href="#switch-themes">2.6. Switch themes</a></li>
+<li><a href="#advance-setting">2.7. Advance setting</a></li>
+<li><a href="#miscellaneous">2.8. Miscellaneous</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect1">
+<h2 id="setting-up"><a class="link" href="#setting-up">1. Setting up</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This test script will guide you on how to test the various features of <strong>BoNUS</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/Ui.png" alt="Ui" width="700">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 1 : User Interface Demo</em></p>
+</div>
+<div class="sect2">
+<h3 id="prerequisites"><a class="link" href="#prerequisites">1.1. Prerequisites</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Have Java (JRE) version <code>1.8.0_60</code> or later installed in your Computer.</p>
+</li>
+<li>
+<p>Download the latest release <code>[T09-B3][BoNUS].jar</code>, the sample data <code>[T09-B3][BoNUS]SampleData.xml</code> and test instructions
+<code>[T09-B3][BoNUS]TestScript.pdf</code> (this document itself).</p>
+</li>
+<li>
+<p>A folder you want to use as home folder for testing <strong>BoNUS</strong> and copy the <code>.jar</code> you have downloaded there.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="importing-the-sample-data"><a class="link" href="#importing-the-sample-data">1.2. Importing the Sample Data</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Rename the downloaded <code>[T09-B3][BoNUS]SampleData.xml</code> to <code>addressbook.xml</code>.</p>
+</li>
+<li>
+<p>Create a folder called <code>data</code> under the home folder used for testing <strong>BoNUS</strong>.</p>
+</li>
+<li>
+<p>Move <code>addressbook.xml</code> into the <code>data</code> folder created just now.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="troubleshooting"><a class="link" href="#troubleshooting">1.3. Troubleshooting</a></h3>
+<div class="paragraph">
+<p>If you have any doubt or need further clarification, you may want to visit our <a href="https://cs2103aug2017-t09-b3.github.io/main/">project website</a>
+for more information.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="testing"><a class="link" href="#testing">2. Testing</a></h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="add-view-edit-delete-contacts"><a class="link" href="#add-view-edit-delete-contacts">2.1. Add/view/edit/delete contacts</a></h3>
+<div class="sect3">
+<h4 id="add-a-new-contact"><a class="link" href="#add-a-new-contact">2.1.1. Add a new contact</a></h4>
+<div class="paragraph">
+<p>To add a new contact, we need to use the <code>add</code> command.</p>
+</div>
+<div class="paragraph">
+<p><strong>Positive test case</strong></p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s add a new person called <code>Martin</code> into <strong>BoNUS</strong><br>
+<em>Command:</em><br>
+<code>add n/Martin Smith p/85930167 e/martin.smith@example.com a/25 Scene Road, 119587 t/friends</code><br>
+<em>Result:</em><br>
+<code>New person added: Martin Smith Phone: 85930167 Email: <a href="mailto:martin.smith@example.com">martin.smith@example.com</a> Address: 25 Scene Road, 119587 Tags: [friends]</code></p>
+</div>
+<div class="paragraph">
+<p><strong>Negative test cases</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The value for one property is invalid<br>
+<em>Command:</em><br>
+<code>add n/Den Smith p/85930167 e/www.smith.com a/25 New York City</code><br>
+<em>Result:</em><br>
+<code>Person emails should be 2 alphanumeric/period strings separated by '@'.</code></p>
+</li>
+<li>
+<p>The person already exists<br>
+<em>Command:</em><br>
+<code>add n/Martin Smith p/85930167 e/martin.smith@example.com a/25 Scene Road, 119587 t/friends</code><br>
+<em>Result:</em><br>
+<code>This person already exists in the application.</code></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="edit-an-existing-contact"><a class="link" href="#edit-an-existing-contact">2.1.2. Edit an existing contact</a></h4>
+<div class="paragraph">
+<p>To edit an existing contact, we need to use the <code>edit</code> command.</p>
+</div>
+<div class="paragraph">
+<p><strong>Positive test case</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>First, let&#8217;s list all the contacts in <strong>BoNUS</strong><br>
+<em>Command:</em><br>
+<code>list</code><br>
+<em>Result:</em><br>
+<code>Listed all persons</code></p>
+</li>
+<li>
+<p>Let&#8217;s edit the person called <code>Martin</code> we added just now (assume the index is <code>8</code>)<br>
+<em>Command:</em><br>
+<code>edit 8 p/86129854</code><br>
+<em>Result:</em><br>
+<code>Edited Person: Martin Smith Phone: 86129854 Email: <a href="mailto:martin.smith@example.com">martin.smith@example.com</a> Address: 25 Scene Road, 119587 Tags: [friends]</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Negative test cases</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The index is invalid (assume there are fewer than 100 contacts in the application)<br>
+<em>Command:</em><br>
+<code>edit 100 a/Beijing, China</code><br>
+<em>Result:</em><br>
+<code>The person index provided is invalid.</code></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="view-the-details-of-a-person"><a class="link" href="#view-the-details-of-a-person">2.1.3. View the details of a person</a></h4>
+<div class="paragraph">
+<p>To view the details of an existing contact, we need to use the <code>select</code> command.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>First, let&#8217;s list all the contacts in <strong>BoNUS</strong><br>
+<em>Command:</em><br>
+<code>list</code><br>
+<em>Result:</em><br>
+<code>Listed all persons</code></p>
+</li>
+<li>
+<p>Then, select the person we want to view (assume there is at least 1 contact in the application)<br>
+<em>Command:</em><br>
+<code>select 1</code><br>
+<em>Result:</em><br>
+The person&#8217;s details will be shown on the right-hand side of the interface.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="delete-an-existing-person"><a class="link" href="#delete-an-existing-person">2.1.4. Delete an existing person</a></h4>
+<div class="paragraph">
+<p>To delete an existing contact, we need to use the <code>delete</code> command.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>First, let&#8217;s list all the contacts in <strong>BoNUS</strong><br>
+<em>Command:</em><br>
+<code>list</code><br>
+<em>Result:</em><br>
+<code>Listed all persons</code></p>
+</li>
+<li>
+<p>Then, delete the first person (assume there is at least 1 contact in the application)<br>
+<em>Command:</em><br>
+<code>delete 1</code><br>
+<em>Result:</em><br>
+<code>Deleted Person: Alex Yeoh Phone: 87438807 Email: <a href="mailto:alexyeoh@example.com">alexyeoh@example.com</a> Address: Blk 30 Geylang Street 29, #06-40 Tags: [friends]</code></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="add-avatar-to-an-existing-person"><a class="link" href="#add-avatar-to-an-existing-person">2.1.5. Add avatar to an existing person</a></h4>
+<div class="paragraph">
+<p><strong>Positive test case</strong></p>
+</div>
+<div class="paragraph">
+<p>To add avatar to a contact, we need to use the <code>avatar</code> command.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>First, let&#8217;s list all the contacts in <strong>BoNUS</strong><br>
+<em>Command:</em><br>
+<code>list</code><br>
+<em>Result:</em><br>
+<code>Listed all persons</code></p>
+</li>
+<li>
+<p>Then move an image file (<code>.jpg</code> or <code>.png</code>) into the home folder where you use <strong>BoNUS</strong>. Maybe you want to use the
+logo of Java from <a href="https://www.hostingireland.ie/images/java-logo.png">here</a> as a sample.</p>
+</li>
+<li>
+<p>Add avatar to the third person in the listing (assume there are at least three contacts)<br>
+<em>Command:</em><br>
+<code>avatar 3 java-logo.png</code></p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Do not move, rename or delete the image you use as an avatar; otherwise, it will not be shown in <strong>BoNUS</strong>.</p>
+</li>
+<li>
+<p>You are suggested to move the image into the home folder where you use <strong>BoNUS</strong>.</p>
+</li>
+<li>
+<p>Do not be <em>nasty</em> about the input file. If you provide an invalid file that looks like an image but is not an actual image,
+the area reserved for avatar will simply become transparent.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Negative test cases</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Use an invalid index<br>
+<em>Command:</em><br>
+<code>avatar -1 java-logo.png</code><br>
+<em>Result:</em><br>
+<code>Invalid command format!</code><br>
+<code>Index is not a non-zero unsigned integer.</code></p>
+</li>
+<li>
+<p>Use a non-existing file<br>
+<em>Command:</em><br>
+<code>avatar 1 no-java.png</code><br>
+<em>Result:</em><br>
+<code>Invalid command format!</code><br>
+<code>The provided image path does not exist.</code></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="add-view-edit-delete-events"><a class="link" href="#add-view-edit-delete-events">2.2. Add/view/edit/delete events</a></h3>
+<div class="sect3">
+<h4 id="listing-of-events"><a class="link" href="#listing-of-events">2.2.1. Listing of events</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>First, let&#8217;s start by listing all the events in <strong>BoNUS</strong><br>
+<strong>Positive test case</strong><br>
+<em>Command:</em><br>
+<code>listE</code><br>
+<em>Result:</em><br>
+<code>Listed all events</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>You should see that the application automatically switches from contact list to event list after the command listE.</p>
+</div>
+<div class="paragraph">
+<p><strong>Negative test case</strong><br></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Incorrect capitalization of command<br>
+<em>Command:</em><br>
+<code>ListE</code><br>
+<em>Result:</em><br>
+<code>Unknown command</code><br></p>
+</li>
+<li>
+<p>Invalid spelling<br>
+<em>Command:</em><br>
+<code>listEE</code><br>
+<em>Result:</em><br>
+<code>Unknown command</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Commands are case sensitive.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="adding-of-events"><a class="link" href="#adding-of-events">2.2.2. Adding of events</a></h4>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The standard format for time should be <code>DDMMYYYY HH:MM</code> in 24-hour format.</p>
+</li>
+<li>
+<p>However, the application may sometimes be <em>smart</em> enough to interpret what you typed. For example, if you type <code>this afternoon</code>
+or <code>tomorrow evening</code>, it will be automatically converted to the standard format.</p>
+</li>
+<li>
+<p>Do NOT try to <em>challenge</em> the application, it is not promised to produce an expected result if you use non-standard format
+or if the expression is not simple or clear enough.</p>
+</li>
+<li>
+<p>Avoid putting the year first when using the non-standard format.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Let&#8217;s start by adding an Event called <code>CS3201 Project Meeting</code> into <strong>BoNUS</strong>.<br>
+<em>Command:</em><br>
+<code>addE n/CS3201 Project Meeting dt/17112017 15:30 a/School Of Computing, SR09, NUS</code><br>
+<em>Result:</em><br>
+<code>New event added:  Event: CS3201 Project Meeting |  Date/Time: 17 Nov, 2017 15:30 |  Address: School Of Computing, SR09, NUS</code><br>
+You should see a new Event Card with the name CS3201 Project Meeting added into <strong>BoNUS</strong>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-of-events-br"><a class="link" href="#deleting-of-events-br">2.2.3. Deleting of Events<br></a></h4>
+<div class="paragraph">
+<p><strong>Positive Test Case</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deletes an Event with index 8 on the Event List<br>
+<em>Command:</em><br>
+<code>deleteE 8</code><br>
+<em>Result:</em><br>
+<code>Deleted Event:  Event: Project Meeting for CS2101 |  Date/Time: 01 Dec, 2017 09:00 |  Address: SR09, School of Computing</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Negative Test Cases</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invalid index<br>
+<em>Command:</em><br>
+<code>deleteE -1</code><br>
+<em>Result:</em><br>
+<code>Invalid command format!</code>
+<code>deleteE: Deletes the event identified by the index number used in the last event listing.</code>
+<code>Parameters: INDEX (must be a positive integer)</code></p>
+</li>
+<li>
+<p>Person with the index not exist<br>
+2) Deletes an Event with index 11 on the Event List<br>
+<em>Command:</em><br>
+<code>deleteE 300</code><br>
+<em>Result:</em><br>
+<code>The event index provided is invalid</code></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-of-events"><a class="link" href="#editing-of-events">2.2.4. Editing of Events</a></h4>
+<div class="paragraph">
+<p><strong>Positive test case</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>First, let&#8217;s list all the events in <strong>BoNUS</strong><br>
+<em>Command:</em><br>
+<code>listE</code><br>
+<em>Result:</em><br>
+<code>Listed all events</code></p>
+</li>
+<li>
+<p>Let&#8217;s try to edit an event from index 6 of Event list.<br>
+<em>Command:</em><br>
+<code>editE 6 n/Movie Date with Bro</code><br>
+<em>Result:</em><br>
+<code>Edited Event:  Event: Movie Date with Bro |  Date/Time: 22 Nov, 2017 22:00 |  Address: Golden Village Yishun</code><br></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>At this point in time, you should see an event with name <code>Movie Date with Bro</code> at index 6 of Event List.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="import-export-data"><a class="link" href="#import-export-data">2.3. Import/export data</a></h3>
+<div class="sect3">
+<h4 id="import-data-from-code-xml-code-format"><a class="link" href="#import-data-from-code-xml-code-format">2.3.1. Import data from <code>.xml</code> format</a></h4>
+<div class="paragraph">
+<p>To import data from a <code>.xml</code> file, we need to use the <code>import</code> command</p>
+</div>
+<div class="paragraph">
+<p><strong>Positive test cases</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If the XML file at <code>&lt;BoNUS home folder&gt;/bonus.xml</code> contains data recognizable by <strong>BoNUS</strong>, this command imports data
+that does not exist in <strong>BoNUS</strong><br>
+<em>Command:</em><br>
+<code>import bonus.xml</code><br>
+<em>Result:</em><br>
+<code>Imported data from: bonus.xml</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Negative test cases</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If the specified file is not found<br>
+<em>Command:</em><br>
+<code>import bonus.xml</code><br>
+<em>Result:</em><br>
+<code>The specified file does not exist.</code></p>
+</li>
+<li>
+<p>If the specified file does not end with an extension of <code>.xml</code><br>
+<em>Command:</em><br>
+<code>import bonus.notxml</code><br>
+<em>Result:</em><br>
+<code>The file path does not point to an XML file.</code></p>
+</li>
+<li>
+<p>If a file name is not provided<br>
+<em>Command:</em><br>
+<code>import .xml</code><br>
+<em>Result:</em><br>
+<code>The file path contains a file name or folder names with prohibited characters (?!%*+:|"&lt;&gt;), or a file name is not provided.</code></p>
+</li>
+<li>
+<p>If the specified file name and any non-existent folder names contain any prohibited characters<br>
+<em>Command:</em><br>
+<code>import b%nus.xml</code><br>
+<em>Result:</em><br>
+<code>The file path contains a file name or folder names with prohibited characters (?!%*+:|"&lt;&gt;), or a file name is not provided.</code></p>
+</li>
+<li>
+<p>For <code>Windows</code> users, if the specified file path contains <code>/</code> as a name-separator<br>
+<em>Command:</em><br>
+<code>import folder/bonus.xml</code><br>
+<em>Result:</em><br>
+<code>The file path contains name-separators (/ or \) that are not defined in your operating system.</code></p>
+</li>
+<li>
+<p>For <code>maxOS</code> and <code>Linux</code> users, if the specified file path contains <code>\</code> as a name-separator<br>
+<em>Command:</em><br>
+<code>import folder\bonus.xml</code><br>
+<em>Result:</em><br>
+<code>The file path contains name-separators (/ or \) that are not defined in your operating system.</code></p>
+</li>
+<li>
+<p>For <code>Windows</code> users, if the specified file path contains consecutive name-separators <code>\\</code><br>
+<em>Command:</em><br>
+<code>import folder\\bonus.xml</code><br>
+<em>Result:</em><br>
+<code>The file path contains consecutive name-separators (/ or \) or extension-separators (.).</code></p>
+</li>
+<li>
+<p>For <code>maxOS</code> and <code>Linux</code> users, if the specified file path contains consecutive name-separators <code>//</code><br>
+<em>Command:</em><br>
+<code>import folder//bonus.xml</code><br>
+<em>Result:</em><br>
+<code>The file path contains consecutive name-separators (/ or \) or extension-separators (.).</code></p>
+</li>
+<li>
+<p>If the specified file path contains consecutive extension-separators <code>..</code><br>
+<em>Command:</em><br>
+<code>import bonus..xml</code><br>
+<em>Result:</em><br>
+<code>The file path contains consecutive name-separators (/ or \) or extension-separators (.).</code></p>
+</li>
+<li>
+<p>If the data in the specified file is not recognizable by <strong>BoNUS</strong><br>
+<em>Command:</em><br>
+<code>import bonus.xml</code><br>
+<em>Result:</em><br>
+<code>The data in the specified XML file is not in the correct format as recognized by BoNUS.</code><br>
+<code>Please try to import from another XML file.</code></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="import-timetable-from-nusmods-website"><a class="link" href="#import-timetable-from-nusmods-website">2.3.2. Import timetable from NUSMods website</a></h4>
+<div class="paragraph">
+<p>To import timetable from NUSMods website, we need to use the <code>import --nusmods</code> command.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Make sure you have stable Internet connection when you are going to test this command.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Positive test cases</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Open your browser, and copy-paste your NUSMods timetable URL<br>
+<em>Result:</em><br>
+It should look like https://nusmods.com/timetable/2017-2018/sem1?CS2103T[TUT]=C01.</p>
+</li>
+<li>
+<p>Let&#8217;s display the event listing first<br>
+<em>Command:</em><br>
+<code>listE</code><br>
+<em>Result:</em><br>
+You should see the event listing interface.</p>
+</li>
+<li>
+<p>Use the import command<br>
+<em>Command:</em><br>
+<code>import --nusmods https://nusmods.com/timetable/2017-2018/sem1?CS2103T[TUT]=C01</code><br>
+<em>Result:</em><br>
+You should see <code>CS2103T examination</code> has been added as an event into <strong>BoNUS</strong>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Negative test case</strong></p>
+</div>
+<div class="paragraph">
+<p>Try to import the same NUSMods timetable into <strong>BoNUS</strong> again<br>
+<em>Command:</em><br>
+<code>import --nusmods https://nusmods.com/timetable/2017-2018/sem1?CS2103T[TUT]=C01</code><br>
+<em>Result:</em><br>
+<code>0 examinations have been added as events.</code><br>
+<code>However, some examination were not added since they already exist in the application.</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="export-data-to-code-xml-code-format"><a class="link" href="#export-data-to-code-xml-code-format">2.3.3. Export data to <code>.xml</code> format</a></h4>
+<div class="paragraph">
+<p>To export data to a <code>.xml</code> file, we need to use the <code>export</code> command</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Existing files will be overwritten.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p><strong>Positive test cases</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Exports the current data in <strong>BoNUS</strong> to <code>&lt;BoNUS home folder&gt;/bonus.xml</code><br>
+<em>Command:</em><br>
+<code>export bonus.xml</code><br>
+<em>Result:</em><br>
+<code>Exported address book data to: bonus.xml</code></p>
+</li>
+<li>
+<p>For <code>Windows</code> users, this command exports the current data in <strong>BoNUS</strong> to <code>&lt;BoNUS home folder&gt;\new_folder\bonus.xml</code>,
+after creating the non-existing folder <code>&lt;BoNUS home folder&gt;\new_folder</code><br>
+<em>Command:</em><br>
+<code>export new_folder\bonus.xml</code><br>
+<em>Result:</em><br>
+<code>Exported address book data to: new_folder\bonus.xml</code></p>
+</li>
+<li>
+<p>For <code>macOS</code> and <code>Linux</code> users, this command exports the current data in <strong>BoNUS</strong> to <code>&lt;BoNUS home folder&gt;/new_folder/bonus.xml</code>,
+after creating the non-existing folder <code>&lt;BoNUS home folder&gt;/new_folder</code><br>
+<em>Command:</em><br>
+<code>export new_folder/bonus.xml</code><br>
+<em>Result:</em><br>
+<code>Exported address book data to: new_folder/bonus.xml</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Negative test cases</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If the specified file does not end with an extension of <code>.xml</code><br>
+<em>Command:</em><br>
+<code>export bonus.notxml</code><br>
+<em>Result:</em><br>
+<code>The file path does not point to an XML file.</code></p>
+</li>
+<li>
+<p>If a file name is not provided<br>
+<em>Command:</em><br>
+<code>export .xml</code><br>
+<em>Result:</em><br>
+<code>The file path contains a file name or folder names with prohibited characters (?!%*+:|"&lt;&gt;), or a file name is not provided.</code></p>
+</li>
+<li>
+<p>If the specified file name and any non-existent folder names contain any prohibited characters<br>
+<em>Command:</em><br>
+<code>export b%nus.xml</code><br>
+<em>Result:</em><br>
+<code>The file path contains a file name or folder names with prohibited characters (?!%*+:|"&lt;&gt;), or a file name is not provided.</code></p>
+</li>
+<li>
+<p>For <code>Windows</code> users, if the specified file path contains <code>/</code> as a name-separator<br>
+<em>Command:</em><br>
+<code>export folder/bonus.xml</code><br>
+<em>Result:</em><br>
+<code>The file path contains name-separators (/ or \) that are not defined in your operating system.</code></p>
+</li>
+<li>
+<p>For <code>maxOS</code> and <code>Linux</code> users, if the specified file path contains <code>\</code> as a name-separator<br>
+<em>Command:</em><br>
+<code>export folder\bonus.xml</code><br>
+<em>Result:</em><br>
+<code>The file path contains name-separators (/ or \) that are not defined in your operating system.</code></p>
+</li>
+<li>
+<p>For <code>Windows</code> users, if the specified file path contains consecutive name-separators <code>\\</code><br>
+<em>Command:</em><br>
+<code>export folder\\bonus.xml</code><br>
+<em>Result:</em><br>
+<code>The file path contains consecutive name-separators (/ or \) or extension-separators (.).</code></p>
+</li>
+<li>
+<p>For <code>maxOS</code> and <code>Linux</code> users, if the specified file path contains consecutive name-separators <code>//</code><br>
+<em>Command:</em><br>
+<code>export folder//bonus.xml</code><br>
+<em>Result:</em><br>
+<code>The file path contains consecutive name-separators (/ or \) or extension-separators (.).</code></p>
+</li>
+<li>
+<p>If the specified file path contains consecutive extension-separators <code>..</code><br>
+<em>Command:</em><br>
+<code>export bonus..xml</code><br>
+<em>Result:</em><br>
+<code>The file path contains consecutive name-separators (/ or \) or extension-separators (.).</code></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="email-a-contact-on-your-contact-list"><a class="link" href="#email-a-contact-on-your-contact-list">2.4. Email a contact on your contact list</a></h3>
+<div class="paragraph">
+<p>To email anyone on your contact list, you can use the <code>email</code> command.</p>
+</div>
+<div class="paragraph">
+<p><strong>Positive test case</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>First, let&#8217;s list all the contacts in <strong>BoNUS</strong><br>
+<em>Command:</em><br>
+<code>list</code><br>
+<em>Result:</em><br>
+<code>Listed all persons</code></p>
+</li>
+<li>
+<p>Emailing Alex Yeoh<br>
+<em>Command:</em><br>
+<code>email 1</code><br>
+<em>Result:</em><br>
+<code>Opened email to Alex Yeoh Phone: 87438807 Email: <a href="mailto:alexyeoh@example.com">alexyeoh@example.com</a> Address: Blk 30 Geylang Street 29, #06-40 Tags: [friends]</code><br></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>At this point in time, you should see the default email application of your OS to be opened with the email of Alex already input at To:</p>
+</div>
+<div class="paragraph">
+<p><strong>Negative test cases</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invalid command and Invalid index<br>
+<em>Command:</em><br>
+<code>email -1</code><br>
+<em>Result:</em><br>
+<code>Invalid command format!
+The person index provided is invalid</code>.</p>
+</li>
+<li>
+<p>Invalid index
+<em>Command:</em><br>
+<code>email 300000</code><br>
+<em>Result:</em><br>
+<code>The person index provided is invalid</code>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="searching-up-a-contact-on-google-maps"><a class="link" href="#searching-up-a-contact-on-google-maps">2.5. Searching up a contact on Google Maps</a></h3>
+<div class="paragraph">
+<p>To search up a person&#8217;s address on Google Maps, you can use the <code>gmap</code> command</p>
+</div>
+<div class="paragraph">
+<p><strong>Positive test case</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>First, let&#8217;s list all the contacts in <strong>BoNUS</strong><br>
+<em>Command:</em><br>
+<code>list</code><br>
+<em>Result:</em><br>
+<code>Listed all persons</code></p>
+</li>
+<li>
+<p>Next, let&#8217;s try to search up a person&#8217;s address on Google Maps!<br>
+<em>Command:</em><br>
+<code>gmap 1</code> <br>
+<em>Result:</em><br>
+<code>Opened Google Maps to get to Alex Yeoh Phone: 87438807 Email: <a href="mailto:alexyeoh@example.com">alexyeoh@example.com</a> Address: Blk 30 Geylang Street 29, #06-40 Tags: [friends]</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>At this point in time, you should see a browser opening Google Maps with <code>Alex Yeoh</code> 's address.</p>
+</div>
+<div class="paragraph">
+<p><strong>Negative test cases</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Invalid command and invalid index<br>
+<em>Command:</em><br>
+<code>gmap -1</code><br>
+<em>Result:</em><br>
+<code>gmap: Opens Google Maps in default browser with the address of the person identified by the index number used in the last person listing being the Destination.
+Parameters: INDEX (must be a positive integer)</code></p>
+</li>
+<li>
+<p>Invalid index
+<em>Command:</em><br>
+<code>gmap 300000</code><br>
+<em>Result:</em><br>
+<code>The person index provided is invalid</code></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="switch-themes"><a class="link" href="#switch-themes">2.6. Switch themes</a></h3>
+<div class="paragraph">
+<p>To switch themes, we need to use the <code>theme</code> command.</p>
+</div>
+<div class="paragraph">
+<p><strong>Positive test case</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Let&#8217;s try to switch themes
+<em>Command:</em><br>
+<code>theme</code><br>
+<em>Result:</em><br>
+<code>Theme switched!</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>At this point in time, you should see the theme being switched from dark to bright theme.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="advance-setting"><a class="link" href="#advance-setting">2.7. Advance setting</a></h3>
+<div class="sect3">
+<h4 id="add-a-new-property"><a class="link" href="#add-a-new-property">2.7.1. Add a new property</a></h4>
+<div class="paragraph">
+<p>To add a new property, we need to use the <code>config --add-property</code> command.</p>
+</div>
+<div class="paragraph">
+<p><strong>Positive test cases</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Add a new property with the short name of <code>h</code> and full name of <code>hobby</code><br>
+<em>Command:</em><br>
+<code>config --add-property s/h f/hobby</code><br>
+<em>Result:</em><br>
+<code>Added a new property: s/h f/hobby</code></p>
+</li>
+<li>
+<p>Adds a new property with the short name of <code>m</code>, full name of <code>major</code> and specify the regular expression constraint.<br>
+<em>Command:</em><br>
+<code>config --add-property s/m f/major m/Major should only contain letters and it should not be blank r/[{Alpha}]+</code><br>
+<em>Result:</em><br>
+<code>Added a new property: s/m f/major m/Major should only contain letters and it should not be blank r/[{Alpha}]+</code></p>
+</li>
+<li>
+<p>Set the value of customize property added just now in <code>AddCommand</code><br>
+<em>Command:</em><br>
+<code>add n/Linda p/89658712 e/linda@example.com a/School of Computing h/Programming</code><br>
+<em>Result:</em><br>
+<code>New person added: Linda Phone: 89658712 Email: <a href="mailto:linda@example.com">linda@example.com</a> Address: School of Computing Tags:</code><br>
+In the meantime, a new person card belonging to Linda should appear in the person listing panel.</p>
+</li>
+<li>
+<p>Verify the value of hobby has been set correctly<br>
+<em>Command:</em><br>
+<code>find Linda</code><br>
+<code>select 1</code><br>
+<em>Result:</em><br>
+Linda&#8217;s personal details are shown on the right-hand side of the interface. Properties are ordered by their full names and
+each property takes one line. You should see the value of the row <code>Hobby</code> is <code>Programming</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Negative test cases</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If there already exists a property with the same short name<br>
+<em>Command:</em><br>
+<code>config --add-property s/a f/attitude</code><br>
+<em>Result:</em><br>
+<code>Another property with the same short name already exists in the application.</code></p>
+</li>
+<li>
+<p>If the regular expression provided is invalid<br>
+<em>Command:</em><br>
+<code>config --add-property s/w f/weight m/Weight must be a positive integer. r/*asf</code><br>
+<em>Result:</em><br>
+<code>The regular expression you provided is invalid.</code></p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="change-the-color-of-an-existing-tag"><a class="link" href="#change-the-color-of-an-existing-tag">2.7.2. Change the color of an existing tag</a></h4>
+<div class="paragraph">
+<p>To change the color of an existing tag, we need to use the <code>config --set-tag-color</code> command.</p>
+</div>
+<div class="paragraph">
+<p><strong>Positive test cases</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>First, let&#8217;s list all the contacts to see what tags exist now<br>
+<em>Command:</em><br>
+<code>list</code><br>
+<em>Result:</em><br>
+You should see all contacts stored in <strong>BoNUS</strong> are listed. Let&#8217;s assume there is a tag called <code>friends</code>.</p>
+</li>
+<li>
+<p>Change the color of <code>friends</code> tag to a pre-defined color name<br>
+<em>Command:</em><br>
+<code>config --set-tag-color friends BurlyWood</code><br>
+<em>Result:</em><br>
+You should notice the color of <code>friends</code> tag has been changed to BurlyWood.</p>
+</li>
+<li>
+<p>Change the color of <code>friends</code> tag to a valid RGB value<br>
+<em>Command:</em><br>
+<code>config --set-tag-color friends #FF6347</code><br>
+<em>Result:</em><br>
+You should notice the color of <code>friends</code> tag has been changed to a color similar to red (its legal name is tomato).</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Negative test cases</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If the tag does not exist in <strong>BoNUS</strong> yet<br>
+<em>Command:</em><br>
+<code>config --set-tag-color somethingNotExists blue</code><br>
+<em>Result:</em><br>
+<code>There is no such tag.</code></p>
+</li>
+<li>
+<p>If the provided color name is neither a valid color name defined in CSS standard nor a valid RGB value<br>
+<em>Command:</em><br>
+<code>config --set-tag-color friends someNonExistColor</code><br>
+<em>Result:</em><br>
+The background color of <code>friends</code> tag becomes transparent. You may want to use a valid name to change it back.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="miscellaneous"><a class="link" href="#miscellaneous">2.8. Miscellaneous</a></h3>
+<div class="sect3">
+<h4 id="view-the-help-window"><a class="link" href="#view-the-help-window">2.8.1. View the help window</a></h4>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Via command-line input<br>
+<em>Command:</em><br>
+<code>help</code><br>
+<em>Result:</em><br>
+The help window should appear and display user guide to you.</p>
+</li>
+<li>
+<p>Via F1<br>
+<em>Command:</em><br>
+&#9000; Press the <code>F1</code> key on your keyboard.
+<em>Result:</em><br>
+The help window should appear and display user guide to you.</p>
+</li>
+<li>
+<p>Via mouse<br>
+<em>Command:</em><br>
+Click <code>Help</code> &#8594; <code>Help</code> on the menu bar at the top of the interface.<br>
+<em>Result:</em><br>
+The help window should appear and display user guide to you.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="view-the-command-input-history"><a class="link" href="#view-the-command-input-history">2.8.2. View the command input history</a></h4>
+<div class="paragraph">
+<p>Use the history command to view the history of all input commands<br>
+<em>Command:</em><br>
+<code>history</code><br>
+<em>Result:</em><br>
+<code>Entered commands (from most recent to earliest):</code><br>
+<code>&#8230;&#8203;</code><br>
+<em>(All commands will be listed below.)</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="undo-redo-previous-commands"><a class="link" href="#undo-redo-previous-commands">2.8.3. Undo/redo previous commands</a></h4>
+<div class="paragraph">
+<p>Use <code>undo</code> or <code>redo</code> to undo/redo the last command entered.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2017-11-13 22:03:44 +08:00
+</div>
+</div>
+</body>
+</html>
