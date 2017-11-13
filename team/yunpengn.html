@@ -24,8 +24,8 @@ contacts, scheduling for upcoming events, timetable planning as well as a calend
 </div>
 <div class="paragraph">
 <p>This project is the result of a semester-long software engineering <a href="https://nus-cs2103.github.io/website/">module</a> at
-<a href="http://www.nus.edu.sg/">NUS</a>. It is built my teammates and me, as listed <a href="../AboutUs.html">here</a>. Most of the backend codes
-are written in Java, while <a href="https://docs.oracle.com/javase/8/javafx/get-started-tutorial/jfx-overview.htm#JFXST784">JavaFX</a>
+<a href="http://www.nus.edu.sg/">NUS</a>. It is built my teammates and me, as listed <a href="https://cs2103aug2017-t09-b3.github.io/main/AboutUs.html">here</a>.
+Most of the backend codes are written in Java, while <a href="https://docs.oracle.com/javase/8/javafx/get-started-tutorial/jfx-overview.htm#JFXST784">JavaFX</a>
 is adapted as the frontend framework.</p>
 </div>
 <div class="paragraph">
@@ -108,11 +108,10 @@ if there is an existing property with the same short name.</p>
 <p>Short name is used as the prefix for <code>add</code>/<code>addE</code> and <code>edit</code>/<code>editE</code> commands.</p>
 </li>
 <li>
-<p>Full name is used to display the name of each property on the right panel (to show details of the selected person, see <code>select</code> command).</p>
+<p>Full name is used to display the name of each property on the right panel (to show details of the selected person, use <code>select</code> command).</p>
 </li>
 <li>
-<p>Constraint message is the string that will be shown in result display box when the input value for this property in
-<code>add</code>/<code>addE</code> and <code>edit</code>/<code>editE</code> commands is invalid.</p>
+<p>Constraint message is the string that will be shown in result display box when the input value for this property is invalid.</p>
 </li>
 <li>
 <p>Regular expression is used to check whether the input value for this property is valid.</p>
@@ -123,10 +122,10 @@ if there is an existing property with the same short name.</p>
 </tr>
 </table>
 </div>
-<hr>
 </div>
 <div class="sect3">
 <h4 id="justification"><a class="link" href="#justification">Justification</a></h4>
+<hr>
 <div class="paragraph">
 <p>Our application <strong>BoNUS</strong> will not be able to stand out from all the similar <a href="https://nus-cs2103.github.io/website/admin/projectList.html">products</a>
 if we simply provide users with a few additional fields to store the information of their contacts. Instead, to suit the
@@ -148,7 +147,7 @@ user-defined properties will be added into <code>PropertyManager</code> by <code
 </div>
 </div>
 <div class="sect2">
-<h3 id="generic-property"><a class="link" href="#generic-property">Generic Property</a></h3>
+<h3 id="generic-property"><a class="link" href="#generic-property">Generic property</a></h3>
 <div class="paragraph">
 <p>We are using a generic <code>Property</code> class to support <strong>arbitrary field</strong> feature.</p>
 </div>
@@ -163,12 +162,12 @@ kinds of information about their contacts apart from the pre-defined ones.</p>
 <p>Through a brief product survey on other existing similar software in the market, we found that they usually ask users to
 type all other information in the <em>so-called</em> <code>Description</code> or <code>Details</code> field. This is not a good design because doing
 so will make the information stored messy. The application is used to organize personal information conveniently. It is
-a major drawback if the data are not stored (and thus presented) to users in a well-organized way.</p>
+a major drawback if the data are not stored (and thus presented to users) in a well-organized way.</p>
 </div>
 <div class="paragraph">
 <p>Learning from many modern database implementations, we should think of the data as two tables: one for <strong>contacts</strong> and the
 other one for <strong>events</strong>. Each table is composed of many rows and many columns. A single contact/event is one row, while
-all their different properties/fields are the columns.</p>
+all their different properties/fields are the columns (as can be seen from Figure 4.3.1.1 and 4.3.1.2).</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -191,7 +190,7 @@ all their different properties/fields are the columns.</p>
 <h4 id="design-consideration"><a class="link" href="#design-consideration">Design Consideration</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Where to store the "<em>metadata</em>" of different properties (short name, full name, regular expression, etc.)<br>
-<strong>Alternative 1 (current choice):</strong> Create a new class <code>PropertyManager</code><br>
+<strong>Alternative 1 (current choice):</strong> Create a new class <code>PropertyManager</code> in Figure 4.3.2.1<br>
 <strong>Pros:</strong> Efficient (there is only one copy) and easy for future development since it is centralized.<br>
 <strong>Cons:</strong> Requires major change to <code>Model</code> component and <code>Storage</code> component.<br>
 <strong>Alternative 2:</strong> Store these data along with each specific property class, like <code>Name</code>, <code>Email</code><br>
@@ -204,7 +203,7 @@ all their different properties/fields are the columns.</p>
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.3.2.1 : Class Diagram for `PropertyManager`</em></p>
+<p><em>Figure 4.3.2.1 : Class Diagram for</em> <code>PropertyManager</code></p>
 </div>
 </div>
 <div class="sect3">
@@ -214,14 +213,14 @@ all their different properties/fields are the columns.</p>
 <li>
 <p>Create a more general class to capture the common patterns among all columns (all different fields/properties): according to
 the basic OOP concept, a more generic class should become the superclass <code>Property</code>; then, other more specific classes
-(like <code>Name</code>, <code>Email</code>, <code>Phone</code>, etc.) can inherit from it. It is shown that such design decreases code duplicate a lot.</p>
+(like <code>Name</code>, <code>Email</code>, <code>Phone</code>, etc.) can inherit from it. This design reduces a lot of code duplicates.</p>
 </li>
 <li>
 <p>Find a way to store the metadata of all columns (fields/properties): in popular SQL database implementation, they
 usually have a separate database reserved for the database server system itself. We must store similar information somewhere
 as well. Thus, we create a <code>PropertyManager</code> to store these "metadata", including short names, full names, constraint
 messages and regular expressions used for input validation. They are all <code>static</code> variables because there should only be
-one copy of these "metadata". We will waste a lot of resources if we store these "metadata" with each instance of the
+one copy of these "metadata". It will waste a lot of resources if we store these "metadata" with each instance of the
 <code>Property</code> class.</p>
 </li>
 <li>
@@ -230,8 +229,9 @@ and users do not need any additional setup steps to use them.</p>
 </li>
 <li>
 <p>Add new customize properties: advanced users should be provided with a command (<code>config --add-property</code>) to add their
-own customize fields. They should have the freedom to arbitrarily choose things like short name, full name, etc. They can
-easily add/edit these properties of each contact stored in the application, just like the <em>pre-loaded</em> ones.</p>
+own customize fields (as shown in Figure 4.3.3.1). They should have the freedom to arbitrarily choose things like short
+name, full name, etc. They can easily add/edit these properties of each contact stored in the application, just like the
+<em>pre-loaded</em> ones.</p>
 </li>
 </ol>
 </div>
@@ -243,13 +243,233 @@ easily add/edit these properties of each contact stored in the application, just
 <div class="paragraph">
 <p><em>Figure 4.3.3.1 : Sequence Diagram for Adding a Customize Property</em></p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="enhancement-added-import-nusmods-timetable"><a class="link" href="#enhancement-added-import-nusmods-timetable">Enhancement Added: Import NUSMods Timetable</a></h3>
+<div class="sect3">
+<h4 id="external-behavior-2"><a class="link" href="#external-behavior-2">External behavior</a></h4>
 <hr>
+</div>
+<div class="sect3">
+<h4 id="from-nusmods-url"><a class="link" href="#from-nusmods-url">From NUSMods URL</a></h4>
+<div class="paragraph">
+<p><em>(Exclusive feature for NUS students)</em></p>
+</div>
+<div class="paragraph">
+<p>The <strong>BoNUS</strong> team understands that <a href="https://nusmods.com/">NUSMods</a> has become an indispensable school timetable builder
+for almost all students at NUS. Thus, you are definitely allowed to import your timetable from NUSMods to the <strong>BoNUS</strong>
+application.<br>
+Format: <code>(i)import --nusmods YOUR_NUSMODS_URL</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The URL provided must be complete and should begin with <code>http(s)://nusmods.com/timetable/</code>.</p>
+</li>
+<li>
+<p>Directly copy from the address bar of your browser. Do <strong>NOT</strong> use the short URL generated by the <em>Sharing Timetable</em> feature
+provided by NUSMods.</p>
+</li>
+<li>
+<p>Final examinations for all modules in your NUSMods timetable will be automatically added as events to the application.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>import --nusmods https://nusmods.com/timetable/2017-2018/sem1?CS2103T[TUT]=C01</code></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Make sure you have stable Internet connection when using this command.</p>
+</li>
+<li>
+<p>You may need to wait for a while as the application is retrieving information from NUSMods.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="justification-2"><a class="link" href="#justification-2">Justification</a></h4>
+<hr>
+<div class="paragraph">
+<p>Most of the NUS students are currently using NUSMods as their school timetable builder. Also, the lessons and exams
+reflected on their NUSMods timetable account for a large part of their schedule. Thus, users definitely want to add all
+these activities into <strong>BoNUS</strong>. It would be much more convenient if they could import their school timetable to <strong>BoNUS</strong>
+directly rather than manually add upcoming events.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-2"><a class="link" href="#implementation-2">Implementation</a></h4>
+<hr>
+</div>
+</div>
+<div class="sect2">
+<h3 id="import-timetable-from-nusmods"><a class="link" href="#import-timetable-from-nusmods">Import timetable from NUSMods</a></h3>
+<div class="paragraph">
+<p>We implement an  <code>ImportNusmodsCommand</code> to help users directly import their NUSMods timetable to <strong>BoNUS</strong> by simply copy-paste
+the URL.</p>
+</div>
+<div class="sect3">
+<h4 id="inspiration-2"><a class="link" href="#inspiration-2">Inspiration</a></h4>
+<div class="paragraph">
+<p>As stated in <a href="UserGuide.html">User Guide</a>, <strong>BoNUS</strong> helps you <em>better(B) organize(o) your NUS life</em>. Thus, we want to make
+the application an integrated personal manager for NUS students. The main activities for most students are study-related and
+most NUS students are currently using <a href="https://nusmods.com/">NUSMods</a> to build their school timetable (as shown in Figure 4.7.1.1).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/NusmodsWebsite.png" alt="NusmodsWebsite" width="750">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.7.1.1 : NUSMods Website Interface</em></p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s imagine some of our users want to use the event feature in <strong>BoNUS</strong>. They want to input final examinations for all
+the modules they are taking as upcoming events. It would be very inconvenient and tedious if they have to do this manually.
+Even worse, it is very likely they are already using NUSMods and thus are not willing to add these events again. They may
+end up not using the event feature at all.</p>
+</div>
+<div class="paragraph">
+<p>However, users may find it very useful if they can import their NUSMods timetable using a simple command. Eventually, they
+would choose <strong>BoNUS</strong> because they can manage both contacts and events in one application conveniently and the migration
+from NUSMods to <strong>BoNUS</strong> is not troublesome.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Relationship between <code>ImportXmlCommand</code> and <code>ImportNusmodsCommand</code><br>
+<strong>Alternative 1 (current choice):</strong> Add a new abstract <code>ImportCommand</code> class and let both of them become its sub-commands
+(inherit from it).<br>
+<strong>Pros:</strong> This is inspired by many popular command-line tools (like Git). <code>import</code> is called the actual command, while
+<code>--xml</code> and <code>--script</code> is called the options. Most Unix/Linux users would be used to this approach. This is important for
+us because we assume our users are typists and they are very likely to frequently use these command-line tools.<br>
+<strong>Cons:</strong> Need to write extra codes and parsing also becomes more complicated.<br>
+<strong>Alternative 2:</strong> Implement these two commands separately.<br>
+<strong>Pros:</strong> Easy to implement and similar to other commands.<br>
+<strong>Cons:</strong> Our users may not be used to it. The command word will become longer. It is not a good OOP practice as well
+because common details are not abstracted into a parent class and this produces duplicate codes.</p>
+</div>
+<div class="paragraph">
+<p><em>(Similar strategy has been adopted in <code>ConfigCommand</code>)</em></p>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>Aspect:</strong> How to obtain user&#8217;s NUSMods timetable<br>
+<strong>Alternative 1 (current choice):</strong> Let users copy-paste the URL as a parameter of <code>ImportNusmodsCommand</code>.<br>
+<strong>Pros:</strong> Simple to use and easy to implement as well<br>
+<strong>Cons:</strong> Need to check whether the URL is valid and from NUSMods (currently using regular expression).<br>
+<strong>Alternative 2:</strong> Implement a built-in browser and render the NUSMods page<br>
+<strong>Pros:</strong> Users are more used to this interface.<br>
+<strong>Cons:</strong> Need much extra work to implement the built-in browser. The page may not be rendered well since the built-in
+browser is typically smaller than OS browser and NUSMods does not fully adopt <a href="#mainstream-os">responsive UI framework</a>
+and may not work well on a small browser window.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-outline-2"><a class="link" href="#implementation-outline-2">Implementation Outline</a></h4>
+<div class="sect4">
+<h5 id="code-importcommand-code-abstract-class"><a class="link" href="#code-importcommand-code-abstract-class"><code>ImportCommand</code> abstract class</a></h5>
+<div class="paragraph">
+<p>Create an <code>ImportCommand</code> abstract class and let <code>ImportXmlCommand</code> and <code>ImportNusmodsCommand</code> inherit from it (as in
+Figure 4.7.3.1). It is also a good practice to use an enumeration <code>ImportType</code> because the possible types of the import
+are within a fixed set of values. This leads to better modularity in <code>ImportCommandParser</code> as well.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ImportNusmodsClassDiagram.png" alt="ImportNusmodsClassDiagram" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.7.3.1 : Class Diagram for Related Import Commands</em><br></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="parsing-of-nusmods-timetable-url"><a class="link" href="#parsing-of-nusmods-timetable-url">Parsing of NUSMods Timetable URL</a></h5>
+<div class="paragraph">
+<p>Implement utility method to validate a given URL and parse the <code>GET</code> parameters. Although it is possible to utilize
+external library like <a href="https://hc.apache.org/">Apache HttpComponents</a>, we decide to implement on our own because it is relative
+simple to do so and using external library comes with extra expenses (such as licence, etc).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="directive">static</span> <span class="predefined-type">Map</span>&lt;<span class="predefined-type">String</span>, <span class="predefined-type">String</span>&gt; fetchUrlParameters(<span class="predefined-type">URL</span> url) <span class="directive">throws</span> <span class="exception">UnsupportedEncodingException</span> {
+    <span class="predefined-type">String</span> query = urlDecode(url.getQuery());
+
+    <span class="keyword">if</span> (Strings.isNullOrEmpty(query)) {
+        <span class="keyword">return</span> <span class="predefined-type">Collections</span>.emptyMap();
+    }
+
+    <span class="predefined-type">Map</span>&lt;<span class="predefined-type">String</span>, <span class="predefined-type">String</span>&gt; pairs = <span class="keyword">new</span> <span class="predefined-type">HashMap</span>&lt;&gt;();
+    <span class="keyword">for</span> (<span class="predefined-type">String</span> pair: query.split(<span class="string"><span class="delimiter">&quot;</span><span class="content">&amp;</span><span class="delimiter">&quot;</span></span>)) {
+        <span class="type">int</span> index = pair.indexOf(<span class="string"><span class="delimiter">&quot;</span><span class="content">=</span><span class="delimiter">&quot;</span></span>);
+        pairs.put(pair.substring(<span class="integer">0</span>, index), pair.substring(index + <span class="integer">1</span>));
+    }
+
+    <span class="keyword">return</span> pairs;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="fetch-information-from-nusmods-api"><a class="link" href="#fetch-information-from-nusmods-api">Fetch information from NUSMods API</a></h5>
+<div class="paragraph">
+<p>The URL parsed just now only contains the module codes and grouping for each module. In order to add upcoming events, we
+need more information such as module names, examination dates, etc. We decide to use API provided by NUSMods to fetch the
+information we need. NUSMods API is in JSON format, which would be very simple for us as we already use
+<a href="https://github.com/FasterXML/jackson">Jackson</a> library in our project.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="comment">/**
+ * Read JSON data from a given URL and convert the data to an instance of the given class.
+ * @param url is the URL to the remote JSON data.
+ */</span>
+<span class="directive">public</span> <span class="directive">static</span> &lt;T&gt; T fromJsonUrl(<span class="predefined-type">URL</span> url, <span class="predefined-type">Class</span>&lt;T&gt; instanceClass) <span class="directive">throws</span> <span class="exception">IOException</span> {
+    <span class="keyword">return</span> objectMapper.readValue(url, instanceClass);
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="add-upcoming-events"><a class="link" href="#add-upcoming-events">Add upcoming events</a></h5>
+<div class="paragraph">
+<p>After obtaining all the information we need, we can simply use the <code>addEvent</code> method in <code>ModelManager</code> class to add the
+final examinations as upcoming events into <strong>BoNUS</strong>. This should be a similar process as <code>AddEventCommand</code>.</p>
+</div>
+<hr>
+</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="enhancement-proposed-import-from-bonus-specified-script-file"><a class="link" href="#enhancement-proposed-import-from-bonus-specified-script-file">Enhancement Proposed: Import From BoNUS-specified Script file</a></h3>
 <div class="sect3">
-<h4 id="external-behavior-2"><a class="link" href="#external-behavior-2">External behavior</a></h4>
+<h4 id="external-behavior-3"><a class="link" href="#external-behavior-3">External behavior</a></h4>
 <hr>
 </div>
 <div class="sect3">
@@ -319,10 +539,10 @@ For <code>macOS</code> and <code>Linux</code> users, use <code>/</code> instead.
 </tr>
 </table>
 </div>
-<hr>
 </div>
 <div class="sect3">
-<h4 id="justification-2"><a class="link" href="#justification-2">Justification</a></h4>
+<h4 id="justification-3"><a class="link" href="#justification-3">Justification</a></h4>
+<hr>
 <div class="paragraph">
 <p>This feature is meant for advanced users. To build an <strong>epic</strong> application, we need to essentially build an <em>ecosystem</em> for
 this software. According to the <em>Unix</em> philosophy, providing a shell scripting and command language is the minimum requirement
@@ -333,15 +553,12 @@ for a complete system.</p>
 can generate a scripting file and import it into <strong>BoNUS</strong>. Data management and frequent operations can be done easily in
 one step. Otherwise, they have to type one command each time in the GUI interface, which becomes a very tedious work.</p>
 </div>
-<div class="paragraph">
-<p>The scripting file should consist of one or multiple valid <strong>BoNUS</strong> commands and each line can have <strong>at most one</strong> command.</p>
-</div>
 </div>
 </div>
 <div class="sect2">
 <h3 id="enhancement-proposed-export-data-to-microsoft-excel-sup-tm-sup-worksheet"><a class="link" href="#enhancement-proposed-export-data-to-microsoft-excel-sup-tm-sup-worksheet">Enhancement Proposed: Export Data to Microsoft Excel<sup>TM</sup> Worksheet</a></h3>
 <div class="sect3">
-<h4 id="external-behavior-3"><a class="link" href="#external-behavior-3">External behavior</a></h4>
+<h4 id="external-behavior-4"><a class="link" href="#external-behavior-4">External behavior</a></h4>
 <hr>
 </div>
 <div class="sect3">
@@ -397,10 +614,10 @@ For <code>macOS</code> and <code>Linux</code> users, use <code>/</code> instead.
 </tr>
 </table>
 </div>
-<hr>
 </div>
 <div class="sect3">
-<h4 id="justification-3"><a class="link" href="#justification-3">Justification</a></h4>
+<h4 id="justification-4"><a class="link" href="#justification-4">Justification</a></h4>
+<hr>
 <div class="paragraph">
 <p>We already support <code>ExportCommand</code> so that users can save data to a separate location as a backup. However, <code>.xml</code> files
 are not considered to be user-friendly (except for programmers and geeks).</p>
@@ -409,9 +626,6 @@ are not considered to be user-friendly (except for programmers and geeks).</p>
 <p>Thus, it becomes essential for us to natively support exporting data to a format with better visuals. As stated before,
 data stored in <strong>BoNUS</strong> can be considered as <em>tables</em>. Naturally, it comes to my mind that Microsoft Excel<sup>TM</sup> would
 be a perfect format to present data to users.</p>
-</div>
-<div class="paragraph">
-<p>Users can type <code>--excel</code> as the additional option to specify Microsoft Excel<sup>TM</sup> as the output format when they use <code>ExportCommand</code>.</p>
 </div>
 </div>
 </div>
@@ -431,10 +645,6 @@ be a perfect format to present data to users.</p>
 <li>
 <p>Support setting customize colors for tags (Pull requests <a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/83">#83</a>,
 <a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/101">#101</a>, <a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/147">#147</a>)</p>
-</li>
-<li>
-<p>Support importing NUSMods timetable as events (Pull requests <a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/123">#123</a>,
-<a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/124">#124</a>)</p>
 </li>
 <li>
 <p>Support natural language parsing (Pull request <a href="https://github.com/CS2103AUG2017-T09-B3/main/pull/148">#148</a>)</p>
@@ -518,7 +728,7 @@ and thorough introduction to programming methodology.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-13 10:11:20 +00:00
+Last updated 2017-11-13 10:55:41 +00:00
 </div>
 </div>
 </body>

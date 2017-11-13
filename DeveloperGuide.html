@@ -47,21 +47,22 @@
 <ul class="sectlevel2">
 <li><a href="#undo-redo-mechanism">4.1. Undo/Redo mechanism</a></li>
 <li><a href="#logging">4.2. Logging</a></li>
-<li><a href="#generic-property">4.3. Generic Property</a></li>
-<li><a href="#auto-reminders">4.4. Auto Reminders</a></li>
-<li><a href="#switch-themes-mechanism">4.5. Switch Themes mechanism</a></li>
-<li><a href="#import-export-mechanism">4.6. Import &amp; Export mechanism</a></li>
-<li><a href="#contacts-event-listing-order-by-name-date-time-mechanism">4.7. Contacts/Event listing order by name/date time mechanism</a></li>
-<li><a href="#emailing-mechanism">4.8. Emailing mechanism</a></li>
-<li><a href="#calendar-mechanism">4.9. Calendar mechanism</a></li>
-<li><a href="#configuration">4.10. Configuration</a></li>
+<li><a href="#generic-property">4.3. Generic property</a></li>
+<li><a href="#auto-reminders">4.4. Auto reminders</a></li>
+<li><a href="#switch-themes-mechanism">4.5. Switch themes mechanism</a></li>
+<li><a href="#import-export-xml-mechanism">4.6. Import &amp; export XML mechanism</a></li>
+<li><a href="#import-timetable-from-nusmods">4.7. Import timetable from NUSMods</a></li>
+<li><a href="#contacts-event-listing-order-by-name-date-time-mechanism">4.8. Contacts/event listing order by name/date time mechanism</a></li>
+<li><a href="#emailing-mechanism">4.9. Emailing mechanism</a></li>
+<li><a href="#calendar-mechanism">4.10. Calendar mechanism</a></li>
+<li><a href="#configuration">4.11. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a>
 <ul class="sectlevel2">
-<li><a href="#editing-documentation">5.1. Editing Documentation</a></li>
-<li><a href="#publishing-documentation">5.2. Publishing Documentation</a></li>
-<li><a href="#converting-documentation-to-pdf-format">5.3. Converting Documentation to PDF format</a></li>
+<li><a href="#editing-documentation">5.1. Editing documentation</a></li>
+<li><a href="#publishing-documentation">5.2. Publishing documentation</a></li>
+<li><a href="#converting-documentation-to-pdf-format">5.3. Converting documentation to PDF format</a></li>
 </ul>
 </li>
 <li><a href="#testing">6. Testing</a>
@@ -888,7 +889,7 @@ If the <code>redoStack</code> is empty, then there are no other commands left to
 </div>
 </div>
 <div class="sect2">
-<h3 id="generic-property"><a class="link" href="#generic-property">4.3. Generic Property</a></h3>
+<h3 id="generic-property"><a class="link" href="#generic-property">4.3. Generic property</a></h3>
 <div class="paragraph">
 <p>We are using a generic <code>Property</code> class to support <strong>arbitrary field</strong> feature.</p>
 </div>
@@ -903,12 +904,12 @@ kinds of information about their contacts apart from the pre-defined ones.</p>
 <p>Through a brief product survey on other existing similar software in the market, we found that they usually ask users to
 type all other information in the <em>so-called</em> <code>Description</code> or <code>Details</code> field. This is not a good design because doing
 so will make the information stored messy. The application is used to organize personal information conveniently. It is
-a major drawback if the data are not stored (and thus presented) to users in a well-organized way.</p>
+a major drawback if the data are not stored (and thus presented to users) in a well-organized way.</p>
 </div>
 <div class="paragraph">
 <p>Learning from many modern database implementations, we should think of the data as two tables: one for <strong>contacts</strong> and the
 other one for <strong>events</strong>. Each table is composed of many rows and many columns. A single contact/event is one row, while
-all their different properties/fields are the columns.</p>
+all their different properties/fields are the columns (as can be seen from Figure 4.3.1.1 and 4.3.1.2).</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -931,7 +932,7 @@ all their different properties/fields are the columns.</p>
 <h4 id="design-consideration"><a class="link" href="#design-consideration">4.3.2. Design Consideration</a></h4>
 <div class="paragraph">
 <p><strong>Aspect:</strong> Where to store the "<em>metadata</em>" of different properties (short name, full name, regular expression, etc.)<br>
-<strong>Alternative 1 (current choice):</strong> Create a new class <code>PropertyManager</code><br>
+<strong>Alternative 1 (current choice):</strong> Create a new class <code>PropertyManager</code> in Figure 4.3.2.1<br>
 <strong>Pros:</strong> Efficient (there is only one copy) and easy for future development since it is centralized.<br>
 <strong>Cons:</strong> Requires major change to <code>Model</code> component and <code>Storage</code> component.<br>
 <strong>Alternative 2:</strong> Store these data along with each specific property class, like <code>Name</code>, <code>Email</code><br>
@@ -944,7 +945,7 @@ all their different properties/fields are the columns.</p>
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.3.2.1 : Class Diagram for `PropertyManager`</em></p>
+<p><em>Figure 4.3.2.1 : Class Diagram for</em> <code>PropertyManager</code></p>
 </div>
 </div>
 <div class="sect3">
@@ -954,14 +955,14 @@ all their different properties/fields are the columns.</p>
 <li>
 <p>Create a more general class to capture the common patterns among all columns (all different fields/properties): according to
 the basic OOP concept, a more generic class should become the superclass <code>Property</code>; then, other more specific classes
-(like <code>Name</code>, <code>Email</code>, <code>Phone</code>, etc.) can inherit from it. It is shown that such design decreases code duplicate a lot.</p>
+(like <code>Name</code>, <code>Email</code>, <code>Phone</code>, etc.) can inherit from it. This design reduces a lot of code duplicates.</p>
 </li>
 <li>
 <p>Find a way to store the metadata of all columns (fields/properties): in popular SQL database implementation, they
 usually have a separate database reserved for the database server system itself. We must store similar information somewhere
 as well. Thus, we create a <code>PropertyManager</code> to store these "metadata", including short names, full names, constraint
 messages and regular expressions used for input validation. They are all <code>static</code> variables because there should only be
-one copy of these "metadata". We will waste a lot of resources if we store these "metadata" with each instance of the
+one copy of these "metadata". It will waste a lot of resources if we store these "metadata" with each instance of the
 <code>Property</code> class.</p>
 </li>
 <li>
@@ -970,8 +971,9 @@ and users do not need any additional setup steps to use them.</p>
 </li>
 <li>
 <p>Add new customize properties: advanced users should be provided with a command (<code>config --add-property</code>) to add their
-own customize fields. They should have the freedom to arbitrarily choose things like short name, full name, etc. They can
-easily add/edit these properties of each contact stored in the application, just like the <em>pre-loaded</em> ones.</p>
+own customize fields (as shown in Figure 4.3.3.1). They should have the freedom to arbitrarily choose things like short
+name, full name, etc. They can easily add/edit these properties of each contact stored in the application, just like the
+<em>pre-loaded</em> ones.</p>
 </li>
 </ol>
 </div>
@@ -986,7 +988,7 @@ easily add/edit these properties of each contact stored in the application, just
 </div>
 </div>
 <div class="sect2">
-<h3 id="auto-reminders"><a class="link" href="#auto-reminders">4.4. Auto Reminders</a></h3>
+<h3 id="auto-reminders"><a class="link" href="#auto-reminders">4.4. Auto reminders</a></h3>
 <div class="paragraph">
 <p>We are adding a reminder to the event whenever an event is added. Reminders will notify users 2 days in advance before
 event itself.</p>
@@ -1105,7 +1107,7 @@ relationship between <code>Event</code> and <code>Reminder</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="switch-themes-mechanism"><a class="link" href="#switch-themes-mechanism">4.5. Switch Themes mechanism</a></h3>
+<h3 id="switch-themes-mechanism"><a class="link" href="#switch-themes-mechanism">4.5. Switch themes mechanism</a></h3>
 <div class="paragraph">
 <p>As BoNUS is targeted at students, we want to allow students to personalise BoNUS. To open up such a
 possibility, we decided to introduce the <code>SwitchThemeCommand</code> to support bright and dark
@@ -1220,7 +1222,7 @@ Raise the event whenever <code>SwitchThemeCommand</code> is executed such that t
 </div>
 </div>
 <div class="sect2">
-<h3 id="import-export-mechanism"><a class="link" href="#import-export-mechanism">4.6. Import &amp; Export mechanism</a></h3>
+<h3 id="import-export-xml-mechanism"><a class="link" href="#import-export-xml-mechanism">4.6. Import &amp; export XML mechanism</a></h3>
 <div class="paragraph">
 <p>In order to open up more possibilities to BoNUS, we have introduced the <code>import</code> and <code>export</code> commands. We are using
 <code>ImportXmlCommand</code> and <code>ExportCommand</code> to support importing and exporting of address book data through XML files.</p>
@@ -1338,7 +1340,145 @@ the user, while being able to inform users on the mistakes that they have made.<
 </div>
 </div>
 <div class="sect2">
-<h3 id="contacts-event-listing-order-by-name-date-time-mechanism"><a class="link" href="#contacts-event-listing-order-by-name-date-time-mechanism">4.7. Contacts/Event listing order by name/date time mechanism</a></h3>
+<h3 id="import-timetable-from-nusmods"><a class="link" href="#import-timetable-from-nusmods">4.7. Import timetable from NUSMods</a></h3>
+<div class="paragraph">
+<p>We implement an  <code>ImportNusmodsCommand</code> to help users directly import their NUSMods timetable to <strong>BoNUS</strong> by simply copy-paste
+the URL.</p>
+</div>
+<div class="sect3">
+<h4 id="inspiration-2"><a class="link" href="#inspiration-2">4.7.1. Inspiration</a></h4>
+<div class="paragraph">
+<p>As stated in <a href="UserGuide.html">User Guide</a>, <strong>BoNUS</strong> helps you <em>better(B) organize(o) your NUS life</em>. Thus, we want to make
+the application an integrated personal manager for NUS students. The main activities for most students are study-related and
+most NUS students are currently using <a href="https://nusmods.com/">NUSMods</a> to build their school timetable (as shown in Figure 4.7.1.1).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/NusmodsWebsite.png" alt="NusmodsWebsite" width="750">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.7.1.1 : NUSMods Website Interface</em></p>
+</div>
+<div class="paragraph">
+<p>Let&#8217;s imagine some of our users want to use the event feature in <strong>BoNUS</strong>. They want to input final examinations for all
+the modules they are taking as upcoming events. It would be very inconvenient and tedious if they have to do this manually.
+Even worse, it is very likely they are already using NUSMods and thus are not willing to add these events again. They may
+end up not using the event feature at all.</p>
+</div>
+<div class="paragraph">
+<p>However, users may find it very useful if they can import their NUSMods timetable using a simple command. Eventually, they
+would choose <strong>BoNUS</strong> because they can manage both contacts and events in one application conveniently and the migration
+from NUSMods to <strong>BoNUS</strong> is not troublesome.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.7.2. Design Considerations</a></h4>
+<div class="paragraph">
+<p><strong>Aspect:</strong> Relationship between <code>ImportXmlCommand</code> and <code>ImportNusmodsCommand</code><br>
+<strong>Alternative 1 (current choice):</strong> Add a new abstract <code>ImportCommand</code> class and let both of them become its sub-commands
+(inherit from it).<br>
+<strong>Pros:</strong> This is inspired by many popular command-line tools (like Git). <code>import</code> is called the actual command, while
+<code>--xml</code> and <code>--script</code> is called the options. Most Unix/Linux users would be used to this approach. This is important for
+us because we assume our users are typists and they are very likely to frequently use these command-line tools.<br>
+<strong>Cons:</strong> Need to write extra codes and parsing also becomes more complicated.<br>
+<strong>Alternative 2:</strong> Implement these two commands separately.<br>
+<strong>Pros:</strong> Easy to implement and similar to other commands.<br>
+<strong>Cons:</strong> Our users may not be used to it. The command word will become longer. It is not a good OOP practice as well
+because common details are not abstracted into a parent class and this produces duplicate codes.</p>
+</div>
+<div class="paragraph">
+<p><em>(Similar strategy has been adopted in <code>ConfigCommand</code>)</em></p>
+</div>
+<hr>
+<div class="paragraph">
+<p><strong>Aspect:</strong> How to obtain user&#8217;s NUSMods timetable<br>
+<strong>Alternative 1 (current choice):</strong> Let users copy-paste the URL as a parameter of <code>ImportNusmodsCommand</code>.<br>
+<strong>Pros:</strong> Simple to use and easy to implement as well<br>
+<strong>Cons:</strong> Need to check whether the URL is valid and from NUSMods (currently using regular expression).<br>
+<strong>Alternative 2:</strong> Implement a built-in browser and render the NUSMods page<br>
+<strong>Pros:</strong> Users are more used to this interface.<br>
+<strong>Cons:</strong> Need much extra work to implement the built-in browser. The page may not be rendered well since the built-in
+browser is typically smaller than OS browser and NUSMods does not fully adopt <a href="#mainstream-os">responsive UI framework</a>
+and may not work well on a small browser window.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-outline-4"><a class="link" href="#implementation-outline-4">4.7.3. Implementation Outline</a></h4>
+<div class="sect4">
+<h5 id="code-importcommand-code-abstract-class"><a class="link" href="#code-importcommand-code-abstract-class"><code>ImportCommand</code> abstract class</a></h5>
+<div class="paragraph">
+<p>Create an <code>ImportCommand</code> abstract class and let <code>ImportXmlCommand</code> and <code>ImportNusmodsCommand</code> inherit from it (as in
+Figure 4.7.3.1). It is also a good practice to use an enumeration <code>ImportType</code> because the possible types of the import
+are within a fixed set of values. This leads to better modularity in <code>ImportCommandParser</code> as well.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ImportNusmodsClassDiagram.png" alt="ImportNusmodsClassDiagram" width="600">
+</div>
+</div>
+<div class="paragraph">
+<p><em>Figure 4.7.3.1 : Class Diagram for Related Import Commands</em><br></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="parsing-of-nusmods-timetable-url"><a class="link" href="#parsing-of-nusmods-timetable-url">Parsing of NUSMods Timetable URL</a></h5>
+<div class="paragraph">
+<p>Implement utility method to validate a given URL and parse the <code>GET</code> parameters. Although it is possible to utilize
+external library like <a href="https://hc.apache.org/">Apache HttpComponents</a>, we decide to implement on our own because it is relative
+simple to do so and using external library comes with extra expenses (such as licence, etc).</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="directive">public</span> <span class="directive">static</span> <span class="predefined-type">Map</span>&lt;<span class="predefined-type">String</span>, <span class="predefined-type">String</span>&gt; fetchUrlParameters(<span class="predefined-type">URL</span> url) <span class="directive">throws</span> <span class="exception">UnsupportedEncodingException</span> {
+    <span class="predefined-type">String</span> query = urlDecode(url.getQuery());
+
+    <span class="keyword">if</span> (Strings.isNullOrEmpty(query)) {
+        <span class="keyword">return</span> <span class="predefined-type">Collections</span>.emptyMap();
+    }
+
+    <span class="predefined-type">Map</span>&lt;<span class="predefined-type">String</span>, <span class="predefined-type">String</span>&gt; pairs = <span class="keyword">new</span> <span class="predefined-type">HashMap</span>&lt;&gt;();
+    <span class="keyword">for</span> (<span class="predefined-type">String</span> pair: query.split(<span class="string"><span class="delimiter">&quot;</span><span class="content">&amp;</span><span class="delimiter">&quot;</span></span>)) {
+        <span class="type">int</span> index = pair.indexOf(<span class="string"><span class="delimiter">&quot;</span><span class="content">=</span><span class="delimiter">&quot;</span></span>);
+        pairs.put(pair.substring(<span class="integer">0</span>, index), pair.substring(index + <span class="integer">1</span>));
+    }
+
+    <span class="keyword">return</span> pairs;
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="fetch-information-from-nusmods-api"><a class="link" href="#fetch-information-from-nusmods-api">Fetch information from NUSMods API</a></h5>
+<div class="paragraph">
+<p>The URL parsed just now only contains the module codes and grouping for each module. In order to add upcoming events, we
+need more information such as module names, examination dates, etc. We decide to use API provided by NUSMods to fetch the
+information we need. NUSMods API is in JSON format, which would be very simple for us as we already use
+<a href="https://github.com/FasterXML/jackson">Jackson</a> library in our project.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay highlight"><code data-lang="java"><span class="comment">/**
+ * Read JSON data from a given URL and convert the data to an instance of the given class.
+ * @param url is the URL to the remote JSON data.
+ */</span>
+<span class="directive">public</span> <span class="directive">static</span> &lt;T&gt; T fromJsonUrl(<span class="predefined-type">URL</span> url, <span class="predefined-type">Class</span>&lt;T&gt; instanceClass) <span class="directive">throws</span> <span class="exception">IOException</span> {
+    <span class="keyword">return</span> objectMapper.readValue(url, instanceClass);
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="add-upcoming-events"><a class="link" href="#add-upcoming-events">Add upcoming events</a></h5>
+<div class="paragraph">
+<p>After obtaining all the information we need, we can simply use the <code>addEvent</code> method in <code>ModelManager</code> class to add the
+final examinations as upcoming events into <strong>BoNUS</strong>. This should be a similar process as <code>AddEventCommand</code>.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="contacts-event-listing-order-by-name-date-time-mechanism"><a class="link" href="#contacts-event-listing-order-by-name-date-time-mechanism">4.8. Contacts/event listing order by name/date time mechanism</a></h3>
 <div class="paragraph">
 <p>Whenever there is a command that triggers the "<em>refresh</em>" of <a href="https://github.com/CS2103AUG2017-T09-B3/main/tree/master/src/main/java/seedu/address/ui/person/PersonListPanel.java"><code>PersonListPanel</code></a>
 or <a href="https://github.com/CS2103AUG2017-T09-B3/main/tree/master/src/main/java/seedu/address/ui/event/EventListPanel.java"><code>EventListPanel</code></a>, like when adding a new contact
@@ -1347,14 +1487,14 @@ mechanism uses the <code>sort</code> method which resides inside <code>List</cod
 </div>
 </div>
 <div class="sect2">
-<h3 id="emailing-mechanism"><a class="link" href="#emailing-mechanism">4.8. Emailing mechanism</a></h3>
+<h3 id="emailing-mechanism"><a class="link" href="#emailing-mechanism">4.9. Emailing mechanism</a></h3>
 <div class="paragraph">
 <p>The automatic opening of email on the user&#8217;s desktop is facilitated mainly by the <code>Desktop</code> class which allows the Java
 application to launch the default mail application registered inside the user&#8217;s native desktop to handle the email <code>URI</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="calendar-mechanism"><a class="link" href="#calendar-mechanism">4.9. Calendar mechanism</a></h3>
+<h3 id="calendar-mechanism"><a class="link" href="#calendar-mechanism">4.10. Calendar mechanism</a></h3>
 <div class="paragraph">
 <p>An in-built calendar is added to the panel beside the list of events. This calendar shows a monthly view of the
 current month.</p>
@@ -1365,7 +1505,7 @@ current month.</p>
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.9.1 : Calendar for month of November 2017</em></p>
+<p><em>Figure 4.10.1 : Calendar for month of November 2017</em></p>
 </div>
 <div class="paragraph">
 <p>This is useful for users to be able to compare their list of events in the calendar. It can help users to check what
@@ -1375,7 +1515,7 @@ include having to see what dates lie on a particular day for students to plan we
 convenient way for students to have access to a calendar without having to open any external applications.</p>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-3"><a class="link" href="#design-considerations-3">4.9.1. Design Considerations</a></h4>
+<h4 id="design-considerations-4"><a class="link" href="#design-considerations-4">4.10.1. Design Considerations</a></h4>
 <div class="paragraph">
 <p><strong>Aspect</strong>: How to display the individual dates.<br>
 <strong>Alternative 1 (current choice):</strong> Use a GridPane to design the table in XML. Include a class to calculate dates to be
@@ -1395,7 +1535,7 @@ JTable functions might not be used.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-outline-4"><a class="link" href="#implementation-outline-4">4.9.2. Implementation Outline</a></h4>
+<h4 id="implementation-outline-5"><a class="link" href="#implementation-outline-5">4.10.2. Implementation Outline</a></h4>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1426,7 +1566,7 @@ leftover dates will continue to be blanks until the 42nd cell.</p>
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.9.1.1 : Class Diagram for `EventCalendar`</em></p>
+<p><em>Figure 4.10.1.1 : Class Diagram for `EventCalendar`</em></p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1434,12 +1574,12 @@ leftover dates will continue to be blanks until the 42nd cell.</p>
 </div>
 </div>
 <div class="paragraph">
-<p><em>Figure 4.9.1.2 : Class Diagram for `MonthDateBuilder`</em></p>
+<p><em>Figure 4.10.1.2 : Class Diagram for `MonthDateBuilder`</em></p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="configuration"><a class="link" href="#configuration">4.10. Configuration</a></h3>
+<h3 id="configuration"><a class="link" href="#configuration">4.11. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g App name, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -1450,7 +1590,7 @@ leftover dates will continue to be blanks until the 42nd cell.</p>
 <h2 id="documentation"><a class="link" href="#documentation">5. Documentation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>We use asciidoc for writing documentation.</p>
+<p>We use AsciiDoc for writing documentation.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1459,26 +1599,28 @@ leftover dates will continue to be blanks until the 42nd cell.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-We chose asciidoc over Markdown because asciidoc, although a bit more complex than Markdown, provides more flexibility in formatting.
+We chose AsciiDoc over Markdown because AsciiDoc, although a bit more complex than Markdown, provides more flexibility in formatting.
 </td>
 </tr>
 </table>
 </div>
 <div class="sect2">
-<h3 id="editing-documentation"><a class="link" href="#editing-documentation">5.1. Editing Documentation</a></h3>
+<h3 id="editing-documentation"><a class="link" href="#editing-documentation">5.1. Editing documentation</a></h3>
 <div class="paragraph">
 <p>See <a href="UsingGradle.html#rendering-asciidoc-files">UsingGradle.adoc</a> to learn how to render <code>.adoc</code> files locally to preview the end result of your edits.
 Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows you to preview the changes you have made to your <code>.adoc</code> files in real-time.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="publishing-documentation"><a class="link" href="#publishing-documentation">5.2. Publishing Documentation</a></h3>
+<h3 id="publishing-documentation"><a class="link" href="#publishing-documentation">5.2. Publishing documentation</a></h3>
 <div class="paragraph">
 <p>See <a href="UsingTravis.html#deploying-github-pages">UsingTravis.adoc</a> to learn how to deploy GitHub Pages using Travis.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="converting-documentation-to-pdf-format"><a class="link" href="#converting-documentation-to-pdf-format">5.3. Converting Documentation to PDF format</a></h3>
+<h3 id="converting-documentation-to-pdf-format"><a class="link" href="#converting-documentation-to-pdf-format">5.3. Converting documentation to PDF format</a></h3>
+<div class="sect3">
+<h4 id="using-google-chrome-pdf-printer"><a class="link" href="#using-google-chrome-pdf-printer">5.3.1. Using Google Chrome PDF printer</a></h4>
 <div class="paragraph">
 <p>We use <a href="https://www.google.com/chrome/browser/desktop/">Google Chrome</a> for converting documentation to PDF format, as Chrome&#8217;s PDF engine preserves hyperlinks used in webpages.</p>
 </div>
@@ -1508,6 +1650,18 @@ Alternatively, you can download the AsciiDoc plugin for IntelliJ, which allows y
 </div>
 <div class="paragraph">
 <p><em>Figure 5.3.1 : Saving documentation as PDF files in Chrome</em></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="using-code-asciidoc-pdf-code-ruby-gem"><a class="link" href="#using-code-asciidoc-pdf-code-ruby-gem">5.3.2. Using <code>asciidoc-pdf</code> Ruby gem</a></h4>
+<div class="paragraph">
+<p>If you have Ruby installed on your development machine, we suggest you using a useful gem <code>asciidoc-pdf</code> to automatically
+convert the documentation into PDF format.</p>
+</div>
+<div class="paragraph">
+<p>You can find more information about <code>asciidoc-pdf</code> from their <a href="https://github.com/asciidoctor/asciidoctor-pdf">GitHub repository</a>.
+Instructions on how to use it can also be found on AsciiDoctor website at <a href="http://asciidoctor.org/docs/convert-asciidoc-to-pdf/">here</a>.</p>
+</div>
 </div>
 </div>
 </div>
@@ -2323,7 +2477,7 @@ for <code>RemarkCommandParser</code>.</p>
 <p>Any user who understands English should be able to use the application with the help of the <a href="UserGuide.html">User Guide</a>.</p>
 </li>
 <li>
-<p>Internet connection is required if users want to sync their contacts/events in all devices and store in the cloud.</p>
+<p>Internet connection is required if users want to sync their contacts/events in all devices and import timetable from NUSMods.</p>
 </li>
 </ol>
 </div>
@@ -2338,6 +2492,14 @@ for <code>RemarkCommandParser</code>.</p>
 <div class="literalblock">
 <div class="content">
 <pre>Windows, Linux, Unix, OS-X</pre>
+</div>
+</div>
+<div id="responsive-ui-framework" class="paragraph">
+<p>Responsive UI Framework</p>
+</div>
+<div class="literalblock">
+<div class="content">
+<pre>A front-end framework for web design that makes your web page looks good and easy to use regardless of the size of the browser window, like Bootstrap.</pre>
 </div>
 </div>
 <div id="private-contact-detail" class="paragraph">
@@ -2396,7 +2558,7 @@ for <code>RemarkCommandParser</code>.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-13 10:11:20 +00:00
+Last updated 2017-11-13 10:55:41 +00:00
 </div>
 </div>
 </body>
