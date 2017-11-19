@@ -22,7 +22,6 @@ import seedu.address.model.property.exceptions.PropertyNotFoundException;
 import seedu.address.model.reminder.Reminder;
 import seedu.address.model.tag.Tag;
 
-//@@author yunpengn
 /**
  * Contains utility methods for populating {@code AddressBook} with sample data.
  */
